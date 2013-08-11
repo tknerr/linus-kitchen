@@ -22,12 +22,17 @@ Vagrant::configure("2") do |config|
 
     # virtualbox customizations
     devbox_config.vm.provider :virtualbox do |vbox, override|
-      vbox.customize ["modifyvm", :id, "--name", "dev-box"] 
+      vbox.customize ["modifyvm", :id,
+        "--name", "dev-box",
+        "--memory", 2048,
+        "--cpus", 2
+      ]
     end
     
     # provisioning
     devbox_config.vm.provision :chef_solo do |chef|
-      chef.add_recipe "dev-box"
+      chef.add_recipe "dev-box::default"
+      chef.add_recipe "dev-box::tests"
       chef.json = {
       }
       chef.log_level = :debug
