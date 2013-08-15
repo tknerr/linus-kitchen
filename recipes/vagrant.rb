@@ -5,12 +5,12 @@ node.set[:vagrant][:checksum] = "4e6cbbe820fd096355eb0e878436fa3c6468ae5969c60f2
 include_recipe "vagrant"
 
 # XXX: consider using vagrant_plugin LWRP
-bash "setup vagrant plugins" do
+bash "setup the bindler vagrant plugin" do
   user node['devbox']['user']
   group node['devbox']['group']
   environment "HOME" => "/home/#{node['devbox']['user']}"
   code <<-EOH
-  if ! test -d $HOME/.vagrant.d/gems/gems/bindler* ; then 
+  if ! $(vagrant plugin list | grep -q 'bindler'); then
     vagrant plugin install bindler --plugin-version 0.1.3
     vagrant bindler setup
   fi

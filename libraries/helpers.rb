@@ -6,7 +6,9 @@ class Chef
     #
     def install_vagrant_plugin(name, version)
       bash "install vagrant plugin #{name}-#{version} for #{node['devbox']['user']}" do
-        environment "VAGRANT_HOME" => "/home/#{node['devbox']['user']}/.vagrant.d"
+        user node['devbox']['user']
+        group node['devbox']['group']
+        environment "HOME" => "/home/#{node['devbox']['user']}"
         code <<-EOH
         if ! $(vagrant plugin list | grep -q '#{name} (#{version})'); then
           vagrant plugin install #{name} --plugin-version #{version}
