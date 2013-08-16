@@ -1,10 +1,11 @@
 Dev-Box
-================
+=======
 
 Vagrantfile for setting up an Ubuntu 13.04 development box with
  * git
  * vim
  * ruby
+ * chef
  * vagrant
  * lxc
 
