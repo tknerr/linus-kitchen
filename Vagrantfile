@@ -27,6 +27,8 @@ Vagrant::configure("2") do |config|
         "--memory", 2048,
         "--cpus", 2
       ]
+      # yes we have a gui
+      vbox.gui = true
     end
     
     # provisioning
