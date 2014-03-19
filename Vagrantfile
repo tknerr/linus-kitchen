@@ -15,7 +15,7 @@ Vagrant::configure("2") do |config|
     
     # configure the basebox
     devbox_config.vm.box = "opscode_ubuntu-13.10_provisionerless"
-    devbox_config.vm.box_url = "https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-13.10_provisionerless.box"
+    devbox_config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-13.10_chef-provisionerless.box"
     
     # hostname 
     devbox_config.vm.hostname = "dev-box.local"
