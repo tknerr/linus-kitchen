@@ -8,6 +8,7 @@ Vagrantfile for setting up an Ubuntu 13.04 development box with
  * chef
  * vagrant
  * lxc
+ * gnome desktop
 
 Requirements
 ------------
