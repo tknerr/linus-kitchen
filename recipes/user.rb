@@ -6,6 +6,7 @@ end
 user node['devbox']['user'] do
   action :create
   gid node['devbox']['group']
+  comment node['devbox']['username']
   home "/home/#{node['devbox']['user']}"
   shell "/bin/bash"
   password `openssl passwd -1 "bofh"`.strip
