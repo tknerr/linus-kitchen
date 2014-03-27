@@ -36,6 +36,10 @@ Vagrant::configure("2") do |config|
       chef.add_recipe "dev-box::default"
       chef.add_recipe "dev-box::tests"
       chef.json = {
+        'devbox' => {
+          'user' => ENV['USERNAME'],
+          'username' => ENV['GIT_CONF_USERNAME']
+        }
       }
       chef.log_level = :debug
     end
