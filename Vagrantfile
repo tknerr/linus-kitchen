@@ -21,8 +21,8 @@ Vagrant::configure("2") do |config|
     devbox_config.vm.provider :virtualbox do |vbox, override|
       vbox.customize ["modifyvm", :id,
         "--name", "dev-box",
-        "--memory", 2048,
-        "--cpus", 2
+        "--memory", 4096,
+        "--cpus", 4
       ]
       # yes we have a gui
       vbox.gui = true
