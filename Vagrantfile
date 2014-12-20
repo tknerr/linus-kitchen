@@ -1,10 +1,8 @@
 
 Vagrant::configure("2") do |config|
 
-  # enable cachier
-  config.cache.auto_detect = true
   # the Chef version to use
-  config.omnibus.chef_version = "11.10.4"
+  config.omnibus.chef_version = "12.0.1"
   # enable berkshelf plugin
   config.berkshelf.enabled = true
   
@@ -14,8 +12,7 @@ Vagrant::configure("2") do |config|
   config.vm.define :"dev-box" do | devbox_config |
     
     # configure the basebox
-    devbox_config.vm.box = "opscode_ubuntu-13.10_provisionerless"
-    devbox_config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-13.10_chef-provisionerless.box"
+    devbox_config.vm.box = "box-cutter/ubuntu1404-desktop"
     
     # hostname 
     devbox_config.vm.hostname = "dev-box.local"
@@ -37,7 +34,7 @@ Vagrant::configure("2") do |config|
       chef.add_recipe "dev-box::tests"
       chef.json = {
       }
-      chef.log_level = :debug
+      chef.log_level = :info
     end
   end 
 end
