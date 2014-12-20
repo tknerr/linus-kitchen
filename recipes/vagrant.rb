@@ -1,7 +1,7 @@
 
 
-node.set[:vagrant][:url] = "http://files.vagrantup.com/packages/7ec0ee1d00a916f80b109a298bab08e391945243/vagrant_1.2.7_x86_64.deb"
-node.set[:vagrant][:checksum] = "4e6cbbe820fd096355eb0e878436fa3c6468ae5969c60f2a8a3ceb6ec6059c5e"
+node.set[:vagrant][:url] = "https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.1_x86_64.deb"
+node.set[:vagrant][:checksum] = "6615b95fcd8044e2f5e1849ec1004df5e05e390812558ec2c4b3dcec541b92da"
 include_recipe "vagrant"
 
 # XXX: consider using vagrant_plugin LWRP
