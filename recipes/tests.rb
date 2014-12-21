@@ -1,10 +1,31 @@
-
 #
 # XXX: use minitest-handler or equivalent!
 #
-ruby_block "test if dev-box is OK :-)" do
+
+results = "/tmp/output.txt"
+file results do
+  action :delete
+end
+
+bash "list environment" do
+  user node['devbox']['user']
+  group node['devbox']['group']
+  environment "HOME" => "/home/#{node['devbox']['user']}"
+  code <<-EOH
+  {
+    echo "I am: `whoami`"
+    echo "..and my HOME is: `echo $HOME`"
+    echo "These are my tools:"
+    echo `vagrant -v`
+    echo `vagrant plugin list`
+  } > #{results}
+  EOH
+end
+
+ruby_block "print results" do
+  only_if { ::File.exists?(results) }
   block do
-    raise "wrong ruby!" unless `ruby -v`.include? "1.9.3"       
+    puts File.read(results)
   end
 end
 
