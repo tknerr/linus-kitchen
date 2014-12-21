@@ -10,3 +10,4 @@ supports "ubuntu"
 
 depends "apt", "1.3.2"
 depends "vagrant", "0.2.0"
+depends "chef-dk", "3.0.0"

@@ -18,6 +18,7 @@ bash "list environment" do
     echo "These are my tools:"
     echo `vagrant -v`
     echo `vagrant plugin list`
+    echo `chef -v`
   } > #{results}
   EOH
 end
