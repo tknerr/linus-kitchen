@@ -9,12 +9,6 @@ install_vagrant_plugin "vagrant-omnibus", "1.4.1"
 install_vagrant_plugin "vagrant-lxc", "1.0.1"
 install_vagrant_plugin "vagrant-toplevel-cookbooks", "0.2.3"
 
-# notes: 
-# * run `vagrant lxc sudoers` once
-# * add `eval "$(chef shell-init bash)"` to bash profile
-# * add `export VAGRANT_DEFAULT_PROVIDER=lxc` to bash profile
-# * add `be` alias for `bundle exec`
-
 # XXX - fix for https://github.com/mitchellh/vagrant/issues/5001
 remote_file "/opt/vagrant/embedded/cacert.pem" do
   source "https://gist.githubusercontent.com/tknerr/71fc51b591db47541a46/raw/cacert.pem"
