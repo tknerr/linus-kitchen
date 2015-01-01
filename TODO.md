@@ -1,7 +1,6 @@
 
 # TODO
 
- * set vagrant lxc as default provider
  * run `vagrant lxc sudoers` once
  * add `eval "$(chef shell-init bash)"` to bash profile
  * add `be` alias for `bundle exec`

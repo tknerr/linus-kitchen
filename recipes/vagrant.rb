@@ -9,6 +9,11 @@ install_vagrant_plugin "vagrant-omnibus", "1.4.1"
 install_vagrant_plugin "vagrant-lxc", "1.0.1"
 install_vagrant_plugin "vagrant-toplevel-cookbooks", "0.2.3"
 
+bash_profile "set-vagrant-default-provider" do
+  user node['devbox']['user']
+  content "export VAGRANT_DEFAULT_PROVIDER=lxc"
+end
+
 # XXX - fix for https://github.com/mitchellh/vagrant/issues/5001
 remote_file "/opt/vagrant/embedded/cacert.pem" do
   source "https://gist.githubusercontent.com/tknerr/71fc51b591db47541a46/raw/cacert.pem"
