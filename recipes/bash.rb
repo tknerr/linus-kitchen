@@ -5,9 +5,5 @@
 #
 bash_profile "source-dot-profile" do
   user node['devbox']['user']
-  content <<-EOL
-if [ -f ~/.profile ]; then
-    . ~/.profile
-fi
-EOL
+  content "source ~/.profile"
 end
