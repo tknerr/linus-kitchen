@@ -10,7 +10,7 @@ end
 bash "list environment" do
   user node['devbox']['user']
   group node['devbox']['group']
-  environment "HOME" => "/home/#{node['devbox']['user']}"
+  environment devbox_user_env
   code <<-EOH
   {
     echo "I am: `whoami`"

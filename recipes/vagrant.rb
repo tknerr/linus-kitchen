@@ -15,10 +15,7 @@ bash_profile "set-vagrant-default-provider" do
 end
 
 bash "add vagrant-lxc sudoers permissions" do
-  environment ({
-    'HOME' => "/home/#{node['devbox']['user']}",
-    'USER' => node['devbox']['user']
-  })
+  environment devbox_user_env
   code "vagrant lxc sudoers"
   not_if { ::File.exists? "/etc/sudoers.d/vagrant-lxc" }
 end
