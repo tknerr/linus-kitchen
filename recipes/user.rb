@@ -19,3 +19,11 @@ group "sudo" do
   append true
 end
 
+# disable auto-login of the vagrant user in gui mode
+template "/etc/lightdm/lightdm.conf" do
+  source "lightdm.conf.erb"
+  owner "root"
+  group "root"
+  mode "0644"
+end
+
