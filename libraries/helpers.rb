@@ -5,9 +5,21 @@
 #
 def devbox_user_env
   {
-    'HOME' => "/home/#{node['devbox']['user']}",
-    'USER' => node['devbox']['user']
+    'HOME' => devbox_userhome,
+    'USER' => devbox_user
   }
+end
+
+def devbox_user
+  node['devbox']['user']
+end
+
+def devbox_group
+  node['devbox']['group']
+end
+
+def devbox_userhome
+  "/home/#{devbox_user}"
 end
 
 #
@@ -21,9 +33,9 @@ class Chef
     # supports passing the VAGRANT_HOME environment
     #
     def install_vagrant_plugin(name, version)
-      bash "install vagrant plugin #{name}-#{version} for #{node['devbox']['user']}" do
-        user node['devbox']['user']
-        group node['devbox']['group']
+      bash "install vagrant plugin #{name}-#{version} for #{devbox_user}" do
+        user devbox_user
+        group devbox_group
         environment devbox_user_env
         code "vagrant plugin install #{name} --plugin-version #{version}"
         not_if "vagrant plugin list | grep -q '#{name} (#{version})'", :environment => devbox_user_env

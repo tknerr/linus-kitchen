@@ -4,6 +4,6 @@
 # is present only the latter one would be used instead.
 #
 bash_profile "source-dot-profile" do
-  user node['devbox']['user']
+  user devbox_user
   content "source ~/.profile"
 end

@@ -1,12 +1,12 @@
 
-group node['devbox']['group'] do
+group devbox_group do
   action :create
 end
 
-user node['devbox']['user'] do
+user devbox_user do
   action :create
-  gid node['devbox']['group']
-  home "/home/#{node['devbox']['user']}"
+  gid devbox_group
+  home devbox_userhome
   shell "/bin/bash"
   password `openssl passwd -1 "bofh"`.strip
   supports :manage_home => true 
@@ -15,7 +15,7 @@ end
 # XXX: consider using sudo cookbook
 group "sudo" do
   action :modify
-  members node['devbox']['user']
+  members devbox_user
   append true
 end
 

@@ -4,8 +4,8 @@ node.set[:vagrant][:checksum] = "6615b95fcd8044e2f5e1849ec1004df5e05e390812558ec
 include_recipe "vagrant"
 
 execute "fix-permissions-on-vagrant-home" do
-  command "sudo chown -R #{node['devbox']['user']}:#{node['devbox']['group']} /home/#{node['devbox']['user']}/.vagrant.d"
-  only_if { Etc.getpwuid(File.stat("/home/#{node['devbox']['user']}/.vagrant.d").uid).name != node['devbox']['user'] }
+  command "sudo chown -R #{devbox_user}:#{devbox_group} #{devbox_userhome}/.vagrant.d"
+  only_if { Etc.getpwuid(File.stat("#{devbox_userhome}/.vagrant.d").uid).name != devbox_user }
 end
 
 install_vagrant_plugin "vagrant-cachier", "1.1.0"
@@ -15,7 +15,7 @@ install_vagrant_plugin "vagrant-lxc", "1.0.1"
 install_vagrant_plugin "vagrant-toplevel-cookbooks", "0.2.3"
 
 bash_profile "set-vagrant-default-provider" do
-  user node['devbox']['user']
+  user devbox_user
   content "export VAGRANT_DEFAULT_PROVIDER=lxc"
 end
 
