@@ -20,6 +20,7 @@ bash "add vagrant-lxc sudoers permissions" do
     'USER' => node['devbox']['user']
   })
   code "vagrant lxc sudoers"
+  not_if { ::File.exists? "/etc/sudoers.d/vagrant-lxc" }
 end
 
 # XXX - fix for https://github.com/mitchellh/vagrant/issues/5001
