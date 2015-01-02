@@ -1,7 +1,8 @@
 
 # TODO
-
- * run `vagrant lxc sudoers` once
+ 
+ * add update script or ("devbox" sub) for updating the box from within
+ * exract cacert stuff into its own recipe and set env var
  * add `eval "$(chef shell-init bash)"` to bash profile
  * add `be` alias for `bundle exec`
  * log in as devbox user - not vagrant (both for vagrant ssh and desktop)
@@ -10,3 +11,4 @@
  * real integration tests
  * install atom editor
  * dotfiles (git, etc)
+ * tests, tests, tests!

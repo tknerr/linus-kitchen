@@ -14,6 +14,14 @@ bash_profile "set-vagrant-default-provider" do
   content "export VAGRANT_DEFAULT_PROVIDER=lxc"
 end
 
+bash "add vagrant-lxc sudoers permissions" do
+  environment ({
+    'HOME' => "/home/#{node['devbox']['user']}",
+    'USER' => node['devbox']['user']
+  })
+  code "vagrant lxc sudoers"
+end
+
 # XXX - fix for https://github.com/mitchellh/vagrant/issues/5001
 remote_file "/opt/vagrant/embedded/cacert.pem" do
   source "https://gist.githubusercontent.com/tknerr/71fc51b591db47541a46/raw/cacert.pem"
