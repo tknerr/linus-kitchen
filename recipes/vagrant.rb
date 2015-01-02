@@ -24,5 +24,6 @@ end
 
 # XXX - fix for https://github.com/mitchellh/vagrant/issues/5001
 remote_file "/opt/vagrant/embedded/cacert.pem" do
+  action :create_if_missing
   source "https://gist.githubusercontent.com/tknerr/71fc51b591db47541a46/raw/cacert.pem"
 end
