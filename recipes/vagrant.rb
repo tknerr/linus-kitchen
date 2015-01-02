@@ -5,6 +5,7 @@ include_recipe "vagrant"
 
 execute "fix-permissions-on-vagrant-home" do
   command "sudo chown -R #{node['devbox']['user']}:#{node['devbox']['group']} /home/#{node['devbox']['user']}/.vagrant.d"
+  only_if { Etc.getpwuid(File.stat("/home/#{node['devbox']['user']}/.vagrant.d").uid).name != node['devbox']['user'] }
 end
 
 install_vagrant_plugin "vagrant-cachier", "1.1.0"
