@@ -12,13 +12,10 @@ template "/tmp/keyboard.seed" do
 end
 
 bash "reconfigure-keyboard" do
-  environment devbox_user_env
-  user devbox_user
-  group devbox_group
   code <<-EOH
-    sudo debconf-set-selections /tmp/keyboard.seed
-    sudo dpkg-reconfigure -f noninteractive keyboard-configuration
-    udevadm trigger --subsystem-match=input --action=change
+    sudo -u #{devbox_user} sudo debconf-set-selections /tmp/keyboard.seed
+    sudo -u #{devbox_user} sudo dpkg-reconfigure -f noninteractive keyboard-configuration
+    sudo -u #{devbox_user} udevadm trigger --subsystem-match=input --action=change
   EOH
   action :nothing
 end
