@@ -3,11 +3,6 @@ node.set[:vagrant][:url] = "https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7
 node.set[:vagrant][:checksum] = "6615b95fcd8044e2f5e1849ec1004df5e05e390812558ec2c4b3dcec541b92da"
 include_recipe "vagrant"
 
-execute "fix-permissions-on-vagrant-home" do
-  command "sudo chown -R #{devbox_user}:#{devbox_group} #{devbox_userhome}/.vagrant.d"
-  only_if { Etc.getpwuid(File.stat("#{devbox_userhome}/.vagrant.d").uid).name != devbox_user }
-end
-
 install_vagrant_plugin "vagrant-cachier", "1.1.0"
 install_vagrant_plugin "vagrant-berkshelf", "4.0.2"
 install_vagrant_plugin "vagrant-omnibus", "1.4.1"

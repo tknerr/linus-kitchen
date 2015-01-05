@@ -38,7 +38,11 @@ class Chef
         group devbox_group
         environment devbox_user_env
         code "vagrant plugin install #{name} --plugin-version #{version}"
-        not_if "vagrant plugin list | grep -q '#{name} (#{version})'", :environment => devbox_user_env
+        not_if "vagrant plugin list | grep -q '#{name} (#{version})'", {
+          :user => devbox_user,
+          :group => devbox_group,
+          :environment => devbox_user_env
+        }
       end
     end
   end
