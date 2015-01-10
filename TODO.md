@@ -7,7 +7,13 @@
  * log in as devbox user - not vagrant (both for vagrant ssh and desktop)
  * set german keyboard layout
  * chefdk as default ruby?!
+ * enable cachier
  * real integration tests
  * install atom editor
  * dotfiles (git, etc)
+ * .bash_profile not loaded (see issue in bash cb)
+ 	* only for login shells (which Konsole is not)
+ 	* on graphical login only .profile is loaded but not .bash_profile
+ * install virtualbox (nested vms work, at least 32 bit)
+ * install peco and vagrant-peco?
  * tests, tests, tests!
