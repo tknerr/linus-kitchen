@@ -1,6 +1,7 @@
 
 node.set[:vagrant][:url] = "https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.deb"
-node.set[:vagrant][:checksum] = "e81f8c0df158a25efafda5895b2e2be39ce716f3b8eea0fccad990c29bc90fc0"
+node.set[:vagrant][:checksum] = "9d7f1c587134011e2d5429eb21b6c0e95487f52e6d6d47c03ecc82cbeee73968"
+
 include_recipe "vagrant"
 
 install_vagrant_plugin "vagrant-cachier", "1.1.0"
@@ -19,4 +20,5 @@ bash "add vagrant-lxc sudoers permissions" do
   code "vagrant lxc sudoers"
   not_if { ::File.exists? "/etc/sudoers.d/vagrant-lxc" }
 end
+
 
