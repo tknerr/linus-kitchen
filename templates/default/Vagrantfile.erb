@@ -1,0 +1,9 @@
+
+# global Vagrant configuration
+Vagrant.configure("2") do |config|
+
+  # enable cachier globally
+  if Vagrant.has_plugin?("vagrant-cachier")
+    config.cache.scope = :box
+  end
+end

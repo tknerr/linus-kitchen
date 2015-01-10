@@ -7,7 +7,6 @@
  * log in as devbox user - not vagrant (both for vagrant ssh and desktop)
  * set german keyboard layout
  * chefdk as default ruby?!
- * enable cachier
  * real integration tests
  * install atom editor
  * dotfiles (git, etc)

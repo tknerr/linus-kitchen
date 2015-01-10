@@ -21,4 +21,10 @@ bash "add vagrant-lxc sudoers permissions" do
   not_if { ::File.exists? "/etc/sudoers.d/vagrant-lxc" }
 end
 
+template "#{devbox_userhome}/.vagrant.d/Vagrantfile" do
+  source "Vagrantfile.erb"
+  owner devbox_user
+  group devbox_group
+  mode "0644"
+end
 
