@@ -7,14 +7,17 @@ include_recipe "vagrant"
 install_vagrant_plugin "vagrant-cachier", "1.1.0"
 install_vagrant_plugin "vagrant-berkshelf", "4.0.2"
 install_vagrant_plugin "vagrant-omnibus", "1.4.1"
-install_vagrant_plugin "vagrant-lxc", "1.0.1"
 install_vagrant_plugin "vagrant-toplevel-cookbooks", "0.2.3"
+install_vagrant_plugin "vagrant-lxc", "1.0.1"
 
+# vagrant-lxc setup
+%w{ lxc lxc-templates cgroup-lite redir }.each do |pkg|
+  package pkg
+end
 bash_profile "set-vagrant-default-provider" do
   user devbox_user
   content "export VAGRANT_DEFAULT_PROVIDER=lxc"
 end
-
 bash "add vagrant-lxc sudoers permissions" do
   environment devbox_user_env
   code "vagrant lxc sudoers"
