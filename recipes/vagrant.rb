@@ -8,10 +8,10 @@ install_vagrant_plugin "vagrant-cachier", "1.1.0"
 install_vagrant_plugin "vagrant-berkshelf", "4.0.2"
 install_vagrant_plugin "vagrant-omnibus", "1.4.1"
 install_vagrant_plugin "vagrant-toplevel-cookbooks", "0.2.3"
-install_vagrant_plugin "vagrant-lxc", "1.0.1"
+install_vagrant_plugin "vagrant-lxc", "1.1.0"
 
 # vagrant-lxc setup
-%w{ lxc lxc-templates cgroup-lite redir }.each do |pkg|
+%w{ lxc lxc-templates cgroup-lite redir bridge-utils }.each do |pkg|
   package pkg
 end
 bash_profile "set-vagrant-default-provider" do
