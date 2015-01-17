@@ -18,6 +18,10 @@ bash_profile "set-vagrant-default-provider" do
   user devbox_user
   content "export VAGRANT_DEFAULT_PROVIDER=lxc"
 end
+bash_profile "set-kitchen-local-yaml" do
+  user devbox_user
+  content "export KITCHEN_LOCAL_YAML=.kitchen.lxc.yml"
+end
 bash "add vagrant-lxc sudoers permissions" do
   environment devbox_user_env
   code "vagrant lxc sudoers"
