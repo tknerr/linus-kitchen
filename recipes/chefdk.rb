@@ -1,5 +1,5 @@
 
-node.set['chef_dk']['version'] = '0.3.5-1'
+node.set['chef_dk']['version'] = '0.4.0-1'
 include_recipe "chef-dk"
 
 bash_profile "chefdk-shell-init" do
