@@ -12,7 +12,7 @@ Vagrant::configure("2") do |config|
   config.vm.define :"dev-box" do | devbox_config |
     
     # configure the basebox
-    devbox_config.vm.box = "box-cutter/ubuntu1404-desktop"
+    devbox_config.vm.box = "tknerr/ubuntu1404-desktop"
     
     # hostname 
     devbox_config.vm.hostname = "dev-box.local"
