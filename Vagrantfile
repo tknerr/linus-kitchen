@@ -2,7 +2,7 @@
 Vagrant::configure("2") do |config|
 
   # the Chef version to use
-  config.omnibus.chef_version = "12.0.1"
+  config.omnibus.chef_version = "12.0.3"
   # enable berkshelf plugin
   config.berkshelf.enabled = true
   
