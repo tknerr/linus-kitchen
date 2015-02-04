@@ -1,0 +1,14 @@
+.git
+.vagrant
+.gitignore
+.kitchen.yml
+.tailor
+.travis.yml
+.kitchen
+test/*
+vendor/*
+Gemfile
+Gemfile.lock
+plugins.json
+Rakefile
+Vagrantfile
