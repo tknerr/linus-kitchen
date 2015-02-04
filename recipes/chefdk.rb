@@ -2,11 +2,9 @@
 node.set['chef_dk']['version'] = '0.4.0-1'
 include_recipe "chef-dk"
 
-bash_profile "chefdk-shell-init" do
+bashd_entry "chefdk-shell-init" do
   user devbox_user
-  content %{eval "$(chef shell-init bash)"}
 end
-
 
 directory "#{devbox_userhome}/.bundle" do
   owner devbox_user

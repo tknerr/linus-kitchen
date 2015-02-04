@@ -14,13 +14,11 @@ install_vagrant_plugin "vagrant-lxc", "1.1.0"
 %w{ lxc lxc-templates cgroup-lite redir bridge-utils }.each do |pkg|
   package pkg
 end
-bash_profile "set-vagrant-default-provider" do
+bashd_entry "set-vagrant-default-provider" do
   user devbox_user
-  content "export VAGRANT_DEFAULT_PROVIDER=lxc"
 end
-bash_profile "set-kitchen-local-yaml" do
+bashd_entry "set-kitchen-local-yaml" do
   user devbox_user
-  content "export KITCHEN_LOCAL_YAML=.kitchen.lxc.yml"
 end
 bash "add vagrant-lxc sudoers permissions" do
   environment devbox_user_env
