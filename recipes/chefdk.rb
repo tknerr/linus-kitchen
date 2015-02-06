@@ -4,6 +4,7 @@ include_recipe "chef-dk"
 
 bashd_entry "chefdk-shell-init" do
   user devbox_user
+  content 'eval "$(chef shell-init bash)"'
 end
 
 directory "#{devbox_userhome}/.bundle" do
