@@ -5,7 +5,7 @@ node.set[:vagrant][:checksum] = "9d7f1c587134011e2d5429eb21b6c0e95487f52e6d6d47c
 include_recipe "vagrant"
 
 install_vagrant_plugin "vagrant-cachier", "1.2.0"
-install_vagrant_plugin "vagrant-berkshelf", "4.0.2"
+install_vagrant_plugin "vagrant-berkshelf", "4.0.3"
 install_vagrant_plugin "vagrant-omnibus", "1.4.1"
 install_vagrant_plugin "vagrant-toplevel-cookbooks", "0.2.4"
 install_vagrant_plugin "vagrant-lxc", "1.1.0"
