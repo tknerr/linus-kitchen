@@ -8,7 +8,7 @@ version          '0.1.0'
 
 supports "ubuntu"
 
-depends "apt", "1.3.2"
+depends "apt", "1.7.0"
 depends "bashd", "0.3.0"
 depends "vagrant", "0.2.0"
 depends "chef-dk", "3.0.0"
