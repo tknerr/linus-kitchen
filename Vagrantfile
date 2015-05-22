@@ -12,7 +12,7 @@ Vagrant::configure("2") do |config|
   config.vm.define :"dev-box" do | devbox_config |
     
     # configure the basebox
-    devbox_config.vm.box = "tknerr/ubuntu1404-desktop"
+    devbox_config.vm.box = "boxcutter/ubuntu1404-desktop"
     
     # hostname 
     devbox_config.vm.hostname = "dev-box.local"
@@ -29,7 +29,7 @@ Vagrant::configure("2") do |config|
     end
     
     # provisioning
-    devbox_config.vm.provision :chef_solo do |chef|
+    devbox_config.vm.provision :chef_zero do |chef|
       chef.add_recipe "dev-box::default"
       chef.add_recipe "dev-box::tests"
       chef.json = {
