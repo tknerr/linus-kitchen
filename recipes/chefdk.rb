@@ -1,6 +1,8 @@
 
-node.set['chef_dk']['version'] = '0.4.0-1'
-include_recipe "chef-dk"
+chef_dk 'my_chef_dk' do
+    version '0.6.0-1'
+    action :install
+end
 
 bashd_entry "chefdk-shell-init" do
   user devbox_user
