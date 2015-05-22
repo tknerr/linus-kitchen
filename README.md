@@ -32,6 +32,12 @@ we use for setting up the VM. You should log out the "vagrant" user now, and
 log in with the `node['devbox']['user']` specified in the Vagrantfile. If you
 didn't change it, it will be your `$USERNAME` by default.
 
+Whenever you make changes to the chef recipes, you need to trigger the
+provisioning again:
+```
+$ vagrant provision
+```
+
 
 ## Attributes
 
