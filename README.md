@@ -1,42 +1,45 @@
-Dev-Box
-=======
 
-Vagrantfile for setting up an Ubuntu 13.04 development box with
- * git
- * vim
- * ruby
- * chef
- * vagrant
- * lxc
- * gnome desktop
+# Dev-Box
 
-Requirements
-------------
+Vagrantfile for setting up an Ubuntu Desktop 14.04 development box for infrastructure-as-code development with Vagrant, Chef & Co.
 
-You need VirtualBox, Vagrant + bindler installed. 
+Yes, it is being set up with Vagrant and Chef, so it's a bit meta...
 
-Usage
------
+## Prerequisites
 
-Install required vagrant plugins:
-```
-$ vagrant plugin bundle
-```
+You need [VirtualBox](http://virtualbox.org/wiki/Downloads),
+[ChefDK](https://github.com/chef/chef-dk) and [Vagrant](http://www.vagrantup.com/)
+installed, along with the following Vagrant plugins:
+
+ * [vagrant-omnibus](https://github.com/chef/vagrant-omnibus) - for automatically installing Chef in the VM
+ * [vagrant-berkshelf](https://github.com/berkshelf/vagrant-berkshelf) - for automatically resolving Chef cookbook dependencies
+
+If you are on a Windows system, you could also use the [Bill's Kitchen DevPack](https://github.com/tknerr/bills-kitchen),
+which includes everything of the above, except for VirtualBox.
+
+## Usage
 
 Bring up the dev-box VM:
 ```
 $ vagrant up
 ```
 
-Attributes
-----------
+It will take a while until everything is downloaded and installed. Watch the
+log output on the console for it to finish.
+
+Initially the "vagrant" user will be logged in. That's the system account which
+we use for setting up the VM. You should log out the "vagrant" user now, and
+log in with the `node['devbox']['user']` specified in the Vagrantfile. If you
+didn't change it, it will be your `$USERNAME` by default.
+
+
+## Attributes
 
 You can configure the following attributes via `chef.json` in the Vagrantfile:
 * `node['devbox']['user']` - the user you work with on the box (e.g. johndoe)
 * `node['devbox']['group']` - the group of the above user to be created
 
-Contributing
-------------
+## Contributing
 
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
@@ -44,7 +47,3 @@ Contributing
 4. Write tests for your change (if applicable)
 5. Run the tests, ensuring they all pass
 6. Submit a Pull Request using Github
-
-License and Authors
--------------------
-Authors: Torben Knerr
