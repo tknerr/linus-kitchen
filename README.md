@@ -30,7 +30,10 @@ log output on the console for it to finish.
 Initially the "vagrant" user will be logged in. That's the system account which
 we use for setting up the VM. You should log out the "vagrant" user now, and
 log in with the `node['devbox']['user']` specified in the Vagrantfile. If you
-didn't change it, it will be your `$USERNAME` by default.
+didn't change it, by default it will be:
+
+ * username: `%USERNAME%`
+ * password: `"bofh"`
 
 Whenever you make changes to the chef recipes, you need to trigger the
 provisioning again:
@@ -38,10 +41,13 @@ provisioning again:
 $ vagrant provision
 ```
 
+Again, watch the console output to see the results.
+
 
 ## Attributes
 
 You can configure the following attributes via `chef.json` in the Vagrantfile:
+
 * `node['devbox']['user']` - the user you work with on the box (e.g. johndoe)
 * `node['devbox']['group']` - the group of the above user to be created
 
