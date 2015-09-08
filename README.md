@@ -43,6 +43,12 @@ $ vagrant provision
 
 Again, watch the console output to see the results.
 
+## Keyboard Layout
+
+Seems to be too hard to automate for me, so you have to do this manually:
+```
+sudo dpkg-reconfigure keyboard-configuration
+```
 
 ## Attributes
 
