@@ -1,11 +1,11 @@
 
-node.set[:vagrant][:url] = "https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.deb"
-node.set[:vagrant][:checksum] = "9d7f1c587134011e2d5429eb21b6c0e95487f52e6d6d47c03ecc82cbeee73968"
+node.set[:vagrant][:url] = "https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb"
+node.set[:vagrant][:checksum] = "dcd2c2b5d7ae2183d82b8b363979901474ba8d2006410576ada89d7fa7668336"
 
 include_recipe "vagrant"
 
-install_vagrant_plugin "vagrant-cachier", "1.2.0"
-install_vagrant_plugin "vagrant-berkshelf", "4.0.3"
+install_vagrant_plugin "vagrant-cachier", "1.2.1"
+install_vagrant_plugin "vagrant-berkshelf", "4.0.4"
 install_vagrant_plugin "vagrant-omnibus", "1.4.1"
 install_vagrant_plugin "vagrant-toplevel-cookbooks", "0.2.4"
 install_vagrant_plugin "vagrant-lxc", "1.1.0"
@@ -37,4 +37,3 @@ template "#{devbox_userhome}/.vagrant.d/Vagrantfile" do
   group devbox_group
   mode "0644"
 end
-

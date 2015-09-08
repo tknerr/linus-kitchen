@@ -1,6 +1,6 @@
 
 chef_dk 'my_chef_dk' do
-    version '0.6.0-1'
+    version '0.7.0-1'
     action :install
 end
 
