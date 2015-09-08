@@ -10,19 +10,14 @@ install_vagrant_plugin "vagrant-omnibus", "1.4.1"
 install_vagrant_plugin "vagrant-toplevel-cookbooks", "0.2.4"
 install_vagrant_plugin "vagrant-lxc", "1.1.0"
 
+bashd_entry "set-vagrant-default-provider" do
+  user devbox_user
+  content "export VAGRANT_DEFAULT_PROVIDER=docker"
+end
+
 # vagrant-lxc setup
 %w{ lxc lxc-templates cgroup-lite redir bridge-utils }.each do |pkg|
   package pkg
-end
-
-bashd_entry "set-vagrant-default-provider" do
-  user devbox_user
-  content "export KITCHEN_LOCAL_YAML=.kitchen.lxc.yml"
-end
-
-bashd_entry "set-kitchen-local-yaml" do
-  user devbox_user
-  content "export VAGRANT_DEFAULT_PROVIDER=lxc"
 end
 
 bash "add vagrant-lxc sudoers permissions" do
