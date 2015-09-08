@@ -2,19 +2,19 @@
 Vagrant::configure("2") do |config|
 
   # the Chef version to use
-  config.omnibus.chef_version = "12.3.0"
+  config.omnibus.chef_version = "12.4.1"
   # enable berkshelf plugin
   config.berkshelf.enabled = true
-  
+
   #
   # define the dev-box VM
   #
   config.vm.define :"dev-box" do | devbox_config |
-    
+
     # configure the basebox
     devbox_config.vm.box = "boxcutter/ubuntu1404-desktop"
-    
-    # hostname 
+
+    # hostname
     devbox_config.vm.hostname = "dev-box.local"
 
     # virtualbox customizations
@@ -27,9 +27,9 @@ Vagrant::configure("2") do |config|
       # yes we have a gui
       vbox.gui = true
     end
-    
+
     # provisioning
-    devbox_config.vm.provision :chef_zero do |chef|
+    devbox_config.vm.provision :chef_solo do |chef|
       chef.add_recipe "dev-box::default"
       chef.add_recipe "dev-box::tests"
       chef.json = {
@@ -38,7 +38,7 @@ Vagrant::configure("2") do |config|
         }
       }
       chef.log_level = :info
-      chef.formatter = :doc
+      chef.formatter = :min
     end
-  end 
+  end
 end
