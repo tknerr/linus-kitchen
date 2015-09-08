@@ -5,4 +5,4 @@ include_recipe "dev-box::bash"
 include_recipe "dev-box::chefdk"
 include_recipe "dev-box::vagrant"
 include_recipe "dev-box::atom"
-
+include_recipe "dev-box::docker"
