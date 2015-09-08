@@ -15,7 +15,9 @@ bashd_entry "set-vagrant-default-provider" do
   content "export VAGRANT_DEFAULT_PROVIDER=docker"
 end
 
+#
 # vagrant-lxc setup
+#
 %w{ lxc lxc-templates cgroup-lite redir bridge-utils }.each do |pkg|
   package pkg
 end
@@ -26,8 +28,22 @@ bash "add vagrant-lxc sudoers permissions" do
   not_if { ::File.exists? "/etc/sudoers.d/vagrant-lxc" }
 end
 
+#
+# tricks to make vagrant-cachier kick in during test-kitchen runs
+#
 template "#{devbox_userhome}/.vagrant.d/Vagrantfile" do
   source "Vagrantfile.erb"
+  owner devbox_user
+  group devbox_group
+  mode "0644"
+end
+directory "#{devbox_userhome}/.kitchen" do
+  owner devbox_user
+  group devbox_group
+  mode '0755'
+end
+template "#{devbox_userhome}/.kitchen/config.yml" do
+  source "kitchen_config.erb"
   owner devbox_user
   group devbox_group
   mode "0644"
