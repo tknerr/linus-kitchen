@@ -38,7 +38,7 @@ Vagrant::configure("2") do |config|
         }
       }
       chef.log_level = :info
-      chef.formatter = :min
+      chef.formatter = :doc
     end
   end
 end
