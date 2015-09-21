@@ -1,5 +1,5 @@
 
-# Dev-Box
+# Linus Kitchen
 
 Vagrantfile for setting up an Ubuntu Desktop 14.04 development box for infrastructure-as-code development with Vagrant, Chef & Co.
 
