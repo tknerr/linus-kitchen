@@ -8,8 +8,8 @@ user devbox_user do
   gid devbox_group
   home devbox_userhome
   shell "/bin/bash"
-  password `openssl passwd -1 "bofh"`.strip
-  supports :manage_home => true 
+  password `openssl passwd -1 "#{devbox_password}"`.strip
+  supports :manage_home => true
 end
 
 # XXX: consider using sudo cookbook
@@ -26,4 +26,3 @@ template "/etc/lightdm/lightdm.conf" do
   group "root"
   mode "0644"
 end
-

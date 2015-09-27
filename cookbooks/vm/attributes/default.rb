@@ -1,3 +1,4 @@
 
-node.default['devbox']['user'] = "johndoe"
-node.default['devbox']['group'] = "users"
+node.default['devbox']['user'] = "vagrant"
+node.default['devbox']['group'] = "vagrant"
+node.default['devbox']['password'] = "vagrant"

@@ -18,6 +18,10 @@ def devbox_group
   node['devbox']['group']
 end
 
+def devbox_password
+  node['devbox']['password']
+end
+
 def devbox_userhome
   "/home/#{devbox_user}"
 end
