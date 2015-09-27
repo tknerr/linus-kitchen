@@ -5,11 +5,10 @@ TARGET_DIR="/tmp/vagrant-cache/wget"
 SCRIPT_FILE="$(readlink -f ${BASH_SOURCE[0]})"
 REPO_ROOT="$(dirname $SCRIPT_FILE)/.."
 
-echo "locale is"
-locale
-
 echo "setting LANG=en_US.UTF-8"
 export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 echo "locale is now:"
 locale
