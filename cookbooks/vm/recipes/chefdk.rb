@@ -1,9 +1,4 @@
 
-chef_dk 'my_chef_dk' do
-    version '0.7.0-1'
-    action :install
-end
-
 bashd_entry "chefdk-shell-init" do
   user devbox_user
   content 'eval "$(chef shell-init bash)"'
