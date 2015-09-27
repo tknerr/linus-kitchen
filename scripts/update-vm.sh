@@ -85,7 +85,7 @@ verify_vm() {
 
   # run lint checks
   step "run codestyle checks"
-  rubocop . --format progress --format offenses
+  rubocop . --format progress --format offenses --display-cop-names
   foodcritic -f any .
 
   # run integration tests
