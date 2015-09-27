@@ -22,5 +22,4 @@ describe 'vm::user' do
   it 'sets up bash as the login shell for the devbox user' do
     expect(user('vagrant')).to have_login_shell '/bin/bash'
   end
-
 end
