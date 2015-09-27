@@ -6,7 +6,7 @@ docker_service 'default' do
 end
 
 # create the docker group and add the devbox_user to it
-group "docker" do
+group 'docker' do
   action :create
   members devbox_user
   append true

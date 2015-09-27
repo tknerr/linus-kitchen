@@ -7,22 +7,22 @@ user devbox_user do
   action :create
   gid devbox_group
   home devbox_userhome
-  shell "/bin/bash"
+  shell '/bin/bash'
   password `openssl passwd -1 "#{devbox_password}"`.strip
-  supports :manage_home => true
+  supports manage_home: true
 end
 
 # XXX: consider using sudo cookbook
-group "sudo" do
+group 'sudo' do
   action :modify
   members devbox_user
   append true
 end
 
 # disable auto-login of the vagrant user in gui mode
-template "/etc/lightdm/lightdm.conf" do
-  source "lightdm.conf.erb"
-  owner "root"
-  group "root"
-  mode "0644"
+template '/etc/lightdm/lightdm.conf' do
+  source 'lightdm.conf.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
 end

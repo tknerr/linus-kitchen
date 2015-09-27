@@ -30,8 +30,7 @@ end
 # reopen the Chef::Recipe class for being able to use it like any other resource
 #
 class Chef
-  class Recipe
-
+  class Recipe # rubocop:disable Style/Documentation
     #
     # workaround until the `vagrant_plugin` provider of the `vagrant` cookbook
     # supports passing the VAGRANT_HOME environment
@@ -42,11 +41,10 @@ class Chef
         group devbox_group
         environment devbox_user_env
         code "vagrant plugin install #{name} --plugin-version #{version}"
-        not_if "vagrant plugin list | grep -q '#{name} (#{version})'", {
-          :user => devbox_user,
-          :group => devbox_group,
-          :environment => devbox_user_env
-        }
+        not_if "vagrant plugin list | grep -q '#{name} (#{version})'",
+               user: devbox_user,
+               group: devbox_group,
+               environment: devbox_user_env
       end
     end
   end

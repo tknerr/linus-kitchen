@@ -1,5 +1,5 @@
 
-bashd_entry "chefdk-shell-init" do
+bashd_entry 'chefdk-shell-init' do
   user devbox_user
   content 'eval "$(chef shell-init bash)"'
 end
@@ -7,13 +7,13 @@ end
 directory "#{devbox_userhome}/.bundle" do
   owner devbox_user
   group devbox_group
-  mode "0755"
+  mode '0755'
   action :create
 end
 
 template "#{devbox_userhome}/.bundle/config" do
-  source "bundler_config.erb"
+  source 'bundler_config.erb'
   owner devbox_user
   group devbox_group
-  mode "0644"
+  mode '0644'
 end

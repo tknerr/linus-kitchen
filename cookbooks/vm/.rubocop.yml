@@ -1,0 +1,9 @@
+Metrics/LineLength:
+  Enabled: false
+
+Style/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - 'cookbooks/**/*'

@@ -1,9 +1,9 @@
 
 # sets up ppa launchpad repo
-include_recipe "atom"
+include_recipe 'atom'
 
 # install atom
-package "atom" do
+package 'atom' do
   action :install
 end
 
