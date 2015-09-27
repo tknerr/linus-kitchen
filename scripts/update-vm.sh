@@ -5,6 +5,12 @@ TARGET_DIR="/tmp/vagrant-cache/wget"
 SCRIPT_FILE="$(readlink -f ${BASH_SOURCE[0]})"
 REPO_ROOT="$(dirname $SCRIPT_FILE)/.."
 
+echo "generating locale"
+sudo locale-gen en_US.UTF-8
+
+echo "available locales:"
+locale -a
+
 echo "setting LANG=en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
@@ -12,7 +18,7 @@ export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 
 echo "locale is now:"
-locale -a
+locale
 
 big_step() {
   echo ""
