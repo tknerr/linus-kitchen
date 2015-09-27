@@ -1,8 +1,8 @@
-name             'dev-box'
+name             'vm'
 maintainer       'Torben Knerr'
 maintainer_email 'mail@tknerr.de'
 license          'All rights reserved'
-description      'Installs/Configures dev-box'
+description      'Installs/Configures the Linus Kitchen VM'
 long_description IO.read(File.join(File.dirname(__FILE__), '../../README.md'))
 version          '0.1.0'
 

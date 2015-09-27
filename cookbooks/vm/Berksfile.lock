@@ -1,5 +1,5 @@
 DEPENDENCIES
-  dev-box
+  vm
     path: .
     metadata: true
 
@@ -14,17 +14,17 @@ GRAPH
   chef_handler (1.2.0)
   chocolatey (0.4.0)
     windows (~> 1.31)
-  dev-box (0.1.0)
+  dmg (2.2.2)
+  docker (1.0.21)
+  vagrant (0.3.1)
+    dmg (>= 2.2.2)
+    windows (>= 1.30.2)
+  vm (0.1.0)
     apt (= 2.8.2)
     atom (= 0.1.1)
     bashd (= 0.3.0)
     chef-dk (= 3.1.0)
     docker (= 1.0.21)
     vagrant (= 0.3.1)
-  dmg (2.2.2)
-  docker (1.0.21)
-  vagrant (0.3.1)
-    dmg (>= 2.2.2)
-    windows (>= 1.30.2)
-  windows (1.38.1)
+  windows (1.38.2)
     chef_handler (>= 0.0.0)
