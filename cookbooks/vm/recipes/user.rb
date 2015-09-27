@@ -8,7 +8,7 @@ user devbox_user do
   gid devbox_group
   home devbox_userhome
   shell '/bin/bash'
-  password `openssl passwd -1 "#{devbox_password}"`.strip
+  password `openssl passwd -1 "#{devbox_password}"`.strip # ~FC048
   supports manage_home: true
 end
 
