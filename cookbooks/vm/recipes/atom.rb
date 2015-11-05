@@ -8,13 +8,25 @@ unless docker?
   # install atom
   package 'atom' do
     action :install
+    version '1.1.0-1~webupd8~0'
   end
 
-  # currently disabled, see https://github.com/mohitsethi/chef-atom/issues/2
-=begin
   # install plugins
-  atom_apm "minimap"
-  atom_apm "file-icons"
-  atom_apm "autocomplete-plus"
-=end
+  plugins = %w(
+    atom-beautify
+    minimap
+    line-ending-converter
+    language-chef
+    language-batchfile
+  )
+  plugins.each do |plugin|
+    # atom_apm does not work, so we use a bash resource, see
+    # https://github.com/mohitsethi/chef-atom/issues/2
+    bash "install-#{plugin}-atom-plugin" do
+      environment devbox_user_env
+      user devbox_user
+      group devbox_group
+      code "apm install #{plugin}"
+    end
+  end
 end
