@@ -5,9 +5,12 @@
 bash 'fix-bundler-in-chefdk' do
   environment devbox_user_env
   user devbox_user
+  group devbox_group
   code 'chef gem install bundler --version=1.10.6 --no-ri --no-rdoc'
-  not_if 'chef gem list bundler | grep 1.10.6',     environment: devbox_user_env,
-                                                    user: devbox_user
+  not_if 'chef gem list bundler | grep 1.10.6',
+         environment: devbox_user_env,
+         user: devbox_user,
+         group: devbox_group
 end
 ruby_block 'fix-bundler-in-vagrant-gemspec' do
   block do
