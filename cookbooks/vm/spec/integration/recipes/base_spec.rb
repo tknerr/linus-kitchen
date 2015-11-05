@@ -14,4 +14,8 @@ describe 'vm::base' do
       expect(package(pkg)).to be_installed
     end
   end
+
+  it 'does not leave anything root-owned in ~/.chefdk' do
+    expect(file('/home/vagrant/.chefdk/gem')).to be_owned_by 'vagrant'
+  end
 end
