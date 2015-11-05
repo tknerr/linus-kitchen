@@ -11,7 +11,7 @@ describe 'vm::user' do
   end
 
   it 'adds the devbox user to sudoers' do
-    expect(command('sudo -u vagrant bash -l -c "sudo echo lalala"').stdout).to contain 'lalala'
+    expect(devbox_user_command('sudo echo lalala').stdout).to contain 'lalala'
   end
 
   it 'sets up the devbox user\'s home directory' do
