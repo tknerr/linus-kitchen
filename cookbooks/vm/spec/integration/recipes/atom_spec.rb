@@ -2,16 +2,30 @@ require 'spec_helper'
 
 describe 'vm::atom' do
 
+  let(:atom_version) { devbox_user_command('atom -v').stdout.strip }
+  let(:atom_config) { file('/home/vagrant/.atom/config.cson') }
+  let(:installed_plugins) { devbox_user_command('apm list -i').stdout }
+
   it 'installs atom 1.1.0' do
-    expect(devbox_user_command('atom -v').stdout.strip).to eq '1.1.0'
+    expect(atom_version).to eq '1.1.0'
   end
 
   it 'installs some useful atom plugins' do
-    installed_plugins = devbox_user_command('apm list -i').stdout
-    expect(installed_plugins).to match 'atom-beautify'
-    expect(installed_plugins).to match 'minimap'
-    expect(installed_plugins).to match 'line-ending-converter'
-    expect(installed_plugins).to match 'language-chef'
-    expect(installed_plugins).to match 'language-batchfile'
+    expect(installed_plugins).to contain 'atom-beautify'
+    expect(installed_plugins).to contain 'minimap'
+    expect(installed_plugins).to contain 'line-ending-converter'
+    expect(installed_plugins).to contain 'language-chef'
+    expect(installed_plugins).to contain 'language-batchfile'
+  end
+
+  it 'configures atom to have sublime tabs behaviour' do
+    expect(atom_config).to contain 'usePreviewTabs: true'
+  end
+  it 'configures atom to show invisible characters' do
+    expect(atom_config).to contain 'showInvisibles: true'
+  end
+  it 'configures atom to use the "atom-dark" theme' do
+    expect(atom_config).to contain '"atom-dark-ui"'
+    expect(atom_config).to contain '"atom-dark-syntax"'
   end
 end

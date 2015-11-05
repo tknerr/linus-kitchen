@@ -29,4 +29,12 @@ unless docker?
       code "apm install #{plugin}"
     end
   end
+
+  # config tweaks
+  template "#{devbox_userhome}/.atom/config.cson" do
+    source 'atom_config.erb'
+    owner devbox_user
+    group devbox_user
+    mode '0664'
+  end
 end
