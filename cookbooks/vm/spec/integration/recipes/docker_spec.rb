@@ -7,10 +7,10 @@ describe 'vm::docker' do
   end
 
   it 'adds the devbox user to the docker group' do
-    expect(devbox_user_command('id').stdout).to match(/groups=.*\(docker\)/)
+    expect(devbox_user_command('sg docker -c "id"').stdout).to match(/groups=.*\(docker\)/)
   end
 
   it 'allows to run docker commands without sudo' do
-    expect(devbox_user_command('docker ps').stdout).to contain 'CONTAINER ID'
+    expect(devbox_user_command('sg docker -c "docker ps"').stdout).to contain 'CONTAINER ID'
   end
 end
