@@ -10,4 +10,5 @@ group 'docker' do
   action :create
   members devbox_user
   append true
+  notifies :restart, 'docker_service[default]', :immediately
 end
