@@ -10,8 +10,8 @@ unless Chef::Sugar::Docker.docker?(@node)
     let(:atom_config) { file('/home/vagrant/.atom/config.cson') }
     let(:installed_plugins) { devbox_user_command('apm list -i').stdout }
 
-    it 'installs atom 1.1.0' do
-      expect(atom_version).to eq '1.1.0'
+    it 'installs atom 1.2.1' do
+      expect(atom_version).to eq '1.2.1'
     end
 
     it 'installs some useful atom plugins' do
