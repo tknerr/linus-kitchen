@@ -6,7 +6,7 @@ unless Chef::Sugar::Docker.docker?(@node)
 
   describe 'vm::atom' do
 
-    let(:atom_version) { devbox_user_command('atom -v').stdout.strip }
+    let(:atom_version) { devbox_user_command('DISPLAY=:0 atom -v').stdout.strip }
     let(:atom_config) { file('/home/vagrant/.atom/config.cson') }
     let(:installed_plugins) { devbox_user_command('apm list -i').stdout }
 
