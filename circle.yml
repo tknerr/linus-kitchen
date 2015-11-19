@@ -16,3 +16,4 @@ dependencies:
 test:
   override:
     - vagrant up
+    - cp cookbooks/vm/test/*.xml $CIRCLE_TEST_REPORTS/

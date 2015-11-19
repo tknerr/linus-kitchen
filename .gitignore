@@ -1,3 +1,4 @@
 .vagrant
 cookbooks/vm/cookbooks
 cookbooks/vm/nodes
+cookbooks/vm/test
