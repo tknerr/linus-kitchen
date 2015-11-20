@@ -26,8 +26,9 @@ $ vagrant up
 This will take a while, as it will do quite a few things inside the VM:
 
  1. Download and install [Git](https://git-scm.org/) and [ChefDK](https://downloads.chef.io/chef-dk/)
- 1. Install cookbook dependencies via [Berkshelf](http://berkshelf.com/)
- 1. Trigger a [Chef-Zero](https://www.chef.io/blog/2013/10/31/chef-client-z-from-zero-to-chef-in-8-5-seconds/) run to apply the `cookbooks/vm/recipes` to the VM (see "What's included?")
+ 1. Copy the current directory into the VM (will be placed in `~/vm-setup`)
+ 1. Install cookbook dependencies via [Berkshelf](http://berkshelf.com/) to `~/vm-setup/cookbooks/vm/cookbooks`
+ 1. Trigger a [Chef-Zero](https://www.chef.io/blog/2013/10/31/chef-client-z-from-zero-to-chef-in-8-5-seconds/) run to apply the `~/vm-setup/cookbooks/vm/recipes` to the VM (see "What's included?")
  1. Verify the installation using a battery of [Serverspec](http://serverspec.org/) tests
 
 Watch the vagrant output on the console for seeing progress. At the end you
@@ -92,7 +93,7 @@ The update is done via Chef so it should be fully idempotent.
 
 You can run these commands from anywhere inside the VM:
 
- * `update-vm` - to apply the Chef recipes of the locally checked out linus-kitchen repo
+ * `update-vm` - to apply the Chef recipes of the locally checked out linus-kitchen repo in `~/vm-setup`
  * `update-vm --pull` - same as above but update the repo before
  * `update-vm --verify-only` - don't update the VM, only run the Serverspec tests
 

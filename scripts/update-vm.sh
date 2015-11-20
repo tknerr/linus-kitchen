@@ -2,8 +2,7 @@
 
 CHEFDK_VERSION="0.7.0"
 TARGET_DIR="/tmp/vagrant-cache/wget"
-SCRIPT_FILE="$(readlink -f ${BASH_SOURCE[0]})"
-REPO_ROOT="$(dirname $SCRIPT_FILE)/.."
+REPO_ROOT="/home/vagrant/vm-setup"
 
 # to not run into https://github.com/berkshelf/berkshelf-api/issues/112
 echo "setting locale to en_US.UTF-8"
@@ -50,9 +49,17 @@ check_git() {
   fi
 }
 
-symlink_self() {
-  big_step "Symlinking 'update-vm'..."
-  sudo ln -sf $SCRIPT_FILE /usr/local/bin/update-vm
+copy_repo_and_symlink_self() {
+  big_step "Copying repo into the VM..."
+  if mountpoint -q /vagrant; then
+    step "Copy /vagrant to $REPO_ROOT"
+    sudo rm -rf $REPO_ROOT
+    cp -r /vagrant $REPO_ROOT
+    step "Symlinking 'update-vm' script"
+    sudo ln -sf $REPO_ROOT/scripts/update-vm.sh /usr/local/bin/update-vm
+  else
+    echo "Skipped because /vagrant not mounted"
+  fi
 }
 
 shell_init() {
@@ -62,7 +69,7 @@ shell_init() {
 }
 
 update_repo() {
-  step "Pulling latest changes from git..."
+  big_step "Pulling latest changes from git..."
   cd $REPO_ROOT
   git pull
 }
@@ -107,7 +114,7 @@ if [[ "$1" == "--verify-only" ]]; then
 else
   check_git
   check_chefdk
-  symlink_self
+  copy_repo_and_symlink_self
   [[ "$1" == "--pull" ]] && update_repo
   update_vm
   verify_vm

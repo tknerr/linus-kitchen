@@ -16,4 +16,4 @@ dependencies:
 test:
   override:
     - vagrant up
-    - cp cookbooks/vm/test/*.xml $CIRCLE_TEST_REPORTS/
+    - vagrant ssh -c 'cat ~/vm-setup/cookbooks/vm/test/junit-report.xml' > $CIRCLE_TEST_REPORTS/junit-report.xml
