@@ -42,6 +42,7 @@ should see all tests passing:
 ==> default:
 ==> default: Finished in 24.44 seconds (files took 0.81272 seconds to load)
 ==> default: 33 examples, 0 failures
+...
 ```
 
 You can now log in to the Desktop (the VM is started in GUI mode):
@@ -94,6 +95,24 @@ You can run these commands from anywhere inside the VM:
  * `update-vm` - to apply the Chef recipes of the locally checked out linus-kitchen repo
  * `update-vm --pull` - same as above but update the repo before
  * `update-vm --verify-only` - don't update the VM, only run the Serverspec tests
+
+## Acceptance Test
+
+In addition to the Serverspec tests (which verify that the installed tools are properly
+configured and working as expected) you can also execute a minimal acceptance test which covers the [common usage scenarios](https://github.com/tknerr/vagrant-workflow-tests/blob/master/spec/acceptance/usage_scenarios_spec.rb) when developing with Vagrant and Chef, including:
+
+ * cloning a [sample-toplevel-cookbook](https://github.com/tknerr/sample-toplevel-cookbook) and [sample-infrastructure-repo](https://github.com/tknerr/sample-infrastructure-repo)
+ * running various commands like `bundle install`, `vagrant plugin list`, `vagrant up`, etc..
+ * running different kinds of cookbook tests via `rubocop`, `foodcritic`, `chefspec` and `test-kitchen`
+
+The acceptance test is not run by default, but you can run it manually from anywhere inside the VM:
+```
+$ git clone https://github.com/tknerr/vagrant-workflow-tests
+$ cd vagrant-workflow-tests
+$ rspec
+```
+
+If all goes well you should see an output [like this](https://cloud.githubusercontent.com/assets/365744/3607278/0579cae2-0d45-11e4-81f0-9236c592562a.png).
 
 ## Keyboard Layout
 
