@@ -1,44 +1,38 @@
 
 Vagrant::configure("2") do |config|
 
-  # the Chef version to use
-  config.omnibus.chef_version = "12.4.1"
-  # enable berkshelf plugin
-  config.berkshelf.enabled = true
+  # configure the basebox
+  config.vm.box = "boxcutter/ubuntu1404-desktop"
 
-  #
-  # define the dev-box VM
-  #
-  config.vm.define :"dev-box" do | devbox_config |
+  # override the basebox when testing (an approximation) with docker
+  config.vm.provider :docker do |docker, override|
+    override.vm.box = "tknerr/baseimage-ubuntu-14.04"
+  end
 
-    # configure the basebox
-    devbox_config.vm.box = "boxcutter/ubuntu1404-desktop"
+  # set the hostname
+  config.vm.hostname = "linus-kitchen.local"
 
-    # hostname
-    devbox_config.vm.hostname = "dev-box.local"
+  # virtualbox customizations
+  config.vm.provider :virtualbox do |vbox, override|
+    vbox.customize ["modifyvm", :id,
+      "--name", "Linus Kitchen",
+      "--memory", 4096,
+      "--cpus", 4
+    ]
+    # yes we have a gui
+    vbox.gui = true
+  end
 
-    # virtualbox customizations
-    devbox_config.vm.provider :virtualbox do |vbox, override|
-      vbox.customize ["modifyvm", :id,
-        "--name", "dev-box",
-        "--memory", 4096,
-        "--cpus", 4
-      ]
-      # yes we have a gui
-      vbox.gui = true
-    end
+  # Install ChefDK and trigger the Chef run from within the VM
+  config.vm.provision "shell", privileged: false, inline: "/vagrant/scripts/update-vm.sh"
+  # Logout any existing GUI session to force the use to re-login, which is required
+  # for group or keyboard layout changes to take effect
+  config.vm.provision "shell", privileged: true, inline: "pkill -KILL -u vagrant; true"
 
-    # provisioning
-    devbox_config.vm.provision :chef_solo do |chef|
-      chef.add_recipe "dev-box::default"
-      chef.add_recipe "dev-box::tests"
-      chef.json = {
-        :devbox => {
-          :user => ENV['USERNAME']
-        }
-      }
-      chef.log_level = :info
-      chef.formatter = :doc
-    end
+  # Ensure we cache as much as possible
+  if Vagrant.has_plugin?("vagrant-cachier")
+    config.cache.enable :generic, {
+      "chef_file_cache" => { cache_dir: "/home/vagrant/.chef/local-mode-cache/cache" }
+    }
   end
 end

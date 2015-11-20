@@ -1,0 +1,19 @@
+machine:
+  services:
+    - docker
+  ruby:
+    version: 2.1.5
+  environment:
+    VAGRANT_DEFAULT_PROVIDER: docker
+
+dependencies:
+  cache_directories:
+    - ~/.vagrant.d
+  pre:
+    - wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb
+    - sudo dpkg -i vagrant_1.7.4_x86_64.deb
+
+test:
+  override:
+    - vagrant up
+    - vagrant ssh -c 'cat ~/vm-setup/cookbooks/vm/test/junit-report.xml' > $CIRCLE_TEST_REPORTS/junit-report.xml
