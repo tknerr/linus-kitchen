@@ -57,11 +57,11 @@ Once logged in, you can open a terminal and you will have all of the tools avail
 
 These are the main tools included in Linus' Kitchen:
 
- * [Git](https://git-scm.org/) 1.9.1
- * [ChefDK](https://downloads.chef.io/chef-dk/) 0.7.0
- * [Vagrant](http://vagrantup.com/) 1.7.4
- * [Docker](http://docker.io/) 1.8.1
- * [Atom Editor](http://terraform.io/) 1.2.1
+ * [Git](https://git-scm.org/)
+ * [ChefDK](https://downloads.chef.io/chef-dk/)
+ * [Vagrant](http://vagrantup.com/)
+ * [Docker](http://docker.io/)
+ * [Atom Editor](http://terraform.io/)
 
 Other tweaks worth mentioning:
 
@@ -120,6 +120,43 @@ If all goes well you should see an output [like this](https://cloud.githubuserco
 Seems to be too hard to automate for me, so you have to do this manually for now:
 ```
 sudo dpkg-reconfigure keyboard-configuration
+```
+
+## Packaging
+
+Whenever you feel like distributing a fat VM image rather than a Vagrantfile,
+you can package / export it as a VirtualBox image. This might be useful
+for distributing the initial version of the developer VM to your dev team,
+or simply for preserving checkpoint releases as a binary images.
+
+First, start from a clean state, and make sure vagrant-cachier is disabled:
+```
+$ vagrant destroy -f
+$ export VAGRANT_NO_PLUGINS=1
+$ vagrant up
+```
+
+Next, unmount the /vagrant shared folder (will be restored on next `vagrant up`):
+```
+$ vagrant ssh -c "sudo umount /vagrant"
+```
+
+Also, you may want to clean out the VM for a minimal export image:
+```
+$ vagrant ssh -c "wget -qO- https://raw.githubusercontent.com/boxcutter/ubuntu/master/script/cleanup.sh | sudo bash"
+```
+
+Finally, shutdown the VM, remove the sharedfolder, and export the VM as an .ova file:
+```
+$ vagrant halt
+$ VBoxManage sharedfolder remove "Linus Kitchen" --name "vagrant"
+$ VBoxManage export "Linus Kitchen" --output "linus-kitchen.ova" --options manifest,nomacs
+```
+
+Don't forget to throw away the VM enable vagrant-cachier again:
+```
+$ vagrant destroy -f
+$ unset VAGRANT_NO_PLUGINS
 ```
 
 ## Contributing
