@@ -1,7 +1,4 @@
 
-# sets up ppa launchpad repo
-include_recipe 'atom'
-
 if docker?
   # we need xvfb + libasound2 for starting atom in docker
   package 'xvfb'
@@ -11,9 +8,13 @@ if docker?
 end
 
 # install atom
-package 'atom' do
+remote_file "#{Chef::Config[:file_cache_path]}/atom-1.3.1-amd64.deb" do
+  source 'https://github.com/atom/atom/releases/download/v1.3.1/atom-amd64.deb'
+  mode 0644
+end
+dpkg_package "atom" do
+  source "#{Chef::Config[:file_cache_path]}/atom-1.3.1-amd64.deb"
   action :install
-  version '1.3.0-1~webupd8~0'
   options extra_options || ''
 end
 
