@@ -17,3 +17,4 @@ test:
   override:
     - vagrant up
     - vagrant ssh -c 'cat ~/vm-setup/cookbooks/vm/test/junit-report.xml' > $CIRCLE_TEST_REPORTS/junit-report.xml
+    - vagrant ssh -c 'cat ~/vm-setup/cookbooks/vm/test/test-report.html' > $CIRCLE_ARTIFACTS/test-report.html

@@ -8,7 +8,7 @@ unless docker?
   # install atom
   package 'atom' do
     action :install
-    version '1.2.2-1~webupd8~0'
+    version '1.3.0-1~webupd8~0'
   end
 
   # install plugins
