@@ -6,12 +6,15 @@ if docker?
   # we need xvfb + libasound2 for starting atom in docker
   package 'xvfb'
   package 'libasound2'
+  # avoid /dev/fuse issues on circleci
+  extra_options = '--no-install-recommends'
 end
 
 # install atom
 package 'atom' do
   action :install
   version '1.3.0-1~webupd8~0'
+  options extra_options || ''
 end
 
 # install plugins
