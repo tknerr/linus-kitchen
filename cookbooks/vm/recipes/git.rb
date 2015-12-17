@@ -5,6 +5,7 @@ end
 
 package 'meld' do
   action :install
+  options '--no-install-recommends'
 end
 
 template "#{devbox_userhome}/.gitconfig" do
