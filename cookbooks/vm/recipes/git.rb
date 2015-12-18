@@ -1,11 +1,18 @@
 
-package 'git' do
-  action :install
+if docker?
+  # we need xvfb for starting meld in docker
+  package 'xvfb'
+  # avoid /dev/fuse issues on circleci
+  extra_options = '--no-install-recommends'
 end
 
 package 'meld' do
   action :install
-  options '--no-install-recommends'
+  options extra_options || ''
+end
+
+package 'git' do
+  action :install
 end
 
 template "#{devbox_userhome}/.gitconfig" do

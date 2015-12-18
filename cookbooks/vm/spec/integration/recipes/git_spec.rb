@@ -1,23 +1,31 @@
 require 'spec_helper'
+require 'chef/sugar/docker'
 
 describe 'vm::git' do
 
-  it 'installs git' do
-    expect(package('git')).to be_installed
-    expect(command('git --version').exit_status).to eq 0
+  # simulate an X environment in docker / circleci
+  if Chef::Sugar::Docker.docker?(@node)
+    meld_version = 'xvfb-run meld --version'
+  else
+    meld_version = 'meld --version'
   end
 
-  it 'installs meld as the diff / merge tool' do
+  it 'installs git' do
+    expect(package('git')).to be_installed
+    expect(devbox_user_command('git --version').exit_status).to eq 0
+  end
+
+  it 'installs meld for diffing / merging' do
     expect(package('meld')).to be_installed
-    expect(command('meld --version').exit_status).to eq 0
+    expect(devbox_user_command(meld_version).exit_status).to eq 0
   end
 
   context '~/.gitconfig' do
     it 'configures meld as the difftool' do
-      expect(command('meld --version').exit_status).to eq 0
+      pending('todo')
     end
     it 'configures meld as the mergetool' do
-      expect(command('meld --version').exit_status).to eq 0
+      pending('todo')
     end
   end
 end
