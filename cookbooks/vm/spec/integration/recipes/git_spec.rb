@@ -18,7 +18,7 @@ describe 'vm::git' do
     expect(git_version.exit_status).to eq 0
   end
 
-  it 'installs meld for diffing / merging' do
+  it 'installs meld (for diffing and merging)' do
     expect(package('meld')).to be_installed
     expect(meld_version.exit_status).to eq 0
   end
@@ -29,6 +29,24 @@ describe 'vm::git' do
     end
     it 'configures meld as the mergetool' do
       expect(git_config).to contain 'merge.tool=meld'
+    end
+    it 'disables ssl verification' do
+      expect(git_config).to contain 'http.sslverify=false'
+    end
+    context 'aliases' do
+      aliases = {
+        co: 'checkout',
+        ci: 'commit',
+        br: 'branch',
+        st: 'status',
+        unstage: 'reset HEAD --',
+        slog: 'log --pretty=oneline --abbrev-commit'
+      }
+      aliases.each do |shortcut, command|
+        it "'#{shortcut}' for '#{command}'" do
+          expect(git_config).to contain "alias.#{shortcut}=#{command}"
+        end
+      end
     end
   end
 end
