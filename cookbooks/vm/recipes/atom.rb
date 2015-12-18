@@ -3,8 +3,6 @@ if docker?
   # we need xvfb + libasound2 for starting atom in docker
   package 'xvfb'
   package 'libasound2'
-  # avoid /dev/fuse issues on circleci
-  extra_options = '--no-install-recommends'
 end
 
 # install atom
@@ -12,10 +10,9 @@ remote_file "#{Chef::Config[:file_cache_path]}/atom-1.3.1-amd64.deb" do
   source 'https://github.com/atom/atom/releases/download/v1.3.1/atom-amd64.deb'
   mode 0644
 end
-apt_package 'atom' do
+dpkg_package 'atom' do
   source "#{Chef::Config[:file_cache_path]}/atom-1.3.1-amd64.deb"
   action :install
-  options extra_options || ''
 end
 
 # install plugins
