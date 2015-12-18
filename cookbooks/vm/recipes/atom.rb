@@ -12,7 +12,7 @@ remote_file "#{Chef::Config[:file_cache_path]}/atom-1.3.1-amd64.deb" do
   source 'https://github.com/atom/atom/releases/download/v1.3.1/atom-amd64.deb'
   mode 0644
 end
-dpkg_package "atom" do
+apt_package 'atom' do
   source "#{Chef::Config[:file_cache_path]}/atom-1.3.1-amd64.deb"
   action :install
   options extra_options || ''
