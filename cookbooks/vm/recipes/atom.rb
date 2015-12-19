@@ -12,15 +12,12 @@ remote_file "#{Chef::Config[:file_cache_path]}/atom-1.3.1-amd64.deb" do
   source 'https://github.com/atom/atom/releases/download/v1.3.1/atom-amd64.deb'
   mode 0644
 end
-dpkg_package 'atom' do
-  source "#{Chef::Config[:file_cache_path]}/atom-1.3.1-amd64.deb"
-  action :install
-  ignore_failure true
-  notifies :run, 'execute[atom-deps]', :immediately
-end
-execute 'atom-deps' do
-  command "sudo apt-get -f -y install #{extra_options}"
-  action :nothing
+bash 'install-atom' do
+  code <<-EOF
+    dpkg -i #{Chef::Config[:file_cache_path]}/atom-1.3.1-amd64.deb
+    apt-get -f -y install #{extra_options}
+    EOF
+  not_if 'which atom'
 end
 
 # install plugins
