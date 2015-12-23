@@ -26,3 +26,4 @@ test:
     - vagrant ssh -c 'cat ~/vm-setup/cookbooks/vm/test/junit-report.xml' > $CIRCLE_TEST_REPORTS/junit-report.xml
     - vagrant ssh -c 'cat ~/vm-setup/cookbooks/vm/test/test-report.html' > $CIRCLE_TEST_REPORTS/test-report.html
     - vagrant ssh -c "bash -i -c 'git clone https://github.com/tknerr/vagrant-workflow-tests && cd vagrant-workflow-tests && rspec'"
+    - vagrant ssh -c 'cat ~/vagrant-workflow-tests/acceptance.log' > $CIRCLE_ARTIFACTS/acceptance-test.log
