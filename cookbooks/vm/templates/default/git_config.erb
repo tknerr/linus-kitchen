@@ -1,0 +1,27 @@
+[core]
+  autocrlf = input
+[push]
+  default = simple
+[diff]
+  tool = meld
+[difftool]
+  prompt = false
+[difftool "meld"]
+  trustExitCode = false
+[merge]
+  tool = meld
+[mergetool]
+  prompt = false
+[mergetool "meld"]
+  trustExitCode = false
+  keepBackup = false
+[alias]
+  co = checkout
+  ci = commit
+  br = branch
+  st = status
+  unstage = reset HEAD --
+  slog = log --pretty=oneline --abbrev-commit
+[http]
+  sslVerify = false
+  # proxy = http://your.proxy.org:8080
