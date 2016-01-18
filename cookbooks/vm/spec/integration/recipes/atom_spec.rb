@@ -13,8 +13,8 @@ describe 'vm::atom' do
   let(:atom_config) { file('/home/vagrant/.atom/config.cson') }
   let(:installed_plugins) { devbox_user_command('apm list -i').stdout }
 
-  it 'installs atom 1.3.0' do
-    expect(atom_version).to eq '1.3.0'
+  it 'installs atom 1.3.1' do
+    expect(atom_version).to eq '1.3.1'
   end
 
   it 'installs some useful atom plugins' do
