@@ -7,7 +7,7 @@ describe 'vm::git' do
   meld_version_cmd = if Chef::Sugar::Docker.docker?(@node)
                        'xvfb-run meld --version'
                      else
-                       'meld --version'
+                       'DISPLAY=:0 meld --version'
                      end
 
   let(:git_version) { devbox_user_command('git --version') }
