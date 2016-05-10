@@ -66,7 +66,7 @@ copy_repo_and_symlink_self() {
 shell_init() {
   step "init the shell"
   set -e
-  eval $(chef shell-init bash)
+  eval "$(chef shell-init bash)"
 }
 
 update_repo() {
