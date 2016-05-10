@@ -45,6 +45,7 @@ check_git() {
     echo "Git already installed"
   else
     step "Installing Git"
+    sudo apt-get update
     sudo apt-get install git -y
   fi
 }
