@@ -4,11 +4,12 @@ require 'chef/sugar/docker'
 describe 'vm::atom' do
 
   # simulate an X environment in docker / circleci
-  if Chef::Sugar::Docker.docker?(@node)
-    atom_version_cmd = 'xvfb-run atom -v'
-  else
-    atom_version_cmd = 'DISPLAY=:0 atom -v'
-  end
+  atom_version_cmd = if Chef::Sugar::Docker.docker?(@node)
+                       'xvfb-run atom -v'
+                     else
+                       'DISPLAY=:0 atom -v'
+                     end
+
   let(:atom_version) { devbox_user_command(atom_version_cmd).stdout.strip }
   let(:atom_config) { file('/home/vagrant/.atom/config.cson') }
   let(:installed_plugins) { devbox_user_command('apm list -i').stdout }
