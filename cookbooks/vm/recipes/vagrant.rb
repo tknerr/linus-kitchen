@@ -1,6 +1,6 @@
 
-node.set['vagrant']['url'] = 'https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb'
-node.set['vagrant']['checksum'] = 'dcd2c2b5d7ae2183d82b8b363979901474ba8d2006410576ada89d7fa7668336'
+node.set['vagrant']['url'] = 'https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb'
+node.set['vagrant']['checksum'] = 'ed0e1ae0f35aecd47e0b3dfb486a230984a08ceda3b371486add4d42714a693d'
 
 include_recipe 'vagrant'
 
