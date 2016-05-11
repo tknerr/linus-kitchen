@@ -10,8 +10,9 @@ source_url 'https://github.com/tknerr/linus-kitchen'
 
 supports 'ubuntu'
 
-depends 'apt', '2.8.2'
+depends 'apt', '2.9.2'
 depends 'bashd', '0.3.0'
 depends 'vagrant', '0.5.0'
-depends 'docker', '1.0.21'
+depends 'apt-docker', '0.3.0'
+depends 'docker', '2.6.8'
 depends 'chef-sugar', '3.1.1'
