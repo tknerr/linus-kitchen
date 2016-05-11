@@ -1,7 +1,7 @@
 
 # installer the docker daemon
 docker_service 'default' do
-  version '1.8.1'
+  version '1.11'
   action [:create, :start]
 end
 
