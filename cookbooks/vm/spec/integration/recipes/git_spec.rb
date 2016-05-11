@@ -3,15 +3,8 @@ require 'chef/sugar/docker'
 
 describe 'vm::git' do
 
-  # simulate an X environment in docker / circleci
-  meld_version_cmd = if Chef::Sugar::Docker.docker?(@node)
-                       'xvfb-run meld --version'
-                     else
-                       'DISPLAY=:0 meld --version'
-                     end
-
+  let(:meld_version) { devbox_user_gui_command('meld --version') }
   let(:git_version) { devbox_user_command('git --version') }
-  let(:meld_version) { devbox_user_command(meld_version_cmd) }
   let(:git_config) { devbox_user_command('git config --global --list').stdout }
 
   it 'installs git' do
