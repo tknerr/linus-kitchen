@@ -34,7 +34,7 @@ describe 'vm::git' do
         br: 'branch',
         st: 'status',
         unstage: 'reset HEAD --',
-        slog: 'log --pretty=oneline --abbrev-commit'
+        slog: 'log --pretty=oneline --abbrev-commit',
         graph: 'log --all --oneline --graph --decorate'
       }
       aliases.each do |shortcut, command|
