@@ -15,7 +15,7 @@ describe 'vm::atom' do
   let(:installed_plugins) { devbox_user_command('apm list -i').stdout }
 
   it 'installs atom 1.7.3' do
-    expect(atom_version).to eq '1.7.3'
+    expect(atom_version).to contain '1.7.3'
   end
 
   it 'installs some useful atom plugins' do
