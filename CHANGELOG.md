@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2 (unreleased)
+
+ * ...
+
 ## 0.1 (May 11, 2016)
 
 The initial release of the linus-kitchen developer VM.
