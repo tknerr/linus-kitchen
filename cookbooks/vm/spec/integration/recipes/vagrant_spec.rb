@@ -13,19 +13,21 @@ describe 'vm::vagrant' do
     expect(devbox_user_command('echo $VAGRANT_DEFAULT_PROVIDER').stdout.strip).to eq 'docker'
   end
 
-  it 'installs "vagrant-cachier" plugin 1.2.1' do
-    expect(installed_plugins).to include 'vagrant-cachier (1.2.1)'
-  end
-  it 'installs "vagrant-berkshelf" plugin 4.1.0' do
-    expect(installed_plugins).to include 'vagrant-berkshelf (4.1.0)'
-  end
-  it 'installs "vagrant-omnibus" plugin 1.4.1' do
-    expect(installed_plugins).to include 'vagrant-omnibus (1.4.1)'
-  end
-  it 'installs "vagrant-toplevel-cookbooks" plugin 0.2.4' do
-    expect(installed_plugins).to include 'vagrant-toplevel-cookbooks (0.2.4)'
-  end
-  it 'installs "vagrant-lxc" plugin 1.1.0' do
-    expect(installed_plugins).to include 'vagrant-lxc (1.1.0)'
+  describe 'plugins' do
+    it 'installs "vagrant-cachier" plugin v1.2.1' do
+      expect(installed_plugins).to include 'vagrant-cachier (1.2.1)'
+    end
+    it 'installs "vagrant-berkshelf" plugin v4.1.0' do
+      expect(installed_plugins).to include 'vagrant-berkshelf (4.1.0)'
+    end
+    it 'installs "vagrant-omnibus" plugin v1.4.1' do
+      expect(installed_plugins).to include 'vagrant-omnibus (1.4.1)'
+    end
+    it 'installs "vagrant-toplevel-cookbooks" plugin v0.2.4' do
+      expect(installed_plugins).to include 'vagrant-toplevel-cookbooks (0.2.4)'
+    end
+    it 'installs "vagrant-lxc" plugin v1.1.0' do
+      expect(installed_plugins).to include 'vagrant-lxc (1.1.0)'
+    end
   end
 end
