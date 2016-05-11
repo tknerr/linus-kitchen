@@ -29,14 +29,7 @@ plugins = %w(
   language-batchfile
 )
 plugins.each do |plugin|
-  # atom_apm does not work, so we use a bash resource, see
-  # https://github.com/mohitsethi/chef-atom/issues/2
-  bash "install-#{plugin}-atom-plugin" do
-    environment devbox_user_env
-    user devbox_user
-    group devbox_group
-    code "apm install #{plugin}"
-  end
+  install_atom_plugin(plugin)
 end
 
 # config tweaks

@@ -47,5 +47,22 @@ class Chef
                environment: devbox_user_env
       end
     end
+
+    #
+    # atom_apm does not work, so we use a bash resource, see
+    # https://github.com/mohitsethi/chef-atom/issues/2
+    #
+    def install_atom_plugin(name)
+      bash "install atom plugin #{name} for #{devbox_user}" do
+        user devbox_user
+        group devbox_group
+        environment devbox_user_env
+        code "apm install #{name}"
+        not_if "apm list --installed --bare | grep -q '#{name}@'",
+               user: devbox_user,
+               group: devbox_group,
+               environment: devbox_user_env
+      end
+    end
   end
 end
