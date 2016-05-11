@@ -150,7 +150,8 @@ Finally, shutdown the VM, remove the sharedfolder, and export the VM as an .ova 
 ```
 $ vagrant halt
 $ VBoxManage sharedfolder remove "Linus Kitchen" --name "vagrant"
-$ VBoxManage export "Linus Kitchen" --output "linus-kitchen.ova" --options manifest,nomacs
+$ VBoxManage modifyvm "Linus Kitchen" --name "Linus Kitchen v0.1"
+$ VBoxManage export "Linus Kitchen v0.1" --output "linus-kitchen-v0.1.ova" --options manifest,nomacs
 ```
 
 Don't forget to throw away the VM enable vagrant-cachier again:
