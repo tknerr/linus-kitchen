@@ -1,12 +1,15 @@
-# CHANGELOG for dev-box
+# CHANGELOG
 
-This file is used to list changes made in each version of dev-box.
+## 0.1 (May 11, 2016)
 
-## 0.1.0:
+The initial release of the linus-kitchen developer VM.
 
-* Initial release of dev-box
+It includes:
 
-- - -
-Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
+ * ChefDK 0.13.21
+ * Vagrant 1.8.1
+ * Docker 1.11
+ * Git 1.9
+ * Atom Editor 1.7.3
 
-The [Github Flavored Markdown page](http://github.github.com/github-flavored-markdown/) describes the differences between markdown on github and standard markdown.
+See the [README](https://github.com/tknerr/linus-kitchen/blob/master/README.md) for more details.
