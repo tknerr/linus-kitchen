@@ -52,13 +52,13 @@ class Chef
     # atom_apm does not work, so we use a bash resource, see
     # https://github.com/mohitsethi/chef-atom/issues/2
     #
-    def install_atom_plugin(name)
-      bash "install atom plugin #{name} for #{devbox_user}" do
+    def install_atom_plugin(name, version)
+      bash "install atom plugin #{name}@#{version} for #{devbox_user}" do
         user devbox_user
         group devbox_group
         environment devbox_user_env
-        code "apm install #{name}"
-        not_if "apm list --installed --bare | grep -q '#{name}@'",
+        code "apm install #{name}@#{version}"
+        not_if "apm list --installed --bare | grep -q '#{name}@#{version}'",
                user: devbox_user,
                group: devbox_group,
                environment: devbox_user_env

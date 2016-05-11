@@ -21,15 +21,15 @@ bash 'install-atom' do
 end
 
 # install plugins
-plugins = %w(
-  atom-beautify
-  minimap
-  line-ending-converter
-  language-chef
-  language-batchfile
-)
-plugins.each do |plugin|
-  install_atom_plugin(plugin)
+plugins = {
+  'atom-beautify' => '0.29.7',
+  'minimap' => '4.23.5',
+  'line-ending-converter' => '1.3.2',
+  'language-chef' => '0.9.0',
+  'language-batchfile' => '0.4.0'
+}
+plugins.each do |name, version|
+  install_atom_plugin(name, version)
 end
 
 # config tweaks
