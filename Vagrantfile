@@ -21,6 +21,13 @@ Vagrant::configure("2") do |config|
   # override the basebox when testing (an approximation) with docker
   config.vm.provider :docker do |docker, override|
     override.vm.box = "tknerr/baseimage-ubuntu-14.04"
+    
+    # use portforwarded ssh port in case of docker for mac,
+    # private_network not supported yet... :-/
+    override.ssh.host = 'localhost'
+    override.ssh.port = 2222
+    docker.force_host_vm = false
+    docker.ports = [ '2222:22' ]
   end
 
   # Install ChefDK and trigger the Chef run from within the VM
