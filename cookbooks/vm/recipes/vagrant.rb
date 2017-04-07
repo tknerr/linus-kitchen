@@ -6,7 +6,7 @@ include_recipe 'vagrant'
 
 install_vagrant_plugin 'vagrant-cachier', '1.2.1'
 install_vagrant_plugin 'vagrant-berkshelf', '5.1.1'
-install_vagrant_plugin 'vagrant-omnibus', '1.4.1'
+install_vagrant_plugin 'vagrant-omnibus', '1.5.0'
 install_vagrant_plugin 'vagrant-toplevel-cookbooks', '0.2.4'
 install_vagrant_plugin 'vagrant-lxc', '1.1.0'
 
