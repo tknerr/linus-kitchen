@@ -5,6 +5,7 @@
 Major update:
 
  * update to Ubuntu 16.04 basebox (see [PR #29](https://github.com/tknerr/linus-kitchen/pull/29))
+ * update to ChefDK 1.3.32 (see [PR #32](https://github.com/tknerr/linus-kitchen/pull/32))
 
 ## 0.1 (May 11, 2016)
 
