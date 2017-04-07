@@ -1,4 +1,7 @@
 
+# add the docker apt repository
+include_recipe 'chef-apt-docker'
+
 # install the docker-engine
 docker_installation_package 'default' do
   version '1.11.0'

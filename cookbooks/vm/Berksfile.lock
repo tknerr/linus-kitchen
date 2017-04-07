@@ -6,6 +6,7 @@ DEPENDENCIES
 GRAPH
   apt (6.0.1)
   bashd (0.3.0)
+  chef-apt-docker (1.1.1)
   chef-sugar (3.4.0)
   dmg (3.1.0)
   docker (2.15.2)
@@ -16,6 +17,7 @@ GRAPH
   vm (0.2.0)
     apt (= 6.0.1)
     bashd (= 0.3.0)
+    chef-apt-docker (= 1.1.1)
     chef-sugar (= 3.4.0)
     docker (= 2.15.2)
     vagrant (= 0.7.0)
