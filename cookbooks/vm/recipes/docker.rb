@@ -1,7 +1,4 @@
 
-# setup the apt repositories for docker
-include_recipe 'apt-docker'
-
 # install the docker-engine
 docker_installation_package 'default' do
   version '1.11.0'
