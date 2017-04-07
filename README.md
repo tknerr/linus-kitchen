@@ -3,7 +3,7 @@
 
 [![Circle CI](https://circleci.com/gh/tknerr/linus-kitchen/tree/master.svg?style=shield)](https://circleci.com/gh/tknerr/linus-kitchen/tree/master)
 
-An Ubuntu Desktop 14.04 based development box for Infrastructure-as-Code development with Vagrant, Chef & Co.
+An Ubuntu Desktop 16.04 based development box for Infrastructure-as-Code development with Vagrant, Chef & Co.
 
 ![Linus' Kitchen Screenshot](https://raw.github.com/tknerr/linus-kitchen/master/linus_kitchen.png)
 
