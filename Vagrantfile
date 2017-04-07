@@ -2,7 +2,7 @@
 Vagrant::configure("2") do |config|
 
   # configure the basebox
-  config.vm.box = "boxcutter/ubuntu1404-desktop"
+  config.vm.box = "boxcutter/ubuntu1604-desktop"
 
   # set the hostname
   config.vm.hostname = "linus-kitchen.local"
@@ -31,7 +31,7 @@ Vagrant::configure("2") do |config|
 
   # override the basebox when testing (an approximation) with docker
   config.vm.provider :docker do |docker, override|
-    override.vm.box = "tknerr/baseimage-ubuntu-14.04"
+    override.vm.box = "tknerr/baseimage-ubuntu-16.04"
   end
 
   # Install ChefDK and trigger the Chef run from within the VM
