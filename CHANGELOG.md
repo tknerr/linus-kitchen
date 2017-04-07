@@ -2,7 +2,9 @@
 
 ## 0.2 (unreleased)
 
- * ...
+Major update:
+
+ * update to Ubuntu 16.04 basebox (see [PR #29](https://github.com/tknerr/linus-kitchen/pull/29))
 
 ## 0.1 (May 11, 2016)
 
