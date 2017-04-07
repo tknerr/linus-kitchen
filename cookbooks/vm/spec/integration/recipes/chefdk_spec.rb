@@ -10,8 +10,8 @@ describe 'vm::chefdk' do
   end
 
   it 'makes sure that the shell is initialized for chef' do
-    chefdk_gem_home = '/home/vagrant/.chefdk/gem/ruby/2.1.0'
-    chefdk_gem_root = '/opt/chefdk/embedded/lib/ruby/gems/2.1.0'
+    chefdk_gem_home = '/home/vagrant/.chefdk/gem/ruby/2.3.0'
+    chefdk_gem_root = '/opt/chefdk/embedded/lib/ruby/gems/2.3.0'
     expect(devbox_user_command('echo $GEM_HOME').stdout.strip).to eq chefdk_gem_home
     expect(devbox_user_command('echo $GEM_ROOT').stdout.strip).to eq chefdk_gem_root
     expect(devbox_user_command('echo $GEM_PATH').stdout.strip).to eq "#{chefdk_gem_home}:#{chefdk_gem_root}"
@@ -25,6 +25,6 @@ describe 'vm::chefdk' do
     expect(devbox_user_command('bundle config --global retry').stdout).to contain '3'
   end
   it 'configures bundler to install gems to ~/.chefdk' do
-    expect(devbox_user_command('bundle config --global path').stdout).to contain '/home/vagrant/.chefdk/gem/ruby/2.1.0'
+    expect(devbox_user_command('bundle config --global path').stdout).to contain '/home/vagrant/.chefdk/gem/ruby/2.3.0'
   end
 end
