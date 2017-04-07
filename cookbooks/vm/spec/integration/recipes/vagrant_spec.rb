@@ -17,8 +17,8 @@ describe 'vm::vagrant' do
     it 'installs "vagrant-cachier" plugin v1.2.1' do
       expect(installed_plugins).to include 'vagrant-cachier (1.2.1)'
     end
-    it 'installs "vagrant-berkshelf" plugin v4.1.0' do
-      expect(installed_plugins).to include 'vagrant-berkshelf (4.1.0)'
+    it 'installs "vagrant-berkshelf" plugin v5.1.1' do
+      expect(installed_plugins).to include 'vagrant-berkshelf (5.1.1)'
     end
     it 'installs "vagrant-omnibus" plugin v1.4.1' do
       expect(installed_plugins).to include 'vagrant-omnibus (1.4.1)'
