@@ -5,8 +5,8 @@ describe 'vm::vagrant' do
   let(:vagrant_version) { devbox_user_command('vagrant -v').stdout.strip }
   let(:installed_plugins) { devbox_user_command('vagrant plugin list').stdout }
 
-  it 'installs vagrant 1.8.1' do
-    expect(vagrant_version).to match 'Vagrant 1.8.1'
+  it 'installs vagrant 1.9.3' do
+    expect(vagrant_version).to match 'Vagrant 1.9.3'
   end
 
   it 'configures "docker" as the $VAGRANT_DEFAULT_PROVIDER' do
