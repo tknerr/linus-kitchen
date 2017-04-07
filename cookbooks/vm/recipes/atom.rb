@@ -10,7 +10,7 @@ end
 # install atom
 remote_file "#{Chef::Config[:file_cache_path]}/atom-1.7.3-amd64.deb" do
   source 'https://github.com/atom/atom/releases/download/v1.7.3/atom-amd64.deb'
-  mode 0644
+  mode '0644'
 end
 bash 'install-atom' do
   code <<-EOF
