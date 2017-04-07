@@ -18,7 +18,7 @@ end
 #
 # vagrant-lxc setup
 #
-%w( lxc lxc-templates cgroup-lite redir bridge-utils ).each do |pkg|
+%w(lxc lxc-templates cgroup-lite redir bridge-utils).each do |pkg|
   package pkg
 end
 

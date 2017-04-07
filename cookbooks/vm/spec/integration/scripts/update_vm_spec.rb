@@ -9,7 +9,7 @@ describe 'update-vm.sh' do
     expect(command('git --version').exit_status).to eq 0
   end
 
-  it 'installs chefdk 0.13.21' do
-    expect(command('chef --version').stdout).to contain 'Chef Development Kit Version: 0.13.21'
+  it 'installs chefdk 1.2.22' do
+    expect(command('chef --version').stdout).to contain 'Chef Development Kit Version: 1.2.22'
   end
 end
