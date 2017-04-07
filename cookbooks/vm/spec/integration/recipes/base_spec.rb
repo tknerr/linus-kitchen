@@ -15,7 +15,4 @@ describe 'vm::base' do
     end
   end
 
-  it 'does not leave anything root-owned in ~/.chefdk' do
-    expect(file('/home/vagrant/.chefdk/gem')).to be_owned_by 'vagrant'
-  end
 end

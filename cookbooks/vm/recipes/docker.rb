@@ -1,6 +1,6 @@
 
-# setup the apt repositories for docker
-include_recipe 'apt-docker'
+# add the docker apt repository
+include_recipe 'chef-apt-docker'
 
 # install the docker-engine
 docker_installation_package 'default' do
