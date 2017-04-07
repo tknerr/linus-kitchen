@@ -7,7 +7,7 @@ Vagrant::configure("2") do |config|
   # set the hostname
   config.vm.hostname = "linus-kitchen.local"
 
-  # virtualbox customizations
+  # virtualbox specific customizations
   config.vm.provider :virtualbox do |vbox, override|
     vbox.customize ["modifyvm", :id,
       "--name", "Linus Kitchen",
@@ -16,6 +16,17 @@ Vagrant::configure("2") do |config|
     ]
     # yes we have a gui
     vbox.gui = true
+  end
+
+  # vmware specific customizations
+  [ :vmware_workstation, :vmware_fusion ].each do |vmware_provider|
+    config.vm.provider vmware_provider do |vmware, override|
+      vmware.vmx["displayname"] = "Linus Kitchen"
+      vmware.vmx["numvcpus"] = "4"
+      vmware.vmx["memsize"] = "4096"
+      vmware.vmx["mouse.vusb.startConnected"] = "FALSE"
+      vmware.vmx["vhv.enable"] = "TRUE"
+    end
   end
 
   # override the basebox when testing (an approximation) with docker
