@@ -10,6 +10,7 @@ Major update:
     * vagrant-omnibus to v1.5.0
     * vagrant-berkshelf to v5.1.1
     * vagrant-lxc to v1.2.3
+ * update to Docker 1.13.1 (see [PR #34](https://github.com/tknerr/linus-kitchen/pull/34))
 
 ## 0.1 (May 11, 2016)
 
