@@ -12,10 +12,10 @@ remote_file "#{Chef::Config[:file_cache_path]}/atom-1.7.3-amd64.deb" do
   source 'https://github.com/atom/atom/releases/download/v1.7.3/atom-amd64.deb'
   mode '0644'
 end
-bash 'install-atom' do
+bash 'install-atom-with-dependencies' do
   code <<-EOF
     dpkg -i #{Chef::Config[:file_cache_path]}/atom-1.7.3-amd64.deb
-    apt-get -f -y install #{extra_options}
+    apt-get -y --fix-broken install #{extra_options}
     EOF
   not_if "which atom && #{docker? ? 'xvfb-run' : 'DISPLAY=:0'} atom -v | grep -q '1.7.3'"
 end

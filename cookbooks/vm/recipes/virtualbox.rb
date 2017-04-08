@@ -8,7 +8,10 @@ remote_file "#{Chef::Config[:file_cache_path]}/#{vbox_deb_file}" do
   mode '0644'
 end
 
-dpkg_package vbox_deb_file do
-  source "#{Chef::Config[:file_cache_path]}/#{vbox_deb_file}"
-  action :install
+bash 'install-virtualbox-with-dependencies' do
+  code <<-EOF
+    dpkg -i #{Chef::Config[:file_cache_path]}/#{vbox_deb_file} || true
+    apt-get -y --fix-broken install
+    EOF
+  not_if "which vboxmanage && vboxmanage --version | grep -q '#{vbox_version}'"
 end
