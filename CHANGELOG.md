@@ -14,7 +14,7 @@ Updated tools:
 
 Newly installed tools:
 
- * installs VirtualBox 5.1.18 (see [PR #28](https://github.com/tknerr/linus-kitchen/pull/28))
+ * installs VirtualBox 5.1.18 and make it the default vagrant provider (see [PR #28](https://github.com/tknerr/linus-kitchen/pull/28))
 
 
 ## 0.1 (May 11, 2016)

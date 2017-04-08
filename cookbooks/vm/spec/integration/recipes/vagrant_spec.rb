@@ -9,8 +9,8 @@ describe 'vm::vagrant' do
     expect(vagrant_version).to match 'Vagrant 1.9.3'
   end
 
-  it 'configures "docker" as the $VAGRANT_DEFAULT_PROVIDER' do
-    expect(devbox_user_command('echo $VAGRANT_DEFAULT_PROVIDER').stdout.strip).to eq 'docker'
+  it 'configures "virtualbox" as the $VAGRANT_DEFAULT_PROVIDER' do
+    expect(devbox_user_command('echo $VAGRANT_DEFAULT_PROVIDER').stdout.strip).to eq 'virtualbox'
   end
 
   describe 'plugins' do
