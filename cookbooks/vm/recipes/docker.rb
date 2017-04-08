@@ -14,14 +14,14 @@ end
 if docker?
   # only install docker, don't try to start the deamon
   docker_installation_package 'default' do
-    version '1.11.0'
+    version '1.13.1'
     action :create
   end
 else
   # install docker and start the docker deamon
   docker_service 'default' do
     install_method 'package'
-    version '1.11.0'
+    version '1.13.1'
     action [:create, :start]
   end
 end

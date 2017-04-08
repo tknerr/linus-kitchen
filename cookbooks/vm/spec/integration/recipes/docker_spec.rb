@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe 'vm::docker' do
 
-  it 'installs docker 1.11' do
-    expect(devbox_user_command('docker -v').stdout).to match 'Docker version 1.11'
+  it 'installs docker 1.13.1' do
+    expect(devbox_user_command('docker -v').stdout).to match 'Docker version 1.13.1'
   end
 
   it 'adds the devbox user to the docker group' do
