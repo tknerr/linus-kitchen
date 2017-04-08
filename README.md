@@ -39,7 +39,7 @@ should see all tests passing:
 ==> default:
 ==> default: update-vm.sh
 ==> default:   installs git
-==> default:   installs chefdk 0.7.0
+==> default:   installs chefdk 1.3.32
 ==> default:
 ==> default: Finished in 24.44 seconds (files took 0.81272 seconds to load)
 ==> default: 33 examples, 0 failures
