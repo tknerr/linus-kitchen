@@ -6,7 +6,7 @@ describe 'vm::chefdk' do
     expect(devbox_user_command('whoami').stdout.strip).to eq 'vagrant'
     expect(devbox_user_command('echo $HOME').stdout.strip).to eq '/home/vagrant'
     expect(devbox_user_command('echo $SHELL').stdout.strip).to eq '/bin/bash'
-    expect(devbox_user_command('echo $VAGRANT_DEFAULT_PROVIDER').stdout.strip).to eq 'docker'
+    expect(devbox_user_command('echo $VAGRANT_DEFAULT_PROVIDER').stdout.strip).not_to be_empty
   end
 
   it 'makes sure that the shell is initialized for chef' do
