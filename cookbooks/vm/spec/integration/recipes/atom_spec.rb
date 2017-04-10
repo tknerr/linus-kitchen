@@ -14,8 +14,8 @@ describe 'vm::atom' do
     it 'installs "atom-beautify" plugin v0.29.18' do
       expect(installed_plugins).to contain 'atom-beautify@0.29.18'
     end
-    it 'installs "minimap" plugin v4.23.5' do
-      expect(installed_plugins).to contain 'minimap@4.23.5'
+    it 'installs "minimap" plugin v4.27.1' do
+      expect(installed_plugins).to contain 'minimap@4.27.1'
     end
     it 'installs "line-ending-converter" plugin v1.3.2' do
       expect(installed_plugins).to contain 'line-ending-converter@1.3.2'

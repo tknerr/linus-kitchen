@@ -26,7 +26,7 @@ end
 # install plugins
 plugins = {
   'atom-beautify' => '0.29.18',
-  'minimap' => '4.23.5',
+  'minimap' => '4.27.1',
   'line-ending-converter' => '1.3.2',
   'language-chef' => '0.9.0',
   'language-batchfile' => '0.4.0'
