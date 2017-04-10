@@ -3,8 +3,6 @@ atom_version = '1.15.0'
 atom_deb_file = "atom-v#{atom_version}-amd64.deb"
 
 if docker?
-  # we need libasound2 for starting atom in docker
-  package 'libasound2'
   # avoid /dev/fuse issues on circleci
   extra_options = '--no-install-recommends'
 end
