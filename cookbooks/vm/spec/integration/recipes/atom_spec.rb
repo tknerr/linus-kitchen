@@ -20,9 +20,6 @@ describe 'vm::atom' do
     it 'installs "language-chef" plugin v0.9.0' do
       expect(installed_plugins).to contain 'language-chef@0.9.0'
     end
-    it 'installs "language-batchfile" plugin v0.4.0' do
-      expect(installed_plugins).to contain 'language-batchfile@0.4.0'
-    end
   end
 
   it 'configures atom to have sublime tabs behaviour' do

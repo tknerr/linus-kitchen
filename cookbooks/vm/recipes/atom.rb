@@ -24,8 +24,7 @@ end
 plugins = {
   'atom-beautify' => '0.29.18',
   'minimap' => '4.27.1',
-  'language-chef' => '0.9.0',
-  'language-batchfile' => '0.4.0'
+  'language-chef' => '0.9.0'
 }
 plugins.each do |name, version|
   install_atom_plugin(name, version)
