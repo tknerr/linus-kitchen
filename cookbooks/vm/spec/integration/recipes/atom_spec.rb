@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'chef/sugar/docker'
 
 describe 'vm::atom' do
 
