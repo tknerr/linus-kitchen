@@ -12,7 +12,7 @@ install_vagrant_plugin 'vagrant-lxc', '1.2.3'
 
 bashd_entry 'set-vagrant-default-provider' do
   user devbox_user
-  content 'export VAGRANT_DEFAULT_PROVIDER=docker'
+  content "export VAGRANT_DEFAULT_PROVIDER=#{vmware? ? 'virtualbox' : 'docker'}"
 end
 
 #

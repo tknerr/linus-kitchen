@@ -2,7 +2,7 @@
 
 ## 0.2 (unreleased)
 
-Major update:
+Updated tools:
 
  * update to Ubuntu 16.04 basebox (see [PR #29](https://github.com/tknerr/linus-kitchen/pull/29))
  * update to ChefDK 1.3.32 (see [PR #32](https://github.com/tknerr/linus-kitchen/pull/32))
@@ -11,6 +11,11 @@ Major update:
     * vagrant-berkshelf to v5.1.1
     * vagrant-lxc to v1.2.3
  * update to Docker 1.13.1 (see [PR #34](https://github.com/tknerr/linus-kitchen/pull/34))
+
+Newly installed tools:
+
+ * installs VirtualBox 5.1.18 and make it the default vagrant provider (see [PR #28](https://github.com/tknerr/linus-kitchen/pull/28))
+
 
 ## 0.1 (May 11, 2016)
 

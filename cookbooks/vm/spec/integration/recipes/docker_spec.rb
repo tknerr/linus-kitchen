@@ -14,7 +14,7 @@ describe 'vm::docker' do
   # see also:
   # - https://blog.docker.com/2013/09/docker-can-now-run-within-docker/
   # - https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
-  unless Chef::Sugar::Docker.docker?(@node)
+  unless in_docker?
     it 'allows to run docker commands without sudo' do
       expect(devbox_user_command('sg docker -c "docker ps"').stdout).to contain 'CONTAINER ID'
     end

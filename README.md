@@ -60,6 +60,7 @@ These are the main tools included in Linus' Kitchen:
  * [Git](https://git-scm.org/)
  * [ChefDK](https://downloads.chef.io/chef-dk/)
  * [Vagrant](http://vagrantup.com/)
+ * [VirtualBox](https://www.virtualbox.org/)
  * [Docker](http://docker.io/)
  * [Atom Editor](http://terraform.io/)
 
@@ -68,7 +69,7 @@ Other tweaks worth mentioning:
  * Scripts in `~/.bash.d/*.sh` are sourced from `~/.bashrc`, pre-configured with the following:
   * set up `be` as an alias for `bundle exec`
   * run `chef shell-init bash` for initializing the ChefDK
-  * configure "docker" as the `$VAGRANT_DEFAULT_PROVIDER`
+  * configure "virtualbox" as the `$VAGRANT_DEFAULT_PROVIDER`
  * Bundler is configured for parallel downloading and retrying (see `~/.bundle/config`)
  * Customized Atom config, e.g. with SublimeText-like tab behaviour (see `~/.atom/config.cson`)
  * Customized `~/.vagrant.d/Vagrantfile` and `~/.kitchen/config.yml` for caching as much as possible
