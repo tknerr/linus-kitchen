@@ -3,6 +3,8 @@ atom_version = '1.15.0'
 atom_deb_file = "atom-v#{atom_version}-amd64.deb"
 
 if docker?
+  # we need libxss-dev for starting atom in docker
+  package 'libxss-dev'
   # avoid /dev/fuse issues on circleci
   extra_options = '--no-install-recommends'
 end
