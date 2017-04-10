@@ -3,8 +3,7 @@ atom_version = '1.15.0'
 atom_deb_file = "atom-v#{atom_version}-amd64.deb"
 
 if docker?
-  # we need xvfb + libasound2 for starting atom in docker
-  package 'xvfb'
+  # we need libasound2 for starting atom in docker
   package 'libasound2'
   # avoid /dev/fuse issues on circleci
   extra_options = '--no-install-recommends'
@@ -20,7 +19,7 @@ bash 'install-atom-with-dependencies' do
     dpkg -i #{Chef::Config[:file_cache_path]}/#{atom_deb_file}
     apt-get -y --fix-broken install #{extra_options}
     EOF
-  not_if "which atom && #{docker? ? 'xvfb-run' : 'DISPLAY=:0'} atom -v | grep -q '#{atom_version}'"
+  not_if "which atom && xvfb-run atom -v | grep -q '#{atom_version}'"
 end
 
 # install plugins

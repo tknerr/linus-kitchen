@@ -9,11 +9,7 @@ end
 
 # for runnig commands which expect an X environment
 def devbox_user_gui_command(cmd)
-  if in_docker?
-    devbox_user_command "xvfb-run #{cmd}"
-  else
-    devbox_user_command "DISPLAY=:0 #{cmd}"
-  end
+  devbox_user_command "xvfb-run #{cmd}"
 end
 
 # see https://github.com/sethvargo/chef-sugar/blob/v3.4.0/lib/chef/sugar/docker.rb#L31
