@@ -1,7 +1,5 @@
 
 if docker?
-  # we need xvfb for starting meld in docker
-  package 'xvfb'
   # avoid /dev/fuse issues on circleci
   extra_options = '--no-install-recommends'
 end

@@ -11,6 +11,12 @@ Updated tools:
     * vagrant-berkshelf to v5.1.1
     * vagrant-lxc to v1.2.3
  * update to Docker 1.13.1 (see [PR #34](https://github.com/tknerr/linus-kitchen/pull/34))
+ * update to Atom Editor v1.15.0 and plugins (see [PR #35](https://github.com/tknerr/linus-kitchen/pull/35)):
+    * atom-beautify to v0.29.18
+    * atom-minimap to v4.27.1
+    * removed: language-batchfile (not needed)
+    * removed: line-ending-converter (part of atom core)
+
 
 Newly installed tools:
 

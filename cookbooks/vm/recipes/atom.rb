@@ -1,32 +1,32 @@
 
+atom_version = '1.15.0'
+atom_deb_file = "atom-v#{atom_version}-amd64.deb"
+
 if docker?
-  # we need xvfb + libasound2 for starting atom in docker
-  package 'xvfb'
-  package 'libasound2'
+  # we need libxss-dev for starting atom in docker
+  package 'libxss-dev'
   # avoid /dev/fuse issues on circleci
   extra_options = '--no-install-recommends'
 end
 
 # install atom
-remote_file "#{Chef::Config[:file_cache_path]}/atom-1.7.3-amd64.deb" do
-  source 'https://github.com/atom/atom/releases/download/v1.7.3/atom-amd64.deb'
+remote_file "#{Chef::Config[:file_cache_path]}/#{atom_deb_file}" do
+  source "https://github.com/atom/atom/releases/download/v#{atom_version}/atom-amd64.deb"
   mode '0644'
 end
 bash 'install-atom-with-dependencies' do
   code <<-EOF
-    dpkg -i #{Chef::Config[:file_cache_path]}/atom-1.7.3-amd64.deb
+    dpkg -i #{Chef::Config[:file_cache_path]}/#{atom_deb_file}
     apt-get -y --fix-broken install #{extra_options}
     EOF
-  not_if "which atom && #{docker? ? 'xvfb-run' : 'DISPLAY=:0'} atom -v | grep -q '1.7.3'"
+  not_if "which atom && xvfb-run atom -v | grep -q '#{atom_version}'"
 end
 
 # install plugins
 plugins = {
-  'atom-beautify' => '0.29.7',
-  'minimap' => '4.23.5',
-  'line-ending-converter' => '1.3.2',
-  'language-chef' => '0.9.0',
-  'language-batchfile' => '0.4.0'
+  'atom-beautify' => '0.29.18',
+  'minimap' => '4.27.1',
+  'language-chef' => '0.9.0'
 }
 plugins.each do |name, version|
   install_atom_plugin(name, version)
