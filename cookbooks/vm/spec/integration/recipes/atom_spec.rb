@@ -17,9 +17,6 @@ describe 'vm::atom' do
     it 'installs "minimap" plugin v4.27.1' do
       expect(installed_plugins).to contain 'minimap@4.27.1'
     end
-    it 'installs "line-ending-converter" plugin v1.3.2' do
-      expect(installed_plugins).to contain 'line-ending-converter@1.3.2'
-    end
     it 'installs "language-chef" plugin v0.9.0' do
       expect(installed_plugins).to contain 'language-chef@0.9.0'
     end

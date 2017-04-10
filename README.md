@@ -82,7 +82,6 @@ Other tweaks worth mentioning:
  * Pre-installed Atom plugins:
    * [atom-beautify](https://atom.io/packages/atom-beautify) - code formatter / beautifier for various languages
    * [minimap](https://atom.io/packages/minimap) - a SublimeText like minimap
-   * [line-ending-converter](https://atom.io/packages/line-ending-converter) - show and convert between line ending styles
    * [language-chef](https://atom.io/packages/language-chef) - code snippets for Chef recipes
  * Symlinked [`update-vm.sh`](scripts/update-vm.sh) to `/usr/local/bin/update-vm` so it's in the `$PATH` and can be used for updating the VM from the inside (see below)
 
