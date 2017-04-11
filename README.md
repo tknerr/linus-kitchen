@@ -60,6 +60,7 @@ These are the main tools included in Linus' Kitchen:
  * [Git](https://git-scm.org/)
  * [ChefDK](https://downloads.chef.io/chef-dk/)
  * [Vagrant](http://vagrantup.com/)
+ * [Packer](http://packer.io/)
  * [VirtualBox](https://www.virtualbox.org/)
  * [Docker](http://docker.io/)
  * [Atom Editor](http://terraform.io/)
