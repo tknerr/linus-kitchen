@@ -22,6 +22,7 @@ Newly installed tools:
 
  * installs VirtualBox 5.1.18 and make it the default vagrant provider (see [PR #28](https://github.com/tknerr/linus-kitchen/pull/28))
  * installs Packer 1.0.0 (see [PR #36](https://github.com/tknerr/linus-kitchen/pull/36))
+ * installs the indicator-multiload applet for monitoring system resources (see [PR #37](https://github.com/tknerr/linus-kitchen/pull/37))
 
 
 ## 0.1 (May 11, 2016)
