@@ -15,4 +15,8 @@ describe 'vm::base' do
     end
   end
 
+  it 'installs the multiload indicator' do
+    expect(package('indicator-multiload')).to be_installed
+  end
+
 end
