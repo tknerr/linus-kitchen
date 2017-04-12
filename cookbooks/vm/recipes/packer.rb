@@ -1,10 +1,15 @@
 
-node.set['packer']['version'] = '1.0.0'
-node.set['packer']['checksum'] = 'ed697ace39f8bb7bf6ccd78e21b2075f53c0f23cdfb5276c380a053a7b906853'
+include_recipe 'ark'
 
-# XXX: need to explicitly repeat the computed attributes here, otherwise they will see stale values
-# see discussion here: http://lists.opscode.com/sympa/arc/chef/2015-06/msg00203.html
-node.set['packer']['url_base'] = "https://releases.hashicorp.com/packer/#{node['packer']['version']}"
-node.set['packer']['zipfile'] = "packer_#{node['packer']['version']}_#{node['os']}_#{node['packer']['arch']}.zip"
+packer_version = '1.0.0'
+packer_checksum = 'ed697ace39f8bb7bf6ccd78e21b2075f53c0f23cdfb5276c380a053a7b906853'
 
-include_recipe 'sbp_packer'
+ark 'packer' do
+  url "https://releases.hashicorp.com/packer/#{packer_version}/packer_#{packer_version}_linux_amd64.zip"
+  version packer_version
+  checksum packer_checksum
+  has_binaries ['packer']
+  append_env_path false
+  strip_components 0
+  action :install
+end
