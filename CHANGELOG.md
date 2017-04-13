@@ -17,13 +17,18 @@ Updated tools:
     * removed: language-batchfile (not needed)
     * removed: line-ending-converter (part of atom core)
 
-
 Newly installed tools:
 
  * installs VirtualBox 5.1.18 and make it the default vagrant provider (see [PR #28](https://github.com/tknerr/linus-kitchen/pull/28))
  * installs Packer 1.0.0 (see [PR #36](https://github.com/tknerr/linus-kitchen/pull/36))
  * installs the indicator-multiload applet for monitoring system resources (see [PR #37](https://github.com/tknerr/linus-kitchen/pull/37))
 
+Improvements:
+
+ * various minor improvements when provisioning via Vagrant (see [PR #39](https://github.com/tknerr/linus-kitchen/pull/39)):
+    * use all available CPU cores when starting the VM via vagrant
+    * force colored output when provisioning the VM without a tty
+    * adjust chef-zero log level when provisioning the VM without a tty
 
 ## 0.1 (May 11, 2016)
 
