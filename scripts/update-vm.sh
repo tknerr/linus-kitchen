@@ -104,7 +104,7 @@ verify_vm() {
 
   # run integration tests
   step "run integration tests"
-  rspec --require rspec_junit_formatter --format doc --color --format RspecJunitFormatter --out test/junit-report.xml --format html --out test/test-report.html
+  rspec --require rspec_junit_formatter --format doc --color --tty --format RspecJunitFormatter --out test/junit-report.xml --format html --out test/test-report.html
 }
 
 #
