@@ -16,6 +16,8 @@ else
   echo "$LOGIN_USER ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/$LOGIN_USER
 
   # set the new user as the default in the login screen and lock the current (vagrant user's) screen session
-  echo -e "[SeatDefaults]\nautologin-user=$LOGIN_USER" | sudo tee /etc/lightdm/lightdm.conf
-  XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0 dm-tool lock
+  if [[ $(which dm-tool) ]]; then
+    echo -e "[SeatDefaults]\nautologin-user=$LOGIN_USER" | sudo tee /etc/lightdm/lightdm.conf
+    XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0 dm-tool lock
+  fi
 fi
