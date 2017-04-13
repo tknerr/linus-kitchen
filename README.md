@@ -94,9 +94,10 @@ The update is done via Chef so it should be fully idempotent.
 
 You can run these commands from anywhere inside the VM:
 
- * `update-vm` - to apply the Chef recipes of the locally checked out linus-kitchen repo in `~/vm-setup`
- * `update-vm --pull` - same as above but update the repo before
- * `update-vm --verify-only` - don't update the VM, only run the Serverspec tests
+ * `update-vm` - to provision the VM (applies the Chef recipes from the local linus-kitchen repo at `~/vm-setup`)
+ * `update-vm --pull` - same as above, but pull the latest changes from the remote linus-kitchen repo before
+ * `update-vm --verify-only` - don't provision the VM, only run the Serverspec tests
+ * `update-vm --provision-only` - provision the VM, but don't run the Serverspec tests
 
 ## Acceptance Test
 

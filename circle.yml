@@ -13,8 +13,15 @@ dependencies:
     - wget https://releases.hashicorp.com/vagrant/1.9.3/vagrant_1.9.3_x86_64.deb
     - sudo dpkg -i vagrant_1.9.3_x86_64.deb
 
+compile:
+  pre:
+    - vagrant up --no-provision
+  override:
+    - UPDATE_VM_FLAGS=--provision-only vagrant provision
+
 test:
   override:
-    - vagrant up
+    - UPDATE_VM_FLAGS=--verify-only vagrant provision
+  post:
     - vagrant ssh -c 'cat ~/vm-setup/cookbooks/vm/test/junit-report.xml' > $CIRCLE_TEST_REPORTS/junit-report.xml
     - vagrant ssh -c 'cat ~/vm-setup/cookbooks/vm/test/test-report.html' > $CIRCLE_TEST_REPORTS/test-report.html

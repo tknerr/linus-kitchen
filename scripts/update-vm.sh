@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e -o pipefail
 
 CHEFDK_VERSION="1.3.32"
 TARGET_DIR="/tmp/vagrant-cache/wget"
@@ -121,5 +122,5 @@ else
   copy_repo_and_symlink_self
   [[ "$1" == "--pull" ]] && update_repo
   update_vm
-  verify_vm
+  [[ "$1" == "--provision-only" ]] || verify_vm
 fi
