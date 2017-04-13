@@ -1,8 +1,18 @@
 
-node.set['vagrant']['url'] = 'https://releases.hashicorp.com/vagrant/1.9.3/vagrant_1.9.3_x86_64.deb'
-node.set['vagrant']['checksum'] = 'faff6befacc7eed3978b4b71f0dbb9c135c01d8a4d13236bda2f9ed53482d2c4'
+vagrant_version = '1.9.3'
+vagrant_deb_file = "vagrant_#{vagrant_version}_x86_64.deb"
+vagrant_checksum = 'faff6befacc7eed3978b4b71f0dbb9c135c01d8a4d13236bda2f9ed53482d2c4'
 
-include_recipe 'vagrant'
+# download and install vagrant
+remote_file "#{Chef::Config[:file_cache_path]}/#{vagrant_deb_file}" do
+  source "https://releases.hashicorp.com/vagrant/#{vagrant_version}/#{vagrant_deb_file}"
+  checksum vagrant_checksum
+  notifies :install, 'dpkg_package[vagrant]', :immediately
+end
+dpkg_package 'vagrant' do
+  source "#{Chef::Config[:file_cache_path]}/#{vagrant_deb_file}"
+  version vagrant_version
+end
 
 install_vagrant_plugin 'vagrant-cachier', '1.2.1'
 install_vagrant_plugin 'vagrant-berkshelf', '5.1.1'
