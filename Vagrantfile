@@ -12,7 +12,7 @@ Vagrant::configure("2") do |config|
     vbox.customize ["modifyvm", :id,
       "--name", "Linus Kitchen",
       "--memory", 4096,
-      "--cpus", 4
+      "--cpus", Etc.nprocessors
     ]
     # yes we have a gui
     vbox.gui = true
@@ -22,7 +22,7 @@ Vagrant::configure("2") do |config|
   [ :vmware_workstation, :vmware_fusion ].each do |vmware_provider|
     config.vm.provider vmware_provider do |vmware, override|
       vmware.vmx["displayname"] = "Linus Kitchen"
-      vmware.vmx["numvcpus"] = "4"
+      vmware.vmx["numvcpus"] = "#{Etc.nprocessors}"
       vmware.vmx["memsize"] = "4096"
       vmware.vmx["mouse.vusb.startConnected"] = "FALSE"
       vmware.vmx["vhv.enable"] = "TRUE"
