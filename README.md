@@ -79,6 +79,7 @@ Other tweaks worth mentioning:
    * [vagrant-cachier](https://github.com/fgrehm/vagrant-cachier) - caches all kinds of packages you install in the vagrant VMs
    * [vagrant-berkshelf](https://github.com/berkshelf/vagrant-berkshelf) - berkshelf integration for vagrant
    * [vagrant-toplevel-cookbooks](https://github.com/tknerr/vagrant-toplevel-cookbooks) - support for one top-level cookbook per vagrant VM
+   * [vagrant-managed-servers](https://github.com/tknerr/vagrant-managed-servers) - Vagrant Provider for provisioning managed servers via SSH or WinRM
    * [vagrant-lxc](https://github.com/fgrehm/vagrant-lxc) - LXC provider for Vagrant
  * Pre-installed Atom plugins:
    * [atom-beautify](https://atom.io/packages/atom-beautify) - code formatter / beautifier for various languages

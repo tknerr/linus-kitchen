@@ -10,6 +10,7 @@ Updated tools:
     * vagrant-omnibus to v1.5.0
     * vagrant-berkshelf to v5.1.1
     * vagrant-lxc to v1.2.3
+    * vagrant-managed-servers v0.8.0 (new plugin, see [PR #43](https://github.com/tknerr/linus-kitchen/pull/43))
  * update to Docker 1.13.1 (see [PR #34](https://github.com/tknerr/linus-kitchen/pull/34))
  * update to Atom Editor v1.15.0 and plugins (see [PR #35](https://github.com/tknerr/linus-kitchen/pull/35)):
     * atom-beautify to v0.29.18
