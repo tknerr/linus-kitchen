@@ -4,11 +4,11 @@ vagrant_deb_file = "vagrant_#{vagrant_version}_x86_64.deb"
 vagrant_checksum = 'faff6befacc7eed3978b4b71f0dbb9c135c01d8a4d13236bda2f9ed53482d2c4'
 
 vagrant_plugins = {
-  'vagrant-cachier': '1.2.1',
-  'vagrant-berkshelf': '5.1.1',
-  'vagrant-omnibus': '1.5.0',
-  'vagrant-toplevel-cookbooks': '0.2.4',
-  'vagrant-lxc': '1.2.3'
+  'vagrant-cachier' => '1.2.1',
+  'vagrant-berkshelf' => '5.1.1',
+  'vagrant-omnibus' => '1.5.0',
+  'vagrant-toplevel-cookbooks' => '0.2.4',
+  'vagrant-lxc' => '1.2.3'
 }
 
 # download and install vagrant

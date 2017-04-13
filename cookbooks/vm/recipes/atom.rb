@@ -3,9 +3,9 @@ atom_version = '1.15.0'
 atom_deb_file = "atom-v#{atom_version}-amd64.deb"
 
 atom_plugins = {
-  'atom-beautify': '0.29.18',
-  'minimap': '4.27.1',
-  'language-chef': '0.9.0'
+  'atom-beautify' => '0.29.18',
+  'minimap' => '4.27.1',
+  'language-chef' => '0.9.0'
 }
 
 if docker?
