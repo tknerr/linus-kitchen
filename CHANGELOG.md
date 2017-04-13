@@ -29,6 +29,7 @@ Improvements:
     * use all available CPU cores when starting the VM via vagrant
     * force colored output when provisioning the VM without a tty
     * adjust chef-zero log level when provisioning the VM without a tty
+ * noticeably improve chef-zero startup time by disabling the vmware ohai plugin (see [PR #40](https://github.com/tknerr/linus-kitchen/pull/40))
 
 ## 0.1 (May 11, 2016)
 
