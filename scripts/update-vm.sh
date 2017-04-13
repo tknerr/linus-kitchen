@@ -86,6 +86,9 @@ update_vm() {
   rm -rf ./cookbooks
   berks vendor ./cookbooks
 
+  # disable vmware ohai plugin because it's so painfully slow
+  sudo find /opt/chefdk/embedded/ -wholename *ohai* -name vmware.rb -exec mv {} {}.disabled \;
+
   # converge the system via chef-zero
   step "trigger the chef-zero run"
   sudo chef-client --local-mode --format=doc --force-formatter --log_level=warn --color --runlist=vm
