@@ -32,6 +32,9 @@ describe 'vm::vagrant' do
     it 'installs "vagrant-toplevel-cookbooks" plugin v0.2.4' do
       expect(installed_plugins).to include 'vagrant-toplevel-cookbooks (0.2.4)'
     end
+    it 'installs "vagrant-managed-servers" plugin v0.8.0' do
+      expect(installed_plugins).to include 'vagrant-managed-servers (0.8.0)'
+    end
     it 'installs "vagrant-lxc" plugin v1.2.3' do
       expect(installed_plugins).to include 'vagrant-lxc (1.2.3)'
     end

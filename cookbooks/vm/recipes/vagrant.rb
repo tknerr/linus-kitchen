@@ -8,6 +8,7 @@ vagrant_plugins = {
   'vagrant-berkshelf' => '5.1.1',
   'vagrant-omnibus' => '1.5.0',
   'vagrant-toplevel-cookbooks' => '0.2.4',
+  'vagrant-managed-servers' => '0.8.0',
   'vagrant-lxc' => '1.2.3'
 }
 
