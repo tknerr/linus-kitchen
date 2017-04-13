@@ -58,6 +58,7 @@ copy_repo_and_symlink_self() {
     step "Copy /vagrant to $REPO_ROOT"
     sudo rm -rf $REPO_ROOT
     sudo cp -r /vagrant $REPO_ROOT
+    sudo chown -R $USER:$USER $REPO_ROOT
     step "Symlinking 'update-vm' script"
     sudo ln -sf $REPO_ROOT/scripts/update-vm.sh /usr/local/bin/update-vm
   else
