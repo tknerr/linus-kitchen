@@ -88,7 +88,7 @@ update_vm() {
 
   # converge the system via chef-zero
   step "trigger the chef-zero run"
-  sudo chef-client --local-mode --format=doc --force-formatter --color --runlist=vm
+  sudo chef-client --local-mode --format=doc --force-formatter --log_level=warn --color --runlist=vm
 }
 
 verify_vm() {
@@ -99,12 +99,12 @@ verify_vm() {
 
   # run lint checks
   step "run codestyle checks"
-  rubocop . --format progress --format offenses --display-cop-names
+  rubocop . --format progress --format offenses --display-cop-names --color
   foodcritic -f any .
 
   # run integration tests
   step "run integration tests"
-  rspec --require rspec_junit_formatter --format doc --color --format RspecJunitFormatter --out test/junit-report.xml --format html --out test/test-report.html
+  rspec --require rspec_junit_formatter --format doc --color --tty --format RspecJunitFormatter --out test/junit-report.xml --format html --out test/test-report.html
 }
 
 #
