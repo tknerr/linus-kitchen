@@ -6,7 +6,7 @@ Updated tools:
 
  * update to Ubuntu 16.04 basebox (see [PR #29](https://github.com/tknerr/linus-kitchen/pull/29))
  * update to ChefDK 1.3.32 (see [PR #32](https://github.com/tknerr/linus-kitchen/pull/32))
- * update Vagrant to v1.9.3 and plugins (see [PR #33](https://github.com/tknerr/linus-kitchen/pull/33)):
+ * update Vagrant to v1.9.3 and plugins (see [PR #33](https://github.com/tknerr/linus-kitchen/pull/33), [PR #41](https://github.com/tknerr/linus-kitchen/pull/41)):
     * vagrant-omnibus to v1.5.0
     * vagrant-berkshelf to v5.1.1
     * vagrant-lxc to v1.2.3
