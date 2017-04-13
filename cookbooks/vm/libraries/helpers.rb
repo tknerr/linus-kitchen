@@ -11,15 +11,11 @@ def devbox_user_env
 end
 
 def devbox_user
-  node['devbox']['user']
+  ENV['SUDO_USER']
 end
 
 def devbox_group
-  node['devbox']['group']
-end
-
-def devbox_password
-  node['devbox']['password']
+  devbox_user
 end
 
 def devbox_userhome
