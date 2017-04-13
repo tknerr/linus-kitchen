@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e -o pipefail
 
 CHEFDK_VERSION="1.3.32"
 TARGET_DIR="/tmp/vagrant-cache/wget"
