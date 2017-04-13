@@ -35,7 +35,9 @@ Vagrant::configure("2") do |config|
   end
 
   # Install ChefDK and trigger the Chef run from within the VM
-  config.vm.provision "shell", privileged: false, keep_color: true, inline: "/vagrant/scripts/update-vm.sh"
+  config.vm.provision "shell", privileged: false, keep_color: true, run: 'always', inline: <<-EOF
+    /vagrant/scripts/update-vm.sh #{ENV['UPDATE_VM_FLAGS']}
+    EOF
   # Logout any existing GUI session to force the use to re-login, which is required
   # for group or keyboard layout changes to take effect
   config.vm.provision "shell", privileged: true, inline: "pkill -KILL -u vagrant; true"
