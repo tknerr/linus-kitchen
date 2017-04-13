@@ -3,7 +3,7 @@ set -e -o pipefail
 
 CHEFDK_VERSION="1.3.32"
 TARGET_DIR="/tmp/vagrant-cache/wget"
-REPO_ROOT="/home/vagrant/vm-setup"
+REPO_ROOT="~/vm-setup"
 
 # to not run into https://github.com/berkshelf/berkshelf-api/issues/112
 echo "setting locale to en_US.UTF-8"
