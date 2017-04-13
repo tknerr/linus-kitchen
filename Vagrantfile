@@ -37,11 +37,11 @@ Vagrant::configure("2") do |config|
   end
 
   # create new login user and pre-provision the deploy key
-  config.vm.provision "shell", privileged: true, path: 'scripts/setup-user.sh', args: 'linus linus'
+  #config.vm.provision "shell", privileged: true, path: 'scripts/setup-user.sh', args: 'linus linus'
 
   # Install ChefDK and trigger the Chef run from within the VM
-  config.vm.provision "shell", privileged: true, keep_color: true, run: 'always', inline: <<-EOF
-    sudo -i -u linus /vagrant/scripts/update-vm.sh #{ENV['UPDATE_VM_FLAGS']}
+  config.vm.provision "shell", privileged: false, keep_color: true, run: 'always', inline: <<-EOF
+    /vagrant/scripts/update-vm.sh #{ENV['UPDATE_VM_FLAGS']}
     EOF
   # Logout any existing GUI session to force the use to re-login, which is required
   # for group or keyboard layout changes to take effect
