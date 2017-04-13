@@ -37,7 +37,7 @@ Vagrant::configure("2") do |config|
   end
 
   # create new login user and pre-provision the deploy key
-  config.vm.provision "shell", privileged: true, path: 'scripts/setup-user.sh linus linus'
+  config.vm.provision "shell", privileged: true, path: 'scripts/setup-user.sh', args: 'linus linus'
 
   # Install ChefDK and trigger the Chef run from within the VM
   config.vm.provision "shell", privileged: false, keep_color: true, run: 'always', inline: <<-EOF
