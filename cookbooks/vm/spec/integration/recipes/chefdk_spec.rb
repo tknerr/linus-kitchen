@@ -4,12 +4,12 @@ describe 'vm::chefdk' do
 
   it 'runs these tests under the vm user' do
     expect(devbox_user_command('whoami').stdout.strip).to eq vm_user
-    expect(devbox_user_command('echo $HOME').stdout.strip).to eq "/home/#{vm_user}"
+    expect(devbox_user_command('echo $HOME').stdout.strip).to eq vm_user_home
     expect(devbox_user_command('echo $SHELL').stdout.strip).to eq '/bin/bash'
   end
 
   it 'makes sure that the shell is initialized for chef' do
-    chefdk_gem_home = "/home/#{vm_user}/.chefdk/gem/ruby/2.3.0"
+    chefdk_gem_home = "#{vm_user_home}/.chefdk/gem/ruby/2.3.0"
     chefdk_gem_root = '/opt/chefdk/embedded/lib/ruby/gems/2.3.0'
     expect(devbox_user_command('echo $GEM_HOME').stdout.strip).to eq chefdk_gem_home
     expect(devbox_user_command('echo $GEM_ROOT').stdout.strip).to eq chefdk_gem_root

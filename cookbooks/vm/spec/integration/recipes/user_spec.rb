@@ -15,8 +15,8 @@ describe 'vm::user' do
   end
 
   it 'sets up the vm user\'s home directory' do
-    expect(file("/home/#{vm_user}")).to be_directory
-    expect(user(vm_user)).to have_home_directory "/home/#{vm_user}"
+    expect(file(vm_user_home)).to be_directory
+    expect(user(vm_user)).to have_home_directory vm_user_home
   end
 
   it 'sets up bash as the login shell for the vm user' do

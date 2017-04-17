@@ -7,6 +7,11 @@ def vm_user
   'linus'
 end
 
+# the configured vm user's home directory
+def vm_user_home
+  "home/#{vm_user}"
+end
+
 # run the given command in the same environment as if you were logged in to the VM
 def devbox_user_command(cmd)
   command("sudo -u linus bash -i -c '#{cmd}; exit $?'")
