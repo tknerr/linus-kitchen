@@ -11,7 +11,7 @@ describe 'vm::user' do
   end
 
   it 'adds the vm user to sudoers' do
-    expect(devbox_user_command('sudo echo lalala').stdout).to contain 'lalala'
+    expect(vm_user_command('sudo echo lalala').stdout).to contain 'lalala'
   end
 
   it 'sets up the vm user\'s home directory' do

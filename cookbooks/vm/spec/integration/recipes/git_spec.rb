@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe 'vm::git' do
 
-  let(:meld_version) { devbox_user_gui_command('meld --version') }
-  let(:git_version) { devbox_user_command('git --version') }
-  let(:git_config) { devbox_user_command('git config --global --list').stdout }
+  let(:meld_version) { vm_user_gui_command('meld --version') }
+  let(:git_version) { vm_user_command('git --version') }
+  let(:git_config) { vm_user_command('git config --global --list').stdout }
 
   it 'installs git' do
     expect(package('git')).to be_installed

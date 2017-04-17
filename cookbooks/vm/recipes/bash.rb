@@ -1,10 +1,10 @@
 
 #
-# setup .bash.d for the devbox user
+# setup .bash.d for the vm user
 #
-bashd devbox_user
+bashd vm_user
 
 bashd_entry 'shell-aliases' do
-  user devbox_user
+  user vm_user
   content 'alias be="bundle exec"'
 end

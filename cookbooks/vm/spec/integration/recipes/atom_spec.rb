@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe 'vm::atom' do
 
-  let(:atom_version) { devbox_user_gui_command('atom -v').stdout }
+  let(:atom_version) { vm_user_gui_command('atom -v').stdout }
   let(:atom_config) { file("#{vm_user_home}/.atom/config.cson") }
-  let(:installed_plugins) { devbox_user_command('apm list -i -b').stdout }
+  let(:installed_plugins) { vm_user_command('apm list -i -b').stdout }
 
   it 'installs atom 1.15.0' do
     expect(atom_version).to contain '1.15.0'

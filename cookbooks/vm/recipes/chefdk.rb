@@ -1,19 +1,19 @@
 
 bashd_entry 'chefdk-shell-init' do
-  user devbox_user
+  user vm_user
   content 'eval "$(chef shell-init bash)"'
 end
 
-directory "#{devbox_userhome}/.bundle" do
-  owner devbox_user
-  group devbox_group
+directory "#{vm_userhome}/.bundle" do
+  owner vm_user
+  group vm_group
   mode '0755'
   action :create
 end
 
-template "#{devbox_userhome}/.bundle/config" do
+template "#{vm_userhome}/.bundle/config" do
   source 'bundler_config.erb'
-  owner devbox_user
-  group devbox_group
+  owner vm_user
+  group vm_group
   mode '0644'
 end

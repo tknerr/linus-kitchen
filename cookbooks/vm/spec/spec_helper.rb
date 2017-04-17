@@ -13,13 +13,13 @@ def vm_user_home
 end
 
 # run the given command in the same environment as if you were logged in to the VM
-def devbox_user_command(cmd)
-  command("sudo -u linus bash -i -c '#{cmd}; exit $?'")
+def vm_user_command(cmd)
+  command("sudo -u #{vm_user} bash -i -c '#{cmd}; exit $?'")
 end
 
 # for runnig commands which expect an X environment
-def devbox_user_gui_command(cmd)
-  devbox_user_command "xvfb-run #{cmd}"
+def vm_user_gui_command(cmd)
+  vm_user_command "xvfb-run #{cmd}"
 end
 
 # see https://github.com/sethvargo/chef-sugar/blob/v3.4.0/lib/chef/sugar/docker.rb#L31
