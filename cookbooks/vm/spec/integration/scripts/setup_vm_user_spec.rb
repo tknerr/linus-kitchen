@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'setup-user.sh' do
+describe 'setup-vm-user.sh' do
 
   it 'creates the vm user' do
     expect(user(vm_user)).to exist
