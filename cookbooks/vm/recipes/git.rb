@@ -13,7 +13,7 @@ package 'git' do
   action :install
 end
 
-template "#{vm_userhome}/.gitconfig" do
+template "#{vm_user_home}/.gitconfig" do
   source 'git_config.erb'
   owner vm_user
   group vm_group

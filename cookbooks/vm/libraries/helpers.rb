@@ -5,7 +5,7 @@
 #
 def vm_user_env
   {
-    'HOME' => vm_userhome,
+    'HOME' => vm_user_home,
     'USER' => vm_user
   }
 end
@@ -18,7 +18,7 @@ def vm_group
   vm_user
 end
 
-def vm_userhome
+def vm_user_home
   "/home/#{vm_user}"
 end
 

@@ -49,18 +49,18 @@ end
 #
 # tricks to make vagrant-cachier kick in during test-kitchen runs
 #
-template "#{vm_userhome}/.vagrant.d/Vagrantfile" do
+template "#{vm_user_home}/.vagrant.d/Vagrantfile" do
   source 'Vagrantfile.erb'
   owner vm_user
   group vm_group
   mode '0644'
 end
-directory "#{vm_userhome}/.kitchen" do
+directory "#{vm_user_home}/.kitchen" do
   owner vm_user
   group vm_group
   mode '0755'
 end
-template "#{vm_userhome}/.kitchen/config.yml" do
+template "#{vm_user_home}/.kitchen/config.yml" do
   source 'kitchen_config.erb'
   owner vm_user
   group vm_group
