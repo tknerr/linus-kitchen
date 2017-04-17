@@ -25,6 +25,7 @@ $ vagrant up
 
 This will take a while, as it will do quite a few things inside the VM:
 
+ 1. Setup a new user account ('linus') under which the VM will be provisioned
  1. Download and install [Git](https://git-scm.org/) and [ChefDK](https://downloads.chef.io/chef-dk/)
  1. Copy the current directory into the VM (will be placed in `~/vm-setup`)
  1. Install cookbook dependencies via [Berkshelf](http://berkshelf.com/) to `~/vm-setup/cookbooks/vm/cookbooks`
@@ -48,8 +49,8 @@ should see all tests passing:
 
 You can now log in to the Desktop (the VM is started in GUI mode):
 
- * user: "vagrant"
- * password: "vagrant"
+ * user: "linus"
+ * password: "linus"
 
 Once logged in, you can open a terminal and you will have all of the tools available (see next section).
 
@@ -148,6 +149,13 @@ $ vagrant ssh -c "sudo umount /vagrant"
 Also, you may want to clean out the VM for a minimal export image:
 ```
 $ vagrant ssh -c "wget -qO- https://raw.githubusercontent.com/boxcutter/ubuntu/master/script/cleanup.sh | sudo bash"
+```
+
+Then remove the vagrant user account:
+
+```
+$ vagrant ssh -c "sudo pkill -KILL -u vagrant"
+$ vagrant ssh -c "sudo userdel -f -r vagrant"
 ```
 
 Finally, shutdown the VM, remove the sharedfolder, and export the VM as an .ova file:
