@@ -2,24 +2,24 @@ require 'spec_helper'
 
 describe 'vm::user' do
 
-  it 'creates the devbox user' do
-    expect(user('vagrant')).to exist
+  it 'creates the vm user' do
+    expect(user(vm_user)).to exist
   end
 
-  it 'adds the devbox user to the devbox group' do
-    expect(user('vagrant')).to belong_to_group 'vagrant'
+  it 'adds the vm user to a group of the same name' do
+    expect(user(vm_user)).to belong_to_group vm_user
   end
 
-  it 'adds the devbox user to sudoers' do
+  it 'adds the vm user to sudoers' do
     expect(devbox_user_command('sudo echo lalala').stdout).to contain 'lalala'
   end
 
-  it 'sets up the devbox user\'s home directory' do
-    expect(file('/home/vagrant')).to be_directory
-    expect(user('vagrant')).to have_home_directory '/home/vagrant'
+  it 'sets up the vm user\'s home directory' do
+    expect(file("/home/#{vm_user}")).to be_directory
+    expect(user(vm_user)).to have_home_directory "/home/#{vm_user}"
   end
 
-  it 'sets up bash as the login shell for the devbox user' do
-    expect(user('vagrant')).to have_login_shell '/bin/bash'
+  it 'sets up bash as the login shell for the vm user' do
+    expect(user(vm_user)).to have_login_shell '/bin/bash'
   end
 end

@@ -2,6 +2,11 @@ require 'serverspec'
 
 set :backend, :exec
 
+# the user account under which the VM is set up
+def vm_user
+  'linus'
+end
+
 # run the given command in the same environment as if you were logged in to the VM
 def devbox_user_command(cmd)
   command("sudo -u linus bash -i -c '#{cmd}; exit $?'")

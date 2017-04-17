@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'vm::atom' do
 
   let(:atom_version) { devbox_user_gui_command('atom -v').stdout }
-  let(:atom_config) { file('/home/vagrant/.atom/config.cson') }
+  let(:atom_config) { file("/home/#{vm_user}/.atom/config.cson") }
   let(:installed_plugins) { devbox_user_command('apm list -i -b').stdout }
 
   it 'installs atom 1.15.0' do
