@@ -9,7 +9,7 @@ end
 
 # the configured vm user's home directory
 def vm_user_home
-  "home/#{vm_user}"
+  "/home/#{vm_user}"
 end
 
 # run the given command in the same environment as if you were logged in to the VM
