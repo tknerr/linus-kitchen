@@ -71,6 +71,7 @@ Other tweaks worth mentioning:
   * set up `be` as an alias for `bundle exec`
   * run `chef shell-init bash` for initializing the ChefDK
   * configure "virtualbox" as the `$VAGRANT_DEFAULT_PROVIDER`
+  * configure a usable `PS1` shell prompt for Git
  * Bundler is configured for parallel downloading and retrying (see `~/.bundle/config`)
  * Customized Atom config, e.g. with SublimeText-like tab behaviour (see `~/.atom/config.cson`)
  * Customized `~/.vagrant.d/Vagrantfile` and `~/.kitchen/config.yml` for caching as much as possible
