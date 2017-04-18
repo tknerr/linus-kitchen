@@ -19,3 +19,8 @@ template "#{devbox_userhome}/.gitconfig" do
   group devbox_group
   mode '0644'
 end
+
+bashd_entry 'setup-git-ps1-prompt' do
+  user devbox_user
+  source 'git_ps1.erb'
+end
