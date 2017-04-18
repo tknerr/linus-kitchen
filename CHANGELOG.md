@@ -32,6 +32,7 @@ Improvements:
     * adjust chef-zero log level when provisioning the VM without a tty
  * noticeably improve chef-zero startup time by disabling the vmware ohai plugin (see [PR #40](https://github.com/tknerr/linus-kitchen/pull/40))
  * add `--provision-only` flag to the `update-vm.sh` script (see [PR #42](https://github.com/tknerr/linus-kitchen/pull/42))
+ * configure PS1 to provide a usable shell prompt for Git (see [PR #45](https://github.com/tknerr/linus-kitchen/pull/45))
 
 ## 0.1 (May 11, 2016)
 
