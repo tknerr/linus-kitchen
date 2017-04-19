@@ -36,9 +36,7 @@ check_chefdk() {
     mkdir -p $TARGET_DIR
     local CHEFDK_DEB=chefdk_$CHEFDK_VERSION-1_amd64.deb
     local CHEFDK_URL=https://packages.chef.io/files/current/chefdk/$CHEFDK_VERSION/ubuntu/16.04/$CHEFDK_DEB
-    if [ ! -f $TARGET_DIR/$CHEFDK_DEB ]; then
-      wget -O $TARGET_DIR/$CHEFDK_DEB $CHEFDK_URL
-    fi
+    [[ -f $TARGET_DIR/$CHEFDK_DEB ]] || wget -O $TARGET_DIR/$CHEFDK_DEB $CHEFDK_URL
     sudo dpkg -i $TARGET_DIR/$CHEFDK_DEB
   fi
 }
