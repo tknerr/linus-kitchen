@@ -2,6 +2,8 @@
 # add the docker apt repository
 include_recipe 'chef-apt-docker'
 
+docker_version = '17.04.0'
+
 # create the docker group and add the devbox_user to it
 group 'docker' do
   action :create
@@ -14,14 +16,14 @@ end
 if docker?
   # only install docker, don't try to start the deamon
   docker_installation_package 'default' do
-    version '1.13.1'
+    version docker_version
     action :create
   end
 else
   # install docker and start the docker deamon
   docker_service 'default' do
     install_method 'package'
-    version '1.13.1'
+    version docker_version
     action [:create, :start]
   end
 end
