@@ -34,8 +34,8 @@ atom_plugins.each do |name, version|
 end
 
 # config tweaks
-template "#{devbox_userhome}/.atom/config.cson" do
-  source 'atom_config.erb'
+file "#{devbox_userhome}/.atom/config.cson" do
+  path "atom_config.cson"
   owner devbox_user
   group devbox_user
   mode '0664'
