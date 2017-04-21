@@ -35,8 +35,8 @@ end
 
 # config tweaks
 ['config.cson', 'keymap.cson', 'init.coffee'].each do |config|
-  file "#{devbox_userhome}/.atom/#{config}" do
-    path "atom_#{config}"
+  cookbook_file "#{devbox_userhome}/.atom/#{config}" do
+    source "atom_#{config}"
     owner devbox_user
     group devbox_user
     mode '0664'
