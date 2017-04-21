@@ -2,7 +2,8 @@
 Vagrant::configure("2") do |config|
 
   # configure the basebox
-  config.vm.box = "boxcutter/ubuntu1604-desktop"
+  config.vm.box = "tknerr/ubuntu1604-desktop"
+  config.vm.box_version = "2.0.27.1"
 
   # set the hostname
   config.vm.hostname = "linus-kitchen.local"
