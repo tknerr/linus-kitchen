@@ -34,9 +34,11 @@ atom_plugins.each do |name, version|
 end
 
 # config tweaks
-file "#{devbox_userhome}/.atom/config.cson" do
-  path "atom_config.cson"
-  owner devbox_user
-  group devbox_user
-  mode '0664'
+['config.cson', 'keymap.cson', 'init.coffee'].each do |config|
+  file "#{devbox_userhome}/.atom/#{config}" do
+    path "atom_#{config}"
+    owner devbox_user
+    group devbox_user
+    mode '0664'
+  end
 end
