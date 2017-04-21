@@ -33,6 +33,7 @@ Vagrant::configure("2") do |config|
   # override the basebox when testing (an approximation) with docker
   config.vm.provider :docker do |docker, override|
     override.vm.box = "tknerr/baseimage-ubuntu-16.04"
+    override.vm.box_version = "1.0.0"
   end
 
   # Install ChefDK and trigger the Chef run from within the VM
