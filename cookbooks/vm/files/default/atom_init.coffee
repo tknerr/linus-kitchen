@@ -11,22 +11,12 @@
 #     console.log "Saved! #{editor.getPath()}"
 
 #
-# Make font size increase across in the tree view on the left
-# See keymap.cson for the key bindings
+# Make font size increase in the tree view along with the editor's font size
 #
 # see https://github.com/atom/atom/issues/11905#issuecomment-224865625
 #
-UIFontSize = atom.config.get('editor.fontSize')
-atom.commands.add 'atom-workspace',
-  'ui:increase-font-size': ->
-    UIFontSize += 1
-    document.documentElement.style.fontSize = UIFontSize + 'px'
-    @updateGlobalTextEditorStyleSheet()
-  'ui:decrease-font-size': ->
-    UIFontSize -= 1
-    document.documentElement.style.fontSize = UIFontSize + 'px'
-    @updateGlobalTextEditorStyleSheet()
-  'ui:reset-font-size': ->
-    UIFontSize = 12
-    document.documentElement.style.fontSize = UIFontSize + 'px'
-    @updateGlobalTextEditorStyleSheet()
+# initial value
+document.documentElement.style.fontSize = (atom.config.get('editor.fontSize') - 1) + 'px'
+# update value
+atom.config.onDidChange 'editor.fontSize', ({newValue}) ->
+  document.documentElement.style.fontSize = (newValue - 1) + 'px'

@@ -34,7 +34,7 @@ atom_plugins.each do |name, version|
 end
 
 # config tweaks
-['config.cson', 'keymap.cson', 'init.coffee'].each do |config|
+['config.cson', 'init.coffee'].each do |config|
   cookbook_file "#{devbox_userhome}/.atom/#{config}" do
     source "atom_#{config}"
     owner devbox_user
