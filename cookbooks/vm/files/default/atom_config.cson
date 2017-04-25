@@ -4,6 +4,7 @@
     fontSize: 14
     lineHeight: 1.4
   core:
+    telemetryConsent: "no"
   welcome:
     showOnStartup: false
   "exception-reporting":
