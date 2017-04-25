@@ -28,8 +28,4 @@ describe 'vm::atom' do
   it 'configures atom to show invisible characters' do
     expect(atom_config).to contain 'showInvisibles: true'
   end
-  it 'configures atom to use the "atom-dark" theme' do
-    expect(atom_config).to contain '"atom-dark-ui"'
-    expect(atom_config).to contain '"atom-dark-syntax"'
-  end
 end
