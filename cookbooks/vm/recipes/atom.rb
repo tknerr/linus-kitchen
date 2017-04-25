@@ -34,9 +34,11 @@ atom_plugins.each do |name, version|
 end
 
 # config tweaks
-template "#{devbox_userhome}/.atom/config.cson" do
-  source 'atom_config.erb'
-  owner devbox_user
-  group devbox_user
-  mode '0664'
+['config.cson', 'init.coffee'].each do |config|
+  cookbook_file "#{devbox_userhome}/.atom/#{config}" do
+    source "atom_#{config}"
+    owner devbox_user
+    group devbox_user
+    mode '0664'
+  end
 end

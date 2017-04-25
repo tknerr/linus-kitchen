@@ -33,6 +33,7 @@ Improvements:
  * noticeably improve chef-zero startup time by disabling the vmware ohai plugin (see [PR #40](https://github.com/tknerr/linus-kitchen/pull/40))
  * add `--provision-only` flag to the `update-vm.sh` script (see [PR #42](https://github.com/tknerr/linus-kitchen/pull/42), [PR #47](https://github.com/tknerr/linus-kitchen/pull/47))
  * configure PS1 to provide a usable shell prompt for Git (see [PR #45](https://github.com/tknerr/linus-kitchen/pull/45))
+ * tweak Atom to scale the tree view's font size along with the editor (see [PR #49](https://github.com/tknerr/linus-kitchen/pull/49))
 
 ## 0.1 (May 11, 2016)
 
