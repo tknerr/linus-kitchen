@@ -6,6 +6,8 @@
   core:
   welcome:
     showOnStartup: false
+  "exception-reporting":
+    userId: "baa1187a-46b0-c80f-25ed-d115896a0f78"
   tabs:
     showIcons: true
     usePreviewTabs: true
