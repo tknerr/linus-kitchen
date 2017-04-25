@@ -4,10 +4,6 @@
     fontSize: 14
     lineHeight: 1.4
   core:
-    themes: [
-      "atom-dark-ui"
-      "atom-dark-syntax"
-    ]
   welcome:
     showOnStartup: false
   tabs:
