@@ -55,7 +55,7 @@ Other tweaks worth mentioning:
 
 The latest version of the Linus Kitchen can be downloaded as a VM image from here:
 
- * ...
+ * https://github.com/tknerr/linus-kitchen/releases
 
 After downloading the .ova file you can import it into VMWare Fusion / Workstation Player via `File -> Import...`.
 Once imported, you can simply start the VM and log in:
