@@ -11,6 +11,8 @@ Yes, it is being set up with Vagrant and Chef, so it's a bit meta... It is also 
 
 ## What's included?
 
+### Main tools
+
 These are the main tools included in Linus' Kitchen:
 
  * [Git](https://git-scm.org/)
@@ -20,6 +22,8 @@ These are the main tools included in Linus' Kitchen:
  * [VirtualBox](https://www.virtualbox.org/)
  * [Docker](http://docker.io/)
  * [Atom Editor](http://atom.io/)
+
+### Tweaks and Plugins
 
 Other tweaks worth mentioning:
 
