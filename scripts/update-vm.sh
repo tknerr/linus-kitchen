@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e -o pipefail
 
-CHEFDK_VERSION="1.3.32"
-TARGET_DIR="/tmp/vagrant-cache/wget"
-REPO_ROOT="/home/vagrant/vm-setup"
+CHEFDK_VERSION=1.3.32
+TARGET_DIR=/tmp/vagrant-cache/wget
+REPO_ROOT=~/vm-setup
 
 # to not run into https://github.com/berkshelf/berkshelf-api/issues/112
 echo "setting locale to en_US.UTF-8"
@@ -57,7 +57,8 @@ copy_repo_and_symlink_self() {
   if mountpoint -q /vagrant; then
     step "Copy /vagrant to $REPO_ROOT"
     sudo rm -rf $REPO_ROOT
-    cp -r /vagrant $REPO_ROOT
+    sudo cp -r /vagrant $REPO_ROOT
+    sudo chown -R $USER:$USER $REPO_ROOT
     step "Symlinking 'update-vm' script"
     sudo ln -sf $REPO_ROOT/scripts/update-vm.sh /usr/local/bin/update-vm
   else

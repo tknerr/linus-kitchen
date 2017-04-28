@@ -4,10 +4,10 @@ include_recipe 'chef-apt-docker'
 
 docker_version = '17.04.0'
 
-# create the docker group and add the devbox_user to it
+# create the docker group and add the vm_user to it
 group 'docker' do
   action :create
-  members devbox_user
+  members vm_user
   append true
 end
 

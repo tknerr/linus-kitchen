@@ -36,13 +36,13 @@ Vagrant::configure("2") do |config|
     override.vm.box_version = "1.0.0"
   end
 
+  # create new login user and pre-provision the deploy key
+  config.vm.provision "shell", privileged: true, path: 'scripts/setup-vm-user.sh', args: 'user user'
+
   # Install ChefDK and trigger the Chef run from within the VM
-  config.vm.provision "shell", privileged: false, keep_color: true, run: 'always', inline: <<-EOF
-    /vagrant/scripts/update-vm.sh #{ENV['UPDATE_VM_FLAGS']}
+  config.vm.provision "shell", privileged: true, keep_color: true, run: 'always', inline: <<-EOF
+    sudo -i -u user /vagrant/scripts/update-vm.sh #{ENV['UPDATE_VM_FLAGS']}
     EOF
-  # Logout any existing GUI session to force the use to re-login, which is required
-  # for group or keyboard layout changes to take effect
-  config.vm.provision "shell", privileged: true, inline: "pkill -KILL -u vagrant; true"
 
   # Ensure we cache as much as possible
   if Vagrant.has_plugin?("vagrant-cachier")

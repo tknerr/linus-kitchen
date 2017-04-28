@@ -30,7 +30,7 @@ end
 
 # set default provider
 bashd_entry 'set-vagrant-default-provider' do
-  user devbox_user
+  user vm_user
   content "export VAGRANT_DEFAULT_PROVIDER=#{vmware? ? 'virtualbox' : 'docker'}"
 end
 
@@ -41,7 +41,7 @@ end
   package pkg
 end
 bash 'add vagrant-lxc sudoers permissions' do
-  environment devbox_user_env
+  environment vm_user_env
   code 'vagrant lxc sudoers'
   not_if { ::File.exist? '/etc/sudoers.d/vagrant-lxc' }
 end
@@ -49,20 +49,20 @@ end
 #
 # tricks to make vagrant-cachier kick in during test-kitchen runs
 #
-template "#{devbox_userhome}/.vagrant.d/Vagrantfile" do
+template "#{vm_user_home}/.vagrant.d/Vagrantfile" do
   source 'Vagrantfile.erb'
-  owner devbox_user
-  group devbox_group
+  owner vm_user
+  group vm_group
   mode '0644'
 end
-directory "#{devbox_userhome}/.kitchen" do
-  owner devbox_user
-  group devbox_group
+directory "#{vm_user_home}/.kitchen" do
+  owner vm_user
+  group vm_group
   mode '0755'
 end
-template "#{devbox_userhome}/.kitchen/config.yml" do
+template "#{vm_user_home}/.kitchen/config.yml" do
   source 'kitchen_config.erb'
-  owner devbox_user
-  group devbox_group
+  owner vm_user
+  group vm_group
   mode '0644'
 end

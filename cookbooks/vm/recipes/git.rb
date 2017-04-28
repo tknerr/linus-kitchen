@@ -13,14 +13,14 @@ package 'git' do
   action :install
 end
 
-template "#{devbox_userhome}/.gitconfig" do
+template "#{vm_user_home}/.gitconfig" do
   source 'git_config.erb'
-  owner devbox_user
-  group devbox_group
+  owner vm_user
+  group vm_group
   mode '0644'
 end
 
 bashd_entry 'setup-git-ps1-prompt' do
-  user devbox_user
+  user vm_user
   source 'git_ps1.erb'
 end

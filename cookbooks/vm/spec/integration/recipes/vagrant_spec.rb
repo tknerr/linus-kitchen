@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe 'vm::vagrant' do
 
-  let(:vagrant_version) { devbox_user_command('vagrant -v').stdout.strip }
-  let(:installed_plugins) { devbox_user_command('vagrant plugin list').stdout }
+  let(:vagrant_version) { vm_user_command('vagrant -v').stdout.strip }
+  let(:installed_plugins) { vm_user_command('vagrant plugin list').stdout }
 
   it 'installs vagrant 1.9.3' do
     expect(vagrant_version).to match 'Vagrant 1.9.3'
@@ -11,11 +11,11 @@ describe 'vm::vagrant' do
 
   if in_vmware?
     it 'configures "virtualbox" as the $VAGRANT_DEFAULT_PROVIDER on VMware platforms' do
-      expect(devbox_user_command('echo $VAGRANT_DEFAULT_PROVIDER').stdout.strip).to eq 'virtualbox'
+      expect(vm_user_command('echo $VAGRANT_DEFAULT_PROVIDER').stdout.strip).to eq 'virtualbox'
     end
   else
     it 'configures "docker" as the $VAGRANT_DEFAULT_PROVIDER on non-VMware platforms' do
-      expect(devbox_user_command('echo $VAGRANT_DEFAULT_PROVIDER').stdout.strip).to eq 'docker'
+      expect(vm_user_command('echo $VAGRANT_DEFAULT_PROVIDER').stdout.strip).to eq 'docker'
     end
   end
 

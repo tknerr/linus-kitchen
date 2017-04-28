@@ -1,10 +1,10 @@
 
 # TODO
  
- * add update script or ("devbox" sub) for updating the box from within
+ * add update script or ("vm" sub) for updating the box from within
  * exract cacert stuff into its own recipe and set env var
  * add `be` alias for `bundle exec`
- * log in as devbox user - not vagrant (both for vagrant ssh and desktop)
+ * log in as vm user - not vagrant (both for vagrant ssh and desktop)
  * set german keyboard layout
  * real integration tests
  * dotfiles (git, etc)

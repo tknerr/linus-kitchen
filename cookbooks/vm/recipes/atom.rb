@@ -35,10 +35,10 @@ end
 
 # config tweaks
 ['config.cson', 'init.coffee'].each do |config|
-  cookbook_file "#{devbox_userhome}/.atom/#{config}" do
+  cookbook_file "#{vm_user_home}/.atom/#{config}" do
     source "atom_#{config}"
-    owner devbox_user
-    group devbox_user
+    owner vm_user
+    group vm_user
     mode '0664'
   end
 end

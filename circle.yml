@@ -23,5 +23,5 @@ test:
   override:
     - UPDATE_VM_FLAGS=--verify-only vagrant provision
   post:
-    - vagrant ssh -c 'cat ~/vm-setup/cookbooks/vm/test/junit-report.xml' > $CIRCLE_TEST_REPORTS/junit-report.xml
-    - vagrant ssh -c 'cat ~/vm-setup/cookbooks/vm/test/test-report.html' > $CIRCLE_TEST_REPORTS/test-report.html
+    - vagrant ssh -c 'cat /home/user/vm-setup/cookbooks/vm/test/junit-report.xml' > $CIRCLE_TEST_REPORTS/junit-report.xml
+    - vagrant ssh -c 'cat /home/user/vm-setup/cookbooks/vm/test/test-report.html' > $CIRCLE_TEST_REPORTS/test-report.html
