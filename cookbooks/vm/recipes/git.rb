@@ -18,6 +18,7 @@ template "#{vm_user_home}/.gitconfig" do
   owner vm_user
   group vm_group
   mode '0644'
+  action :create_if_missing
 end
 
 bashd_entry 'setup-git-ps1-prompt' do
