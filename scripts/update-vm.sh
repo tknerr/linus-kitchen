@@ -94,7 +94,7 @@ update_vm() {
 
   # converge the system via chef-zero
   step "trigger the chef-zero run"
-  sudo chef-client --local-mode --format=doc --force-formatter --log_level=warn --color --runlist=vm
+  sudo -H chef-client --local-mode --format=doc --force-formatter --log_level=warn --color --runlist=vm
 }
 
 verify_vm() {
