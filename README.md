@@ -25,7 +25,7 @@ $ vagrant up
 
 This will take a while, as it will do quite a few things inside the VM:
 
- 1. Setup a new user account ('linus') under which the VM will be provisioned
+ 1. Setup a new user account ('user') under which the VM will be provisioned
  1. Download and install [Git](https://git-scm.org/) and [ChefDK](https://downloads.chef.io/chef-dk/)
  1. Copy the current directory into the VM (will be placed in `~/vm-setup`)
  1. Install cookbook dependencies via [Berkshelf](http://berkshelf.com/) to `~/vm-setup/cookbooks/vm/cookbooks`
@@ -49,8 +49,8 @@ should see all tests passing:
 
 You can now log in to the Desktop (the VM is started in GUI mode):
 
- * user: "linus"
- * password: "linus"
+ * user: "user"
+ * password: "user"
 
 Once logged in, you can open a terminal and you will have all of the tools available (see next section).
 

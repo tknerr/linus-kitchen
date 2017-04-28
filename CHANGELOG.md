@@ -37,7 +37,7 @@ Improvements:
 
 Breaking changes:
 
- * the VM is now provisioned under a dedicated user account 'linus', and thus the 'vagrant' user account can now be removed before packaging the box (see [PR #44](https://github.com/tknerr/linus-kitchen/pull/44))
+ * the VM is now provisioned under a dedicated user account 'user', and thus the 'vagrant' user account can now be removed before packaging the box (see [PR #44](https://github.com/tknerr/linus-kitchen/pull/44))
 
 ## 0.1 (May 11, 2016)
 

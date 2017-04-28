@@ -24,6 +24,6 @@ describe 'vm::chefdk' do
     expect(vm_user_command('bundle config --global retry').stdout).to contain '3'
   end
   it 'configures bundler to install gems to ~/.chefdk' do
-    expect(vm_user_command('bundle config --global path').stdout).to contain '/home/linus/.chefdk/gem/ruby/2.3.0'
+    expect(vm_user_command('bundle config --global path').stdout).to contain "#{vm_user_home}/.chefdk/gem/ruby/2.3.0"
   end
 end

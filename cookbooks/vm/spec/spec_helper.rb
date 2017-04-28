@@ -4,7 +4,7 @@ set :backend, :exec
 
 # the user account under which the VM is set up
 def vm_user
-  'linus'
+  'user'
 end
 
 # the configured vm user's home directory
