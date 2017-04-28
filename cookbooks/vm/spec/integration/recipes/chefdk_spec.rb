@@ -26,4 +26,8 @@ describe 'vm::chefdk' do
   it 'configures bundler to install gems to ~/.chefdk' do
     expect(vm_user_command('bundle config --global path').stdout).to contain "#{vm_user_home}/.chefdk/gem/ruby/2.3.0"
   end
+
+  it 'does not leave any root owned files under the user\'s home directory' do
+    expect(vm_user_command("find #{vm_user_home} -type d -maxdepth 1 -user root").stdout).to be_empty
+  end
 end
