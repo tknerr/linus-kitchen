@@ -13,7 +13,7 @@ Yes, it is being set up with Vagrant and Chef, so it's a bit meta... It is also 
 
 ### Main tools
 
-These are the main tools included in Linus' Kitchen:
+These are the main tools included in Linus' Kitchen (see CHANGELOG for the specific versions):
 
  * [Git](https://git-scm.org/)
  * [ChefDK](https://downloads.chef.io/chef-dk/)
@@ -96,7 +96,7 @@ sudo dpkg-reconfigure locales
 
 You need [VMware Workstation Pro](https://www.vmware.com/products/workstation.html) / [VMware Fusion Pro](https://www.vmware.com/products/workstation.html) and [Vagrant](http://www.vagrantup.com/) with the [vagrant-vmware-plugin](https://www.vagrantup.com/vmware/) installed.
 
-If you don't mind about running 64-bit VirtualBox VMs inside Linus Kitchen, you only need [VirtualBox](http://virtualbox.org/wiki/Downloads) and [Vagrant](http://www.vagrantup.com/) installed (VirtualBox only supports nested 32-bit guests).
+If you don't mind about running 64-bit VirtualBox VMs inside Linus Kitchen, you only even need [VirtualBox](http://virtualbox.org/wiki/Downloads) and [Vagrant](http://www.vagrantup.com/) installed (note that VirtualBox only supports nested 32-bit guests).
 
 All other requirements, along with ChefDK and Git will be installed *inside the Vagrant VM* during provisioning, i.e. you don't need them installed on your host machine.
 
