@@ -34,7 +34,8 @@ Improvements:
  * add `--provision-only` flag to the `update-vm.sh` script (see [PR #42](https://github.com/tknerr/linus-kitchen/pull/42), [PR #47](https://github.com/tknerr/linus-kitchen/pull/47))
  * configure PS1 to provide a usable shell prompt for Git (see [PR #45](https://github.com/tknerr/linus-kitchen/pull/45))
  * tweak Atom to scale the tree view's font size along with the editor (see [PR #49](https://github.com/tknerr/linus-kitchen/pull/49))
- * restructure the README to better differentiate between Usage and Development (see [PR #50](https://github.com/tknerr/linus-kitchen/pull/50)) 
+ * restructure the README to better differentiate between Usage and Development (see [PR #50](https://github.com/tknerr/linus-kitchen/pull/50))
+ * added a `LICENSE` file to provide the sources under MIT license (see [PR #51](https://github.com/tknerr/linus-kitchen/pull/51))
 
 Breaking changes:
 
