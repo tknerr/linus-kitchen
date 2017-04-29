@@ -36,6 +36,7 @@ Improvements:
  * tweak Atom to scale the tree view's font size along with the editor (see [PR #49](https://github.com/tknerr/linus-kitchen/pull/49))
  * restructure the README to better differentiate between Usage and Development (see [PR #50](https://github.com/tknerr/linus-kitchen/pull/50))
  * added a `LICENSE` file to provide the sources under MIT license (see [PR #51](https://github.com/tknerr/linus-kitchen/pull/51))
+ * cleanup: renove outdated workarounds, TODOs and rubocop linting (see [PR #54](https://github.com/tknerr/linus-kitchen/pull/54))
 
 Breaking changes:
 
