@@ -26,7 +26,7 @@ end
 # reopen the Chef::Recipe class for being able to use it like any other resource
 #
 class Chef
-  class Recipe # rubocop:disable Style/Documentation
+  class Recipe
     #
     # workaround until the `vagrant_plugin` provider of the `vagrant` cookbook
     # supports passing the VAGRANT_HOME environment

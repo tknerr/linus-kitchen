@@ -5,12 +5,6 @@ CHEFDK_VERSION=1.3.32
 TARGET_DIR=/tmp/vagrant-cache/wget
 REPO_ROOT=~/vm-setup
 
-# to not run into https://github.com/berkshelf/berkshelf-api/issues/112
-echo "setting locale to en_US.UTF-8"
-export LANG="en_US.UTF-8"
-export LANGUAGE="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
-
 big_step() {
   echo ""
   echo "====================================="
@@ -105,7 +99,6 @@ verify_vm() {
 
   # run lint checks
   step "run codestyle checks"
-  rubocop . --format progress --format offenses --display-cop-names --color
   foodcritic -f any .
 
   # run integration tests
