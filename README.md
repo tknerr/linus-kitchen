@@ -124,7 +124,7 @@ should see all tests passing:
 ==> default:
 ==> default: update-vm.sh
 ==> default:   installs git
-==> default:   installs chefdk 1.3.32
+==> default:   installs chefdk 1.3.40
 ==> default:
 ==> default: Finished in 26.85 seconds (files took 1.08 seconds to load)
 ==> default: 48 examples, 0 failures

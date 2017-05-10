@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e -o pipefail
 
-CHEFDK_VERSION=1.3.32
+CHEFDK_VERSION=1.3.40
 DOWNLOAD_DIR=/tmp/vagrant-cache/wget
 REPO_ROOT=~/vm-setup
 CMD_LINE_FLAG=$1
@@ -26,8 +26,8 @@ setup_chefdk() {
     step "Downloading and installing ChefDK $CHEFDK_VERSION"
     mkdir -p $DOWNLOAD_DIR
     local CHEFDK_DEB=chefdk_$CHEFDK_VERSION-1_amd64.deb
-    local CHEFDK_URL=https://packages.chef.io/files/current/chefdk/$CHEFDK_VERSION/ubuntu/16.04/$CHEFDK_DEB
-    [[ -f $DOWNLOAD_DIR/$CHEFDK_DEB ]] || wget --no-verbose -O $DOWNLOAD_DIR/$CHEFDK_DEB $CHEFDK_URL
+    local CHEFDK_URL=https://packages.chef.io/files/stable/chefdk/$CHEFDK_VERSION/ubuntu/16.04/$CHEFDK_DEB
+    [[ -f $DOWNLOAD_DIR/$CHEFDK_DEB ]] || sudo wget --no-verbose -O $DOWNLOAD_DIR/$CHEFDK_DEB $CHEFDK_URL
     sudo dpkg -i $DOWNLOAD_DIR/$CHEFDK_DEB
   fi
   # initialize the shell, adding ChefDK binaries to the PATH
