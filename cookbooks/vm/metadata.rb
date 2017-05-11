@@ -8,6 +8,8 @@ version '0.2.0'
 issues_url 'https://github.com/tknerr/linus-kitchen/issues'
 source_url 'https://github.com/tknerr/linus-kitchen'
 
+chef_version '~> 12'
+
 supports 'ubuntu'
 
 depends 'apt', '6.0.1'

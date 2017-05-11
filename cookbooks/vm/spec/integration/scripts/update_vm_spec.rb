@@ -1,15 +1,12 @@
 require 'spec_helper'
 
 describe 'update-vm.sh' do
-  # Serverspec examples can be found at
-  # http://serverspec.org/resource_types.html
 
-  it 'installs git' do
-    expect(package('git')).to be_installed
-    expect(command('git --version').exit_status).to eq 0
+  it 'installs chefdk 1.3.40' do
+    expect(file('/opt/chefdk/version-manifest.txt')).to contain 'chefdk 1.3.40'
   end
 
-  it 'installs chefdk 1.3.32' do
-    expect(command('chef --version').stdout).to contain 'Chef Development Kit Version: 1.3.32'
+  it 'symlinks the update-vm script to /usr/local/bin/' do
+    expect(file('/usr/local/bin/update-vm')).to be_linked_to "#{vm_user_home}/vm-setup/scripts/update-vm.sh"
   end
 end

@@ -98,7 +98,7 @@ You need [VMware Workstation Pro](https://www.vmware.com/products/workstation.ht
 
 If you don't mind about running 64-bit VirtualBox VMs inside Linus Kitchen, you only even need [VirtualBox](http://virtualbox.org/wiki/Downloads) and [Vagrant](http://www.vagrantup.com/) installed (note that VirtualBox only supports nested 32-bit guests).
 
-All other requirements, along with ChefDK and Git will be installed *inside the Vagrant VM* during provisioning, i.e. you don't need them installed on your host machine.
+All other requirements, including ChefDK will be installed *inside the Vagrant VM* during provisioning, i.e. you don't need them installed on your host machine.
 
 ### Basic Development Workflow
 
@@ -110,7 +110,7 @@ $ vagrant up
 This will take a while, as it will do quite a few things inside the VM:
 
  1. Setup a new user account ('user') under which the VM will be provisioned
- 1. Download and install [Git](https://git-scm.org/) and [ChefDK](https://downloads.chef.io/chef-dk/)
+ 1. Download and install [ChefDK](https://downloads.chef.io/chef-dk/)
  1. Copy the current directory into the VM (will be placed in `~/vm-setup`)
  1. Install cookbook dependencies via [Berkshelf](http://berkshelf.com/) to `~/vm-setup/cookbooks/vm/cookbooks`
  1. Trigger a [Chef-Zero](https://www.chef.io/blog/2013/10/31/chef-client-z-from-zero-to-chef-in-8-5-seconds/) run to apply the `~/vm-setup/cookbooks/vm/recipes` to the VM (see "What's included?")
@@ -123,8 +123,8 @@ should see all tests passing:
 ...
 ==> default:
 ==> default: update-vm.sh
-==> default:   installs git
-==> default:   installs chefdk 1.3.32
+==> default:   installs chefdk 1.3.40
+==> default:   symlinks the update-vm script to /usr/local/bin/
 ==> default:
 ==> default: Finished in 26.85 seconds (files took 1.08 seconds to load)
 ==> default: 48 examples, 0 failures
@@ -193,7 +193,7 @@ For VMware:
 ```
 $ vagrant halt
 $ VMX_FILE=`cat .vagrant/machines/default/vmware_fusion/id`
-$ ovftool --name="Linus Kitchen v0.1.0" "VMX_FILE" linus-kitchen-v0.1.0_vmware.ova
+$ ovftool --name="Linus Kitchen v0.1.0" "$VMX_FILE" linus-kitchen-v0.1.0_vmware.ova
 ```
 
 Don't forget to throw away the VM when you are done:
