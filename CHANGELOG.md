@@ -37,6 +37,7 @@ Improvements:
  * restructure the README to better differentiate between Usage and Development (see [PR #50](https://github.com/tknerr/linus-kitchen/pull/50))
  * added a `LICENSE` file to provide the sources under MIT license (see [PR #51](https://github.com/tknerr/linus-kitchen/pull/51))
  * cleanup: renove outdated workarounds, TODOs and rubocop linting (see [PR #54](https://github.com/tknerr/linus-kitchen/pull/54))
+ * place a README on the Desktop for better guiding the user (see [PR #56](https://github.com/tknerr/linus-kitchen/pull/56))
 
 Breaking changes:
 
