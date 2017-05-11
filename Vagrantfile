@@ -7,6 +7,8 @@ Vagrant::configure("2") do |config|
 
   # set the hostname
   config.vm.hostname = "linus-kitchen.local"
+  # don't create a new keypair
+  config.ssh.insert_key = false
 
   # virtualbox specific customizations
   config.vm.provider :virtualbox do |vbox, override|
