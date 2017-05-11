@@ -46,6 +46,7 @@ Other tweaks worth mentioning:
    * [atom-beautify](https://atom.io/packages/atom-beautify) - code formatter / beautifier for various languages
    * [minimap](https://atom.io/packages/minimap) - a SublimeText like minimap
    * [language-chef](https://atom.io/packages/language-chef) - code snippets for Chef recipes
+ * Placed a `README.md` file on the Desktop to guide first time users after they logged in to the VM
  * Symlinked [`update-vm.sh`](scripts/update-vm.sh) to `/usr/local/bin/update-vm` so it's in the `$PATH` and can be used for updating the VM from the inside (see below)
 
 

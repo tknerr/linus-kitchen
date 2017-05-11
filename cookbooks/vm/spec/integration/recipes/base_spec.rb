@@ -19,4 +19,8 @@ describe 'vm::base' do
     expect(package('indicator-multiload')).to be_installed
   end
 
+  it 'places a README on the Desktop' do
+    expect(file("#{vm_user_home}/Desktop/README.md")).to exist
+  end
+
 end
