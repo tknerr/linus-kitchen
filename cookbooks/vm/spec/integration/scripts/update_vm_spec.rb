@@ -7,6 +7,6 @@ describe 'update-vm.sh' do
   end
 
   it 'symlinks the update-vm script to /usr/local/bin/' do
-    expect(file('/usr/local/bin/update-vm')).to be_linked_to '/home/vagrant/vm-setup/scripts/update-vm.sh'
+    expect(file('/usr/local/bin/update-vm')).to be_linked_to "#{vm_user_home}/vm-setup/scripts/update-vm.sh"
   end
 end
