@@ -19,3 +19,10 @@ cookbook_file "#{vm_user_home}/Desktop/README.md" do
   group vm_user
   mode '0644'
 end
+
+execute "set bg" do
+  user vm_user
+  group vm_group
+  environment vm_user_env
+  command "dbus-launch --exit-with-session gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/Spring_by_Peter_Apas.jpg'"
+end
