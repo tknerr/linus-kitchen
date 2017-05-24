@@ -5,8 +5,8 @@ describe 'vm::vagrant' do
   let(:vagrant_version) { vm_user_command('vagrant -v').stdout.strip }
   let(:installed_plugins) { vm_user_command('vagrant plugin list').stdout }
 
-  it 'installs vagrant 1.9.3' do
-    expect(vagrant_version).to match 'Vagrant 1.9.3'
+  it 'installs vagrant 1.9.5' do
+    expect(vagrant_version).to match 'Vagrant 1.9.5'
   end
 
   if in_vmware?
