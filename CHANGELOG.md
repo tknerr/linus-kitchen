@@ -6,6 +6,7 @@ Updated tools:
 
  * update to Vagrant v1.9.5 (see [PR #58](https://github.com/tknerr/linus-kitchen/pull/58))
  * update to VirtualBox v5.1.22 (see [PR #59](https://github.com/tknerr/linus-kitchen/pull/59))
+ * update to Docker v17.05.0-ce (see [PR #61](https://github.com/tknerr/linus-kitchen/pull/61))
 
 ## 0.2 (May 12, 2017)
 
