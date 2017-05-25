@@ -1,18 +1,16 @@
 
-atom_version = '1.15.0'
+atom_version = '1.17.1'
 atom_deb_file = "atom-v#{atom_version}-amd64.deb"
 
 atom_plugins = {
-  'atom-beautify' => '0.29.18',
-  'minimap' => '4.27.1',
+  'atom-beautify' => '0.29.24',
+  'minimap' => '4.28.2',
   'language-chef' => '0.9.0'
 }
 
+# ensure we have the required gui packages for starting atom in docker / Circle CI
 if docker?
-  # we need libxss-dev for starting atom in docker
-  package 'libxss-dev'
-  # avoid /dev/fuse issues on circleci
-  extra_options = '--no-install-recommends'
+  package ['libxss-dev', 'gconf2', 'libgtk2.0-0', 'libnotify4', 'gvfs-bin', 'xdg-utils']
 end
 
 # install atom editor
@@ -20,12 +18,9 @@ remote_file "#{Chef::Config[:file_cache_path]}/#{atom_deb_file}" do
   source "https://github.com/atom/atom/releases/download/v#{atom_version}/atom-amd64.deb"
   mode '0644'
 end
-bash 'install-atom-with-dependencies' do
-  code <<-EOF
-    dpkg -i #{Chef::Config[:file_cache_path]}/#{atom_deb_file}
-    apt-get -y --fix-broken install #{extra_options}
-    EOF
-  not_if "which atom && xvfb-run atom -v | grep -q '#{atom_version}'"
+dpkg_package 'atom' do
+  source "#{Chef::Config[:file_cache_path]}/#{atom_deb_file}"
+  version atom_version
 end
 
 # install atom plugins
