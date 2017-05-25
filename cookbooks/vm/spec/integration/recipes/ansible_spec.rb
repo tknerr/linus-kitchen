@@ -15,7 +15,7 @@ describe 'vm::ansible' do
   it 'installs pytest-spec 1.1.0' do
     expect(pytest_version).to contain 'pytest-spec-1.1.0'
   end
-  it 'installs molecule 2.0.0.0rc4' do
-    expect(molecule_version).to contain '2.0.0.0rc4'
+  it 'installs molecule 2.0.0.0rc5' do
+    expect(molecule_version).to contain '2.0.0.0rc5'
   end
 end
