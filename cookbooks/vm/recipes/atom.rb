@@ -8,11 +8,9 @@ atom_plugins = {
   'language-chef' => '0.9.0'
 }
 
+# ensure we have the required gui packages for starting atom in docker / Circle CI
 if docker?
-  # we need libxss-dev for starting atom in docker
-  package 'libxss-dev'
-  # avoid /dev/fuse issues on circleci
-  extra_options = '--no-install-recommends'
+  package ['libxss-dev', 'gconf2', 'libgtk2.0-0', 'libnotify4', 'gvfs-bin', 'xdg-utils']
 end
 
 # install atom editor
