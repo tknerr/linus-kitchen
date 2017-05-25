@@ -20,12 +20,9 @@ remote_file "#{Chef::Config[:file_cache_path]}/#{atom_deb_file}" do
   source "https://github.com/atom/atom/releases/download/v#{atom_version}/atom-amd64.deb"
   mode '0644'
 end
-bash 'install-atom-with-dependencies' do
-  code <<-EOF
-    dpkg -i #{Chef::Config[:file_cache_path]}/#{atom_deb_file}
-    apt-get -y --fix-broken install #{extra_options}
-    EOF
-  not_if "which atom && xvfb-run atom -v | grep -q '#{atom_version}'"
+dpkg_package 'atom' do
+  source "#{Chef::Config[:file_cache_path]}/#{atom_deb_file}"
+  version atom_version
 end
 
 # install atom plugins
