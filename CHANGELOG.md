@@ -8,7 +8,7 @@ Updated tools:
  * update to VirtualBox v5.1.22 (see [PR #59](https://github.com/tknerr/linus-kitchen/pull/59))
  * update to Docker v17.05.0-ce (see [PR #61](https://github.com/tknerr/linus-kitchen/pull/61))
  * update to ChefDK v1.4.3 (see [PR #62](https://github.com/tknerr/linus-kitchen/pull/62))
- * update to Atom Editor v1.18.0-beta1 and plugins (see [PR #60](https://github.com/tknerr/linus-kitchen/pull/60)):
+ * update to Atom Editor v1.17.1 and plugins (see [PR #60](https://github.com/tknerr/linus-kitchen/pull/60)):
     * atom-beautify to v0.29.24
     * atom-minimap to v4.28.2
 

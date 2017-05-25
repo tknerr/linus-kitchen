@@ -1,5 +1,5 @@
 
-atom_version = '1.18.0-beta1'
+atom_version = '1.17.1'
 atom_deb_file = "atom-v#{atom_version}-amd64.deb"
 
 atom_plugins = {
