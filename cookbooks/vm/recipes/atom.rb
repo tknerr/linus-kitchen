@@ -3,8 +3,8 @@ atom_version = '1.18.0-beta1'
 atom_deb_file = "atom-v#{atom_version}-amd64.deb"
 
 atom_plugins = {
-  'atom-beautify' => '0.29.18',
-  'minimap' => '4.27.1',
+  'atom-beautify' => '0.29.24',
+  'minimap' => '4.28.2',
   'language-chef' => '0.9.0'
 }
 

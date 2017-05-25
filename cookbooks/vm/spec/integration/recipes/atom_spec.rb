@@ -11,11 +11,11 @@ describe 'vm::atom' do
   end
 
   describe 'plugins' do
-    it 'installs "atom-beautify" plugin v0.29.18' do
-      expect(installed_plugins).to contain 'atom-beautify@0.29.18'
+    it 'installs "atom-beautify" plugin v0.29.24' do
+      expect(installed_plugins).to contain 'atom-beautify@0.29.24'
     end
-    it 'installs "minimap" plugin v4.27.1' do
-      expect(installed_plugins).to contain 'minimap@4.27.1'
+    it 'installs "minimap" plugin v4.28.2' do
+      expect(installed_plugins).to contain 'minimap@4.28.2'
     end
     it 'installs "language-chef" plugin v0.9.0' do
       expect(installed_plugins).to contain 'language-chef@0.9.0'
