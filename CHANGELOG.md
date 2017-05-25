@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.3 (unreleased)
+
+Updated tools:
+
+ * update to Vagrant v1.9.5 (see [PR #58](https://github.com/tknerr/linus-kitchen/pull/58))
+
 ## 0.2 (May 12, 2017)
 
 Updated tools:
