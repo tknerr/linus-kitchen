@@ -6,8 +6,8 @@ describe 'vm::atom' do
   let(:atom_config) { file("#{vm_user_home}/.atom/config.cson") }
   let(:installed_plugins) { vm_user_command('apm list -i -b').stdout }
 
-  it 'installs atom 1.15.0' do
-    expect(atom_version).to contain '1.15.0'
+  it 'installs atom 1.18.0-beta1' do
+    expect(atom_version).to contain '1.18.0-beta1'
   end
 
   describe 'plugins' do
