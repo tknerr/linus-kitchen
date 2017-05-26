@@ -48,9 +48,18 @@ Vagrant::configure("2") do |config|
 
   # Ensure we cache as much as possible
   if Vagrant.has_plugin?("vagrant-cachier")
+    config.cache.synced_folder_opts = {
+      type: :nfs,
+      mount_options: ['rw', 'vers=3', 'tcp', 'nolock'],
+      export_options: ['async,insecure,no_subtree_check,no_acl,no_root_squash']
+    }
     config.cache.enable :generic, {
       "chef_file_cache" => { cache_dir: "/root/.chef/local-mode-cache/cache" },
-      "berkshelf_cache" => { cache_dir: "/home/vagrant/.berkshelf" }
+      "pip_cache" => { cache_dir: "/home/user/.cache/pip" },
+      "berkshelf_cache" => { cache_dir: "/home/user/.berkshelf" },
+      "vagrant_plugins_cache" => { cache_dir: "/home/user/.vagrant.d/gems/2.2.5/cache" },
+      "vagrant_plugins_gemspecs" => { cache_dir: "/home/user/.vagrant.d/gems/2.2.5/specifications" },
+      "atom_plugins_cache" => { cache_dir: "/home/user/.atom/.apm" }
     }
   end
 end

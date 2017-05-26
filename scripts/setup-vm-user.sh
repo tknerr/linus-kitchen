@@ -20,4 +20,8 @@ else
     echo -e "[SeatDefaults]\nautologin-user=$LOGIN_USER" | sudo tee /etc/lightdm/lightdm.conf
     XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0 dm-tool lock
   fi
+
+  # fix issues due to vagrant-cachier mounts being created before the LOGIN_USER is created
+  cp -r /etc/skel/. /home/$LOGIN_USER
+  chown -R $LOGIN_USER:$LOGIN_USER /home/$LOGIN_USER
 fi
