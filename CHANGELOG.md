@@ -11,6 +11,7 @@ Updated tools:
  * update to Atom Editor v1.17.1 and plugins (see [PR #60](https://github.com/tknerr/linus-kitchen/pull/60)):
     * atom-beautify to v0.29.24
     * atom-minimap to v4.28.2
+    * language-ansible to v0.2.1 (new)
 
 Newly installed tools:
 
