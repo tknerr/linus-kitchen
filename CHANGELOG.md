@@ -11,6 +11,15 @@ Updated tools:
  * update to Atom Editor v1.17.1 and plugins (see [PR #60](https://github.com/tknerr/linus-kitchen/pull/60)):
     * atom-beautify to v0.29.24
     * atom-minimap to v4.28.2
+    * language-ansible to v0.2.1 (new)
+
+Newly installed tools:
+
+ * installed a toolchain for developing with [Ansible](https://www.ansible.com/) (see [PR #63](https://github.com/tknerr/linus-kitchen/pull/63)), including:
+    * ansible v2.3.0.0
+    * molecule v2.0.0.rc5
+    * testinfra v1.6.2
+    * ansible-lint v3.4.12
 
 ## 0.2 (May 12, 2017)
 

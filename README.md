@@ -3,7 +3,7 @@
 
 [![Circle CI](https://circleci.com/gh/tknerr/linus-kitchen/tree/master.svg?style=shield)](https://circleci.com/gh/tknerr/linus-kitchen/tree/master)
 
-An Ubuntu Desktop 16.04 based development box for Infrastructure-as-Code development with Vagrant, Chef & Co.
+An Ubuntu Desktop 16.04 based development box for Infrastructure-as-Code development with Vagrant, Chef, Ansible & Co.
 
 ![Linus' Kitchen Screenshot](https://raw.github.com/tknerr/linus-kitchen/master/linus_kitchen.png)
 
@@ -19,11 +19,31 @@ These are the main tools included in Linus' Kitchen (see CHANGELOG for the speci
 
  * [Git](https://git-scm.org/)
  * [ChefDK](https://downloads.chef.io/chef-dk/)
+ * [Ansible](https://www.ansible.com/)
  * [Vagrant](http://vagrantup.com/)
  * [Packer](http://packer.io/)
  * [VirtualBox](https://www.virtualbox.org/)
  * [Docker](http://docker.io/)
  * [Atom Editor](http://atom.io/)
+
+#### Chef-based development toolchain
+
+In addition to Chef itself, the following tools (which are all Ruby-based) come included with ChefDK:
+
+ * [berkshelf](https://berkshelf.com/) - a dependency manager for Chef cookbooks
+ * [foodcritic](http://www.foodcritic.io/) - a lint tool for Chef cookbooks
+ * [chefspec](https://chefspec.github.io/chefspec/) - unit testing for Chef cookbooks
+ * [serverspec](http://serverspec.org/) - rspec based framework for testing servers
+ * [test-kitchen](http://kitchen.ci/) - a test driver for orchestrating and testing infrastructure
+
+#### Ansible-based development toolchain
+
+In addition to Ansible itself, the following tools (which are all Python-based) are included:
+
+ * [ansible-galaxy](https://docs.ansible.com/ansible/galaxy.html) - a dependency manager for Ansible roles
+ * [ansible-lint](https://github.com/willthames/ansible-lint) - a lint tool for Ansible roles
+ * [testinfra](https://testinfra.readthedocs.io/) - a pytest based framework for testing servers
+ * [molecule](https://molecule.readthedocs.io/) - a test driver for orchestrating and testing infrastructure
 
 ### Tweaks and Plugins
 
@@ -48,6 +68,7 @@ Other tweaks worth mentioning:
    * [atom-beautify](https://atom.io/packages/atom-beautify) - code formatter / beautifier for various languages
    * [minimap](https://atom.io/packages/minimap) - a SublimeText like minimap
    * [language-chef](https://atom.io/packages/language-chef) - code snippets for Chef recipes
+   * [language-ansible](https://atom.io/packages/language-ansible) - code snippets for Ansible roles
  * Placed a `README.md` file on the Desktop to guide first time users after they logged in to the VM
  * Symlinked [`update-vm.sh`](scripts/update-vm.sh) to `/usr/local/bin/update-vm` so it's in the `$PATH` and can be used for updating the VM from the inside (see below)
 

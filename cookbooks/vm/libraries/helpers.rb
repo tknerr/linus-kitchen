@@ -60,5 +60,15 @@ class Chef
                environment: vm_user_env
       end
     end
+
+    #
+    # install a (system wide) pip package
+    #
+    def install_pip_package(name, version)
+      bash "install pip package #{name}-#{version} for #{vm_user}" do
+        code "pip install #{name}==#{version}"
+        not_if "pip freeze | grep -q '#{name}==#{version}'"
+      end
+    end
   end
 end
