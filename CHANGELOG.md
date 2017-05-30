@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.4 (unreleased)
+
+ * ...
+
 ## 0.3 (May 30, 2017)
 
 Updated tools:
