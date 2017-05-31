@@ -21,8 +21,8 @@ Newly installed tools:
 
  * installed a toolchain for developing with [Ansible](https://www.ansible.com/) (see [PR #63](https://github.com/tknerr/linus-kitchen/pull/63)), including:
     * ansible v2.3.0.0
-    * molecule v2.0.0.rc5
-    * testinfra v1.6.2
+    * molecule v2.0.0.rc6
+    * testinfra v1.6.3
     * ansible-lint v3.4.12
 
 ## 0.2 (May 12, 2017)
