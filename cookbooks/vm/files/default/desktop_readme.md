@@ -15,7 +15,7 @@ If you have a totally different keymap (e.g. on a MacBook) you can always reconf
 sudo dpkg-reconfigure keyboard-configuration
 ```
 
-If you are running the VM on a Mac with VMware, check the selected profile in keyboard & mouse system settings of the VM and chose the appropriate keyboard within the VM. Otherwise the keyboard mapping done by VMware may confuse you. To use the mac keyboard directly, select the "Mac-Profile" in the VM settings and choose the input source for Mac keyboards within the VM (e.g. "English (Macintosh)").
+If you are running the VM on a Mac with VMware, review the selected profile in keyboard & mouse system settings of the VM and chose the appropriate keyboard within the VM. Otherwise the keyboard mapping done by VMware may confuse you. To use the mac keyboard directly, select the "Mac-Profile" in the VM settings and choose the input source for Mac keyboards within the VM (e.g. "English (Macintosh)").
 
 ## Updating this Developer VM
 
