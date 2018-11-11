@@ -18,6 +18,7 @@ usermod -a -G adm,cdrom,sudo,dip,plugdev,lpadmin,sambashare $LOGIN_USER
 echo "$LOGIN_USER ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/$LOGIN_USER
 
 # set the new user as the default in the login screen
+mkdir -p /etc/gdm3
 > /etc/gdm3/custom.conf
 echo "[daemon]" >> /etc/gdm3/custom.conf
 echo "# Enabling automatic login" >> /etc/gdm3/custom.conf
