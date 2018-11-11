@@ -30,7 +30,7 @@ vagrant_plugins.each do |name, version|
 end
 
 # set default provider
-bashd2_entry 'set-vagrant-default-provider' do
+bashrc_manager 'set-vagrant-default-provider' do
   user vm_user
   content "export VAGRANT_DEFAULT_PROVIDER=#{vmware? ? 'virtualbox' : 'docker'}"
 end

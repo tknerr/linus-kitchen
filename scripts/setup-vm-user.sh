@@ -17,9 +17,13 @@ usermod -a -G adm,cdrom,sudo,dip,plugdev,lpadmin,sambashare $LOGIN_USER
 # ensure the new user can do passwordless sudo
 echo "$LOGIN_USER ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/$LOGIN_USER
 
-# set the new user as the default in the login screen and lock the current (vagrant user's) screen session
-if [[ $(which dm-tool) ]]; then
-  echo -e "[SeatDefaults]\nautologin-user=$LOGIN_USER" | sudo tee /etc/lightdm/lightdm.conf
-  XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0 dm-tool lock
-fi
+# set the new user as the default in the login screen
+> /etc/gdm3/custom.conf
+echo "[daemon]" >> /etc/gdm3/custom.conf
+echo "# Uncoment the line below to force the login screen to use Xorg" >> /etc/gdm3/custom.conf
+echo "#WaylandEnable=false" >> /etc/gdm3/custom.conf
+echo "" >> /etc/gdm3/custom.conf
+echo "# Enabling automatic login" >> /etc/gdm3/custom.conf
+echo "AutomaticLoginEnable = true" >> /etc/gdm3/custom.conf
+echo "AutomaticLogin = $LOGIN_USER" >> /etc/gdm3/custom.conf
 

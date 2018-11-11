@@ -1,5 +1,5 @@
 
-bashd_entry 'chefdk-shell-init' do
+bashrc_manager 'chefdk-shell-init' do
   user vm_user
   content 'eval "$(chef shell-init bash)"'
 end

@@ -20,8 +20,3 @@ template "#{vm_user_home}/.gitconfig" do
   mode '0644'
   action :create_if_missing
 end
-
-bashd_entry 'setup-git-ps1-prompt' do
-  user vm_user
-  source 'git_ps1.erb'
-end

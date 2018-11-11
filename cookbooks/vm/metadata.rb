@@ -14,7 +14,7 @@ supports 'ubuntu'
 
 depends 'apt', '7.1.1'
 depends 'ark', '4.0.0'
-depends 'bashd', '0.3.0'
+depends 'bashrc_manager', '1.0.2'
 depends 'chef-apt-docker', '2.0.6'
 depends 'chef-sugar', '4.1.0'
 depends 'docker', '4.6.7'

@@ -1,6 +1,5 @@
 
 include_recipe 'apt'
-include_recipe 'chef-sugar'
 
 # commonly needed packages / tools
 %w(vim libxml2-dev libxslt1-dev zlib1g-dev liblzma-dev build-essential xvfb indicator-multiload).each do |pkg|
