@@ -20,10 +20,6 @@ echo "$LOGIN_USER ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/$LOGIN_USER
 # set the new user as the default in the login screen
 > /etc/gdm3/custom.conf
 echo "[daemon]" >> /etc/gdm3/custom.conf
-echo "# Uncoment the line below to force the login screen to use Xorg" >> /etc/gdm3/custom.conf
-echo "#WaylandEnable=false" >> /etc/gdm3/custom.conf
-echo "" >> /etc/gdm3/custom.conf
 echo "# Enabling automatic login" >> /etc/gdm3/custom.conf
 echo "AutomaticLoginEnable = true" >> /etc/gdm3/custom.conf
 echo "AutomaticLogin = $LOGIN_USER" >> /etc/gdm3/custom.conf
-

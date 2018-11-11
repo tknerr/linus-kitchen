@@ -1,9 +1,5 @@
 require 'spec_helper'
 
-if true
-  return
-end
-
 describe 'vm::ansible' do
 
   let(:ansible_version) { vm_user_gui_command('ansible --version').stdout }
