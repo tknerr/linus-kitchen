@@ -18,13 +18,13 @@ It is based on the [Zuehlke/linux-developer-vm](https://github.com/Zuehlke/linux
 These are the main tools included in Linus' Kitchen (see CHANGELOG for the specific versions):
 
  * [Ansible](https://www.ansible.com/)
+ * [Atom Editor](http://atom.io/)
  * [ChefDK](https://downloads.chef.io/chef-dk/)
  * [Docker](http://docker.io/)
  * [Git](https://git-scm.org/)
  * [Packer](http://packer.io/)
  * [Vagrant](http://vagrantup.com/)
  * [VirtualBox](https://www.virtualbox.org/)
- * [VS Code](http://code.visualstudio.com/)
 
 #### Chef-based development toolchain
 
@@ -49,11 +49,10 @@ In addition to Ansible itself, the following tools (which are all Python-based) 
 
 Other tweaks worth mentioning:
 
- * Scripts in `~/.bash.d/*.sh` are sourced from `~/.bashrc`, pre-configured with the following:
+ * Scripts in `~/.bashrc.d/*.sh` are sourced from `~/.bashrc`, pre-configured with the following:
    * sets up `be` as an alias for `bundle exec`
    * runs `chef shell-init bash` for initializing the ChefDK
    * configures "virtualbox" as the `$VAGRANT_DEFAULT_PROVIDER`
-   * configures a usable `PS1` shell prompt for Git
  * Bundler is configured for parallel downloading and retrying (see `~/.bundle/config`)
  * Customized Atom config, e.g. with SublimeText-like tab behaviour (see `~/.atom/config.cson`)
  * Customized `~/.vagrant.d/Vagrantfile` and `~/.kitchen/config.yml` for caching as much as possible
@@ -71,7 +70,6 @@ Other tweaks worth mentioning:
    * [language-ansible](https://atom.io/packages/language-ansible) - code snippets for Ansible roles
  * Placed a `README.md` file on the Desktop to guide first time users after they logged in to the VM
  * Symlinked [`update-vm.sh`](scripts/update-vm.sh) to `/usr/local/bin/update-vm` so it's in the `$PATH` and can be used for updating the VM from the inside (see below)
-
 
 ## Usage
 
@@ -151,7 +149,7 @@ should see all tests passing:
 ==> default:   symlinks the update-vm script to /usr/local/bin/
 ==> default:
 ==> default: Finished in 26.85 seconds (files took 1.08 seconds to load)
-==> default: 48 examples, 0 failures
+==> default: 59 examples, 0 failures
 ...
 ```
 
@@ -160,8 +158,7 @@ Please don't forget to add a test for each new feature you add (see "Contributin
 
 ### Running the Acceptance Tests
 
-In addition to the Serverspec tests (which verify that the installed tools are properly
-configured and working as expected) you can also execute a minimal acceptance test which covers the [common usage scenarios](https://github.com/tknerr/vagrant-workflow-tests/blob/master/spec/acceptance/usage_scenarios_spec.rb) when developing with Vagrant and Chef, including:
+In addition to the Serverspec tests (which verify that the installed tools are properly configured and working as expected) you can also execute a minimal acceptance test which covers the [common usage scenarios](https://github.com/tknerr/vagrant-workflow-tests/blob/master/spec/acceptance/usage_scenarios_spec.rb) when developing with Vagrant and Chef, including:
 
  * cloning a [sample-toplevel-cookbook](https://github.com/tknerr/sample-toplevel-cookbook) and [sample-infrastructure-repo](https://github.com/tknerr/sample-infrastructure-repo)
  * running various commands like `bundle install`, `vagrant plugin list`, `vagrant up`, etc..
