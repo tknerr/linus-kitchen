@@ -2,7 +2,7 @@
 # add the docker apt repository
 include_recipe 'chef-apt-docker'
 
-docker_version = '17.05.0'
+docker_version = '18.09.0'
 
 # create the docker group and add the vm_user to it
 group 'docker' do

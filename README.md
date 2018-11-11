@@ -3,7 +3,7 @@
 
 [![Circle CI](https://circleci.com/gh/tknerr/linus-kitchen/tree/master.svg?style=shield)](https://circleci.com/gh/tknerr/linus-kitchen/tree/master)
 
-An Ubuntu Desktop 16.04 based development box for Infrastructure-as-Code development with Vagrant, Chef, Ansible & Co.
+An Ubuntu Desktop 18.04 based development box for Infrastructure-as-Code development with Vagrant, Chef, Ansible & Co.
 
 ![Linus' Kitchen Screenshot](https://raw.github.com/tknerr/linus-kitchen/master/linus_kitchen.png)
 
@@ -17,14 +17,14 @@ It is based on the [Zuehlke/linux-developer-vm](https://github.com/Zuehlke/linux
 
 These are the main tools included in Linus' Kitchen (see CHANGELOG for the specific versions):
 
- * [Git](https://git-scm.org/)
- * [ChefDK](https://downloads.chef.io/chef-dk/)
  * [Ansible](https://www.ansible.com/)
- * [Vagrant](http://vagrantup.com/)
- * [Packer](http://packer.io/)
- * [VirtualBox](https://www.virtualbox.org/)
+ * [ChefDK](https://downloads.chef.io/chef-dk/)
  * [Docker](http://docker.io/)
- * [Atom Editor](http://atom.io/)
+ * [Git](https://git-scm.org/)
+ * [Packer](http://packer.io/)
+ * [Vagrant](http://vagrantup.com/)
+ * [VirtualBox](https://www.virtualbox.org/)
+ * [VS Code](http://code.visualstudio.com/)
 
 #### Chef-based development toolchain
 

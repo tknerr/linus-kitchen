@@ -1,15 +1,15 @@
 
-vagrant_version = '1.9.5'
+vagrant_version = '2.2.0'
 vagrant_deb_file = "vagrant_#{vagrant_version}_x86_64.deb"
-vagrant_checksum = '5c2d841c88589c929b6b24e8d7fc443b8b76c809c5ad600a7c192fc794fa329a'
+vagrant_checksum = 'f1caad948a8f545d5d7d2442396fe8a3bcdfd0fc8f643bd0576c81942e7be43b'
 
 vagrant_plugins = {
   'vagrant-cachier' => '1.2.1',
-  'vagrant-berkshelf' => '5.1.1',
+  'vagrant-berkshelf' => '5.1.2',
   'vagrant-omnibus' => '1.5.0',
   'vagrant-toplevel-cookbooks' => '0.2.4',
   'vagrant-managed-servers' => '0.8.0',
-  'vagrant-lxc' => '1.2.3'
+  'vagrant-lxc' => '1.4.3',
 }
 
 # download and install vagrant
@@ -18,6 +18,7 @@ remote_file "#{Chef::Config[:file_cache_path]}/#{vagrant_deb_file}" do
   checksum vagrant_checksum
   notifies :install, 'dpkg_package[vagrant]', :immediately
 end
+
 dpkg_package 'vagrant' do
   source "#{Chef::Config[:file_cache_path]}/#{vagrant_deb_file}"
   version vagrant_version
@@ -29,7 +30,7 @@ vagrant_plugins.each do |name, version|
 end
 
 # set default provider
-bashd_entry 'set-vagrant-default-provider' do
+bashd2_entry 'set-vagrant-default-provider' do
   user vm_user
   content "export VAGRANT_DEFAULT_PROVIDER=#{vmware? ? 'virtualbox' : 'docker'}"
 end
@@ -40,6 +41,7 @@ end
 %w(lxc lxc-templates cgroup-lite redir bridge-utils).each do |pkg|
   package pkg
 end
+
 bash 'add vagrant-lxc sudoers permissions' do
   environment vm_user_env
   code 'vagrant lxc sudoers'
@@ -55,11 +57,13 @@ template "#{vm_user_home}/.vagrant.d/Vagrantfile" do
   group vm_group
   mode '0644'
 end
+
 directory "#{vm_user_home}/.kitchen" do
   owner vm_user
   group vm_group
   mode '0755'
 end
+
 template "#{vm_user_home}/.kitchen/config.yml" do
   source 'kitchen_config.erb'
   owner vm_user

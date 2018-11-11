@@ -2,11 +2,14 @@
 Vagrant::configure("2") do |config|
 
   # configure the basebox
-  config.vm.box = "tknerr/ubuntu1604-desktop"
-  config.vm.box_version = "2.0.27.1"
+  config.vm.box = "fasmat/ubuntu1804-desktop"
+  config.vm.box_version = "1.1.0"
+  config.vm.box_check_update = false
+  config.vm.guest = :ubuntu
 
   # set the hostname
   config.vm.hostname = "linus-kitchen.local"
+
   # don't create a new keypair
   config.ssh.insert_key = false
 
@@ -15,8 +18,12 @@ Vagrant::configure("2") do |config|
     vbox.customize ["modifyvm", :id,
       "--name", "Linus Kitchen",
       "--memory", 4096,
-      "--cpus", Etc.nprocessors
+      "--cpus", Etc.nprocessors,
+      "--vram", 256,
+      "--ioapic", "on",
+      "--clipboard", "bidirectional",
     ]
+    
     # yes we have a gui
     vbox.gui = true
   end

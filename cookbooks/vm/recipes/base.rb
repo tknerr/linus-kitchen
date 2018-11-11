@@ -13,6 +13,7 @@ directory "#{vm_user_home}/Desktop" do
   group vm_user
   mode '0755'
 end
+
 cookbook_file "#{vm_user_home}/Desktop/README.md" do
   source "desktop_readme.md"
   owner vm_user
