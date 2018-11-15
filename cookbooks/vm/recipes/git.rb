@@ -20,3 +20,8 @@ template "#{vm_user_home}/.gitconfig" do
   mode '0644'
   action :create_if_missing
 end
+
+bashrc_manager 'setup-git-ps1-prompt' do
+  user vm_user	
+  content from_template("#{run_context.cookbook_collection[cookbook_name].root_dir}/templates/default/git_ps1.erb", {})
+end

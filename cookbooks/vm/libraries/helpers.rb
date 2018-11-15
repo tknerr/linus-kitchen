@@ -22,6 +22,12 @@ def vm_user_home
   "/home/#{vm_user}"
 end
 
+def from_template template_file,params
+  template_content = File.read(template_file)
+  template = Erubis::Eruby.new(template_content)
+  return template.result(params).gsub("\n","\r\n")
+end
+
 #
 # reopen the Chef::Recipe class for being able to use it like any other resource
 #
