@@ -23,5 +23,5 @@ end
 
 bashrc_manager 'setup-git-ps1-prompt' do
   user vm_user	
-  content from_template("#{run_context.cookbook_collection[cookbook_name].root_dir}/templates/default/git_ps1.erb", {})
+  content IO.read("#{run_context.cookbook_collection[cookbook_name].root_dir}/files/default/git_ps1")
 end
