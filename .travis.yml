@@ -1,0 +1,29 @@
+sudo: required
+
+language: ruby
+
+services:
+  - docker
+
+env:
+  - VAGRANT_DEFAULT_PROVIDER=docker
+
+cache:
+  directories:
+    - ~/.berkshelf
+    - ~/.vagrant.d
+
+before_install:
+  - wget https://releases.hashicorp.com/vagrant/2.2.0/vagrant_2.2.0_x86_64.deb
+  - sudo dpkg -i vagrant_2.2.0_x86_64.deb
+
+install:
+  - vagrant up --no-provision
+  - UPDATE_VM_FLAGS=--provision-only vagrant provision
+
+script:
+  - UPDATE_VM_FLAGS=--verify-only vagrant provision
+  
+after_script:
+  - vagrant ssh -c 'cat /home/user/vm-setup/cookbooks/vm/test/junit-report.xml' > $CIRCLE_TEST_REPORTS/junit-report.xml
+  - vagrant ssh -c 'cat /home/user/vm-setup/cookbooks/vm/test/test-report.html' > $CIRCLE_TEST_REPORTS/test-report.html
