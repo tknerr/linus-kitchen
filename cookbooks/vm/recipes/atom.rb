@@ -35,7 +35,7 @@ end
   cookbook_file "#{vm_user_home}/.atom/#{config}" do
     source "atom_#{config}"
     owner vm_user
-    group vm_user
+    group vm_group
     mode '0664'
   end
 end
