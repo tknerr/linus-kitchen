@@ -15,7 +15,7 @@ Updated tools:
  * updated the ansible toolchain (see [PR #66](https://github.com/tknerr/linus-kitchen/pull/66))
     * added python-vagrant wrapper so we can use molecule's vagrant driver
     * update to molecule v2.19.0
-    * update to testinfra v1.6.3
+    * update to testinfra v1.17.0
 
 ## 0.3 (May 30, 2017)
 
