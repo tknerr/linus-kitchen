@@ -1,7 +1,7 @@
 
 # Linus' Kitchen
 
-[![Circle CI](https://circleci.com/gh/tknerr/linus-kitchen/tree/master.svg?style=shield)](https://circleci.com/gh/tknerr/linus-kitchen/tree/master)
+[![Build Status](https://travis-ci.com/fasmat/linus-kitchen.svg?branch=customize-installed-applications)](https://travis-ci.com/fasmat/linus-kitchen)
 
 An Ubuntu Desktop 18.04 based development box for Infrastructure-as-Code development with Vagrant, Chef, Ansible & Co.
 
