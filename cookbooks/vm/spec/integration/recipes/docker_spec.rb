@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe 'vm::docker' do
 
-  it 'installs docker 17.05.0-ce' do
-    expect(vm_user_command('docker -v').stdout).to match 'Docker version 17.05.0-ce'
+  it 'installs docker 18.06.1-ce' do
+    expect(vm_user_command('docker -v').stdout).to match 'Docker version 18.06.1-ce'
   end
 
   it 'adds the vm user to the docker group' do

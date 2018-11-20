@@ -9,8 +9,8 @@ describe 'vm::chefdk' do
   end
 
   it 'makes sure that the shell is initialized for chef' do
-    chefdk_gem_home = "#{vm_user_home}/.chefdk/gem/ruby/2.3.0"
-    chefdk_gem_root = '/opt/chefdk/embedded/lib/ruby/gems/2.3.0'
+    chefdk_gem_home = "#{vm_user_home}/.chefdk/gem/ruby/2.5.0"
+    chefdk_gem_root = '/opt/chefdk/embedded/lib/ruby/gems/2.5.0'
     expect(vm_user_command('echo $GEM_HOME').stdout.strip).to eq chefdk_gem_home
     expect(vm_user_command('echo $GEM_ROOT').stdout.strip).to eq chefdk_gem_root
     expect(vm_user_command('echo $GEM_PATH').stdout.strip).to eq "#{chefdk_gem_home}:#{chefdk_gem_root}"

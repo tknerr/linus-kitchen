@@ -21,7 +21,7 @@ template "#{vm_user_home}/.gitconfig" do
   action :create_if_missing
 end
 
-bashd_entry 'setup-git-ps1-prompt' do
+bashrc_manager 'setup-git-ps1-prompt' do
   user vm_user
-  source 'git_ps1.erb'
+  content IO.read("#{run_context.cookbook_collection[cookbook_name].root_dir}/files/default/git_ps1")
 end

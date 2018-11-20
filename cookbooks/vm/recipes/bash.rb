@@ -1,10 +1,8 @@
 
 #
-# setup .bash.d for the vm user
+# setup .bashrc.d for the vm user
 #
-bashd vm_user
-
-bashd_entry 'shell-aliases' do
+bashrc_manager 'shell-aliases' do
   user vm_user
   content 'alias be="bundle exec"'
 end

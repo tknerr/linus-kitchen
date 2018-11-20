@@ -16,6 +16,10 @@ describe 'vm::git' do
     expect(meld_version.exit_status).to eq 0
   end
 
+  it 'installs git ps1 config' do
+    expect(file("#{vm_user_home}/.bashrc.d/setup-git-ps1-prompt")).to exist
+  end
+
   context '~/.gitconfig' do
     it 'configures meld as the difftool' do
       expect(git_config).to contain 'diff.tool=meld'

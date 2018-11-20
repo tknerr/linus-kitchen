@@ -1,12 +1,12 @@
 
-atom_version = '1.17.1'
+atom_version = '1.32.2'
 atom_deb_file = "atom-v#{atom_version}-amd64.deb"
 
 atom_plugins = {
-  'atom-beautify' => '0.29.24',
-  'minimap' => '4.28.2',
-  'language-chef' => '0.9.0',
-  'language-ansible' => '0.2.1'
+  'atom-beautify' => '0.33.4',
+  'minimap' => '4.29.9',
+  'language-chef' => '3.5.1',
+  'language-ansible' => '0.2.2',
 }
 
 # ensure we have the required gui packages for starting atom in docker / Circle CI
@@ -19,6 +19,7 @@ remote_file "#{Chef::Config[:file_cache_path]}/#{atom_deb_file}" do
   source "https://github.com/atom/atom/releases/download/v#{atom_version}/atom-amd64.deb"
   mode '0644'
 end
+
 dpkg_package 'atom' do
   source "#{Chef::Config[:file_cache_path]}/#{atom_deb_file}"
   version atom_version

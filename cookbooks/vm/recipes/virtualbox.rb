@@ -1,7 +1,7 @@
 
-vbox_version = '5.1.22'
-vbox_deb_file = 'virtualbox-5.1_5.1.22-115126~Ubuntu~xenial_amd64.deb'
-vbox_checksum = '4d964bb498284906c359de049c828199f97b6bfb1867005647b61bdffa6bdaf7'
+vbox_version = '5.2.22'
+vbox_deb_file = 'virtualbox-5.2_5.2.22-126460~Ubuntu~bionic_amd64.deb'
+vbox_checksum = 'e45ff9ba50d9b6a6483952911537e478674c4a52852440104722fab0558b2622'
 
 # download virtualbox
 remote_file "#{Chef::Config[:file_cache_path]}/#{vbox_deb_file}" do
