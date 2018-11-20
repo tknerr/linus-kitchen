@@ -7,8 +7,6 @@ An Ubuntu Desktop 18.04 based development box for Infrastructure-as-Code develop
 
 ![Linus' Kitchen Screenshot](https://raw.github.com/tknerr/linus-kitchen/master/linus_kitchen.png)
 
-Yes, it is being set up with Vagrant and Chef, so it's a bit meta...
-
 It is based on the [Zuehlke/linux-developer-vm](https://github.com/Zuehlke/linux-developer-vm) template, and also the Linux based equivalent of [Bill's Kitchen](https://github.com/tknerr/bills-kitchen) (which explains the name).
 
 ## What's included?
@@ -25,6 +23,7 @@ These are the main tools included in Linus' Kitchen (see CHANGELOG for the speci
  * [Packer](http://packer.io/)
  * [Vagrant](http://vagrantup.com/)
  * [VirtualBox](https://www.virtualbox.org/)
+ * [VSCode](https://code.visualstudio.com/)
 
 #### Chef-based development toolchain
 

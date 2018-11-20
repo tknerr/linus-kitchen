@@ -9,7 +9,7 @@ atom_plugins = {
   'language-ansible' => '0.2.2',
 }
 
-# ensure we have the required gui packages for starting atom in docker / Circle CI
+# ensure we have the required gui packages for starting atom in docker / Travis CI
 if docker?
   package ['libxss-dev', 'gconf2', 'libgtk2.0-0', 'libnotify4', 'gvfs-bin', 'xdg-utils']
 end
