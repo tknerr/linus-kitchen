@@ -25,4 +25,6 @@ echo "# Enabling automatic login" >> /etc/gdm3/custom.conf
 echo "AutomaticLoginEnable = true" >> /etc/gdm3/custom.conf
 echo "AutomaticLogin = $LOGIN_USER" >> /etc/gdm3/custom.conf
 
-systemctl restart display-manager
+if [[ $(which gnome-session) ]]; then
+  systemctl restart display-manager
+fi
