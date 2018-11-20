@@ -17,10 +17,12 @@ usermod -a -G adm,cdrom,sudo,dip,plugdev,lpadmin,sambashare $LOGIN_USER
 # ensure the new user can do passwordless sudo
 echo "$LOGIN_USER ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/$LOGIN_USER
 
-# set the new user as the default in the login screen
+# set the new user as the default in the login screen and end the current (vagrant) user's gnome session
 mkdir -p /etc/gdm3
 > /etc/gdm3/custom.conf
 echo "[daemon]" >> /etc/gdm3/custom.conf
 echo "# Enabling automatic login" >> /etc/gdm3/custom.conf
 echo "AutomaticLoginEnable = true" >> /etc/gdm3/custom.conf
 echo "AutomaticLogin = $LOGIN_USER" >> /etc/gdm3/custom.conf
+
+systemctl restart display-manager

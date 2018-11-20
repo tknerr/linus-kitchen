@@ -9,7 +9,7 @@ vagrant_plugins = {
   'vagrant-omnibus' => '1.5.0',
   'vagrant-toplevel-cookbooks' => '0.2.4',
   'vagrant-managed-servers' => '0.8.0',
-  'vagrant-lxc' => '1.4.3',
+  'vagrant-lxc' => '1.4.3'
 }
 
 # download and install vagrant

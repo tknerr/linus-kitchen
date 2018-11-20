@@ -22,6 +22,6 @@ template "#{vm_user_home}/.gitconfig" do
 end
 
 bashrc_manager 'setup-git-ps1-prompt' do
-  user vm_user	
+  user vm_user
   content IO.read("#{run_context.cookbook_collection[cookbook_name].root_dir}/files/default/git_ps1")
 end
