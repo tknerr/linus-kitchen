@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 0.4 (unreleased)
+## 0.4 (Nov 20, 2018)
 
 Updated tools:
 
