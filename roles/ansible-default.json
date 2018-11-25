@@ -1,4 +1,29 @@
 {
+    "default_attributes": {
+        "ansible_version": "2.3.0.0",
+        "ansible_plugins": [
+            {
+                "name": "ansible-lint",
+                "version": "3.4.23"
+            },
+            {
+                "name": "testinfra",
+                "version": "1.16.0"
+            },
+            {
+                "name": "pytest-spec",
+                "version": "1.1.0"
+            },
+            {
+                "name": "molecule",
+                "version": "2.19.0"
+            },
+            {
+                "name": "python-vagrant",
+                "version": "0.5.15"
+            }
+        ]
+    },
     "run_list": [
         "recipe[vm::ansible]"
     ]

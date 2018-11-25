@@ -1,4 +1,27 @@
 {
+    "default_attributes": {
+        "vscode_version": "1.29.1-1542309157",
+        "vscode_plugins": [
+            "robertohuertasm.vscode-icons",
+            "eamodio.gitlens",
+            "rebornix.ruby",
+            "castwide.solargraph",
+            "mbessey.vscode-rufo",
+            "Pendrica.chef",
+            "bbenoist.vagrant",
+            "PeterJausovec.vscode-docker"
+        ],
+        "vscode_gems": [
+            {
+                "name": "rufo",
+                "version": "0.4.0"
+            },
+            {
+                "name": "solargraph",
+                "version": "0.28.2"
+            }
+        ]
+    },
     "run_list": [
         "recipe[vm::vscode]"
     ]

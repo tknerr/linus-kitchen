@@ -1,4 +1,34 @@
 {
+    "default_attributes": {
+        "vagrant_version": "2.2.0",
+        "vagrant_checksum": "f1caad948a8f545d5d7d2442396fe8a3bcdfd0fc8f643bd0576c81942e7be43b",
+        "vagrant_plugins": [
+            {
+                "name": "vagrant-cachier",
+                "version": "1.2.1"
+            },
+            {
+                "name": "vagrant-berkshelf",
+                "version": "5.1.2"
+            },
+            {
+                "name": "vagrant-omnibus",
+                "version": "1.5.0"
+            },
+            {
+                "name": "vagrant-toplevel-cookbooks",
+                "version": "0.2.4"
+            },
+            {
+                "name": "vagrant-managed-servers",
+                "version": "0.8.0"
+            },
+            {
+                "name": "vagrant-lxc",
+                "version": "1.4.3"
+            }
+        ]
+    },
     "run_list": [
         "recipe[vm::vagrant]"
     ]

@@ -1,4 +1,26 @@
 {
+    "default_attributes": {
+        "atom_version": "1.32.2",
+        "atom_checksum": "c0f166722815b517ae827567b650800d2c64aca36023bde78f45433a70383e9e",
+        "atom_plugins": [
+            {
+                "name": "atom-beautify",
+                "version": "0.33.4"
+            },
+            {
+                "name": "minimap",
+                "version": "4.29.9"
+            },
+            {
+                "name": "language-chef",
+                "version": "3.5.1"
+            },
+            {
+                "name": "language-ansible",
+                "version": "0.2.2"
+            }
+        ]
+    },
     "run_list": [
         "recipe[vm::atom]"
     ]

@@ -1,6 +1,4 @@
 
-vscode_version = "1.29.1-1542309157"
-
 apt_repository "vscode" do
   uri "https://packages.microsoft.com/repos/vscode"
   distribution "stable"
@@ -10,10 +8,7 @@ apt_repository "vscode" do
   action :add
 end
 
-# if docker?
-#  package ["libcanberra-gtk-module", "libgconf-2-4", "libasound2", "libgtk2.0-0", "libxss1"]
-# end
-
+vscode_version = node.fetch("vscode_version", "")
 package "code" do
   options "--allow-change-held-packages --allow-downgrades"
   version vscode_version
@@ -21,29 +16,15 @@ package "code" do
 end
 
 # install plugins
-plugins = [
-  "robertohuertasm.vscode-icons",
-  "eamodio.gitlens",
-  "rebornix.ruby",
-  "castwide.solargraph",
-  "mbessey.vscode-rufo",
-  "Pendrica.chef",
-  "bbenoist.vagrant",
-  "PeterJausovec.vscode-docker",
-]
-
+plugins = node.fetch("vscode_plugins", [])
 plugins.each do |plugin|
   install_vscode_plugin(plugin)
 end
 
 # install gems
-gems = {
-  "rufo" => "0.4.0",
-  "solargraph" => "0.28.2",
-}
-
-gems.each do |gem, version|
-  install_gem_package(gem, version)
+gems = node.fetch("vscode_gems", [])
+gems.each do |gem|
+  install_gem_package(gem["name"], gem["version"])
 end
 
 # config tweaks
