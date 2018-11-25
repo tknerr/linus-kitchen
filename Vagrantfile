@@ -21,6 +21,7 @@ Vagrant::configure("2") do |config|
     vbox.customize ["modifyvm", :id, "--vram", 256]
     vbox.customize ["modifyvm", :id, "--accelerate3d", "off"]
     vbox.customize ["modifyvm", :id, "--ioapic", "on"]
+    vbox.customize ["modifyvm", :id, "--rtcuseutc", "on"]
     vbox.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
 
     # yes we have a gui
