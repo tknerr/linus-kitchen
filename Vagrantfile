@@ -3,7 +3,7 @@ Vagrant::configure("2") do |config|
 
   # configure the basebox
   config.vm.box = "fasmat/ubuntu1804-desktop"
-  config.vm.box_version = "1.1.0"
+  config.vm.box_version = "18.1126.1"
   config.vm.box_check_update = false
   config.vm.guest = :ubuntu
 
