@@ -16,7 +16,7 @@ Vagrant::configure("2") do |config|
   # virtualbox specific customizations
   config.vm.provider :virtualbox do |vbox, override|
     vbox.customize ["modifyvm", :id, "--name", "Linus Kitchen"]
-    vbox.customize ["modifyvm", :id, "--memory", 8192]
+    vbox.customize ["modifyvm", :id, "--memory", 4096]
     vbox.customize ["modifyvm", :id, "--cpus", Etc.nprocessors]
     vbox.customize ["modifyvm", :id, "--vram", 256]
     vbox.customize ["modifyvm", :id, "--accelerate3d", "off"]
