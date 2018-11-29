@@ -21,12 +21,6 @@ plugins.each do |plugin|
   install_vscode_plugin(plugin)
 end
 
-# install gems
-gems = node.fetch("vscode_gems", [])
-gems.each do |gem|
-  install_gem_package(gem["name"], gem["version"])
-end
-
 # config tweaks
 cookbook_file "#{vm_user_home}/.config/Code/User/settings.json" do
   source "vscode_settings.json"

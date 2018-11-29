@@ -1,11 +1,11 @@
 {
     "run_list": [
         "recipe[vm::base]",
-        "role[bash-default]",
-        "role[git-default]",
+        "recipe[vm::bash]",
+        "recipe[vm::git]",
         "role[ansible-default]",
         "role[atom-default]",
-        "role[chefdk-default]",
+        "recipe[vm::chefdk]",
         "role[docker-default]",
         "role[packer-default]",
         "role[vagrant-default]",
