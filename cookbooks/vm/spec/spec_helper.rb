@@ -1,10 +1,10 @@
-require 'serverspec'
+require "serverspec"
 
 set :backend, :exec
 
 # the user account under which the VM is set up
 def vm_user
-  'user'
+  "user"
 end
 
 # the configured vm user's home directory
@@ -24,10 +24,14 @@ end
 
 # see https://github.com/sethvargo/chef-sugar/blob/v3.4.0/lib/chef/sugar/docker.rb#L31
 def in_docker?
-  command('sudo test -f /.dockerinit || sudo test -f /.dockerenv').exit_status == 0
+  command("sudo test -f /.dockerinit || sudo test -f /.dockerenv").exit_status == 0
 end
 
 # see https://github.com/sethvargo/chef-sugar/blob/v3.4.0/lib/chef/sugar/virtualization.rb#L71
 def in_vmware?
   command('sudo ohai virtualization | grep -q \'"system": "vmware"\'').exit_status == 0
+end
+
+RSpec.configure do |config|
+  p config.files_to_run
 end

@@ -103,8 +103,13 @@ verify_vm() {
   step "run foodcritic linting checks"
   foodcritic -f any .
 
-  step "run serverspec integration tests"
-  rspec --require rspec_junit_formatter --format doc --color --tty --format RspecJunitFormatter --out test/junit-report.xml --format html --out test/test-report.html
+  step "run serverspec integration tests for $(basename "$RUN_LIST" .json)"
+  rspec --require rspec_junit_formatter \
+    --format doc --color --tty \
+    --format RspecJunitFormatter --out test/junit-report.xml \
+    --format html --out test/test-report.html \
+    --tag base \
+    --tag $(basename "$RUN_LIST" .json)
 }
 
 update_repo() {

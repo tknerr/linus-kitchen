@@ -3,7 +3,7 @@ Vagrant::configure("2") do |config|
 
   # configure the basebox
   config.vm.box = "fasmat/ubuntu1804-desktop"
-  config.vm.box_version = "1.1.0"
+  config.vm.box_version = "18.1126.1"
   config.vm.box_check_update = false
   config.vm.guest = :ubuntu
 
@@ -19,7 +19,8 @@ Vagrant::configure("2") do |config|
     vbox.customize ["modifyvm", :id, "--memory", 8192]
     vbox.customize ["modifyvm", :id, "--cpus", Etc.nprocessors]
     vbox.customize ["modifyvm", :id, "--vram", 256]
-    vbox.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    vbox.customize ["modifyvm", :id, "--accelerate3d", "on"]
+    vbox.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
     vbox.customize ["modifyvm", :id, "--ioapic", "on"]
     vbox.customize ["modifyvm", :id, "--rtcuseutc", "on"]
     vbox.customize ["modifyvm", :id, "--clipboard", "bidirectional"]

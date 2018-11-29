@@ -1,7 +1,7 @@
 {
     "default_attributes": {
-        "vagrant_version": "2.2.0",
-        "vagrant_checksum": "f1caad948a8f545d5d7d2442396fe8a3bcdfd0fc8f643bd0576c81942e7be43b",
+        "vagrant_version": "2.2.2",
+        "vagrant_checksum": "4dec711612c4350733e01745ab9f5acee2fbf9756ab9728b19a4664cae5c275d",
         "vagrant_plugins": [
             {
                 "name": "vagrant-cachier",
