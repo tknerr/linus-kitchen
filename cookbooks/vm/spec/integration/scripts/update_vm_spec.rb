@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "update-vm.sh" do
+describe "update-vm.sh", :base do
   it "installs chefdk 3.4.38" do
     expect(file("/opt/chefdk/version-manifest.txt")).to contain "chefdk 3.4.38"
   end

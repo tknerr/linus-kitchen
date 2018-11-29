@@ -31,7 +31,3 @@ end
 def in_vmware?
   command('sudo ohai virtualization | grep -q \'"system": "vmware"\'').exit_status == 0
 end
-
-RSpec.configure do |config|
-  p config.files_to_run
-end

@@ -1,0 +1,8 @@
+{
+    "run_list": [
+        "recipe[vm::base]",
+        "role[bash-default]",
+        "role[git-default]",
+        "role[vscode-default]"
+    ]
+}
