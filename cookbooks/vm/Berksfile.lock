@@ -1,4 +1,8 @@
 DEPENDENCIES
+  golang
+    git: https://github.com/NOX73/chef-golang
+    revision: 59b75ede9bed32857cf32baeaa0fec6f34d7d8b8
+    tag: v2.0.0
   vm
     path: .
     metadata: true
@@ -15,6 +19,7 @@ GRAPH
   chef-apt-docker (2.0.6)
   chef-sugar (4.1.0)
   docker (4.6.7)
+  golang (2.0.0)
   mingw (2.1.0)
     seven_zip (>= 0.0.0)
   seven_zip (3.1.0)

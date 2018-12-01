@@ -9,7 +9,9 @@
             "mbessey.vscode-rufo",
             "Pendrica.chef",
             "bbenoist.vagrant",
-            "PeterJausovec.vscode-docker"
+            "PeterJausovec.vscode-docker",
+            "ms-vscode.go",
+            "premparihar.gotestexplorer"
         ],
         "gems": [
             {

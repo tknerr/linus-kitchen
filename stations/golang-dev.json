@@ -3,6 +3,7 @@
         "recipe[vm::base]",
         "recipe[vm::bash]",
         "recipe[vm::git]",
+        "role[golang-default]",
         "role[vscode-default]"
     ]
 }

@@ -34,6 +34,12 @@ describe "vm::vscode", :"full-node" do
     it 'installs "Docker" plugin' do
       expect(installed_plugins).to contain "PeterJausovec.vscode-docker"
     end
+    it 'installs "Go" plugin' do
+      expect(installed_plugins).to contain "ms-vscode.Go"
+    end
+    it 'installs "Go Test Explorer" plugin' do
+      expect(installed_plugins).to contain "premparihar.gotestexplorer"
+    end
   end
 
   it "configures code to safe files automatically" do
