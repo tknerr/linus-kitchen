@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -e -o pipefail
 
 CHEFDK_VERSION=3.4.38
 DOWNLOAD_DIR=/tmp/vagrant-cache/wget
