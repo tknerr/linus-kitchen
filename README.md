@@ -20,6 +20,7 @@ These are the main tools included in Linus' Kitchen (see CHANGELOG for the speci
  * [ChefDK](https://downloads.chef.io/chef-dk/)
  * [Docker](http://docker.io/)
  * [Git](https://git-scm.org/)
+ * [Go](https://golang.org/)
  * [Packer](http://packer.io/)
  * [Vagrant](http://vagrantup.com/)
  * [VirtualBox](https://www.virtualbox.org/)
