@@ -1,0 +1,14 @@
+{
+    "default_attributes": {
+        "vscode_version": "1.29.1-1542309157",
+        "vscode_plugins": [
+            "robertohuertasm.vscode-icons",
+            "eamodio.gitlens",
+            "ms-vscode.go",
+            "premparihar.gotestexplorer"
+        ]
+    },
+    "run_list": [
+        "recipe[vm::vscode]"
+    ]
+}

@@ -16,23 +16,11 @@ describe "vm::vscode", :"golang-dev" do
     it 'installs "gitlens" plugin' do
       expect(installed_plugins).to contain "eamodio.gitlens"
     end
-    it 'installs "Ruby" plugin' do
-      expect(installed_plugins).to contain "rebornix.ruby"
+    it 'installs "Go" plugin' do
+      expect(installed_plugins).to contain "ms-vscode.Go"
     end
-    it 'installs "Solargraph" plugin' do
-      expect(installed_plugins).to contain "castwide.solargraph"
-    end
-    it 'installs "Rufo" plugin' do
-      expect(installed_plugins).to contain "mbessey.vscode-rufo"
-    end
-    it 'installs "Chef" plugin' do
-      expect(installed_plugins).to contain "Pendrica.chef"
-    end
-    it 'installs "Vagrant" plugin' do
-      expect(installed_plugins).to contain "bbenoist.vagrant"
-    end
-    it 'installs "Docker" plugin' do
-      expect(installed_plugins).to contain "PeterJausovec.vscode-docker"
+    it 'installs "Go Test Explorer" plugin' do
+      expect(installed_plugins).to contain "premparihar.gotestexplorer"
     end
   end
 
