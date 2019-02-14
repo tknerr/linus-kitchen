@@ -22,6 +22,10 @@ Vagrant::configure("2") do |config|
     vbox.customize ["modifyvm", :id, "--accelerate3d", "off"]
     vbox.customize ["modifyvm", :id, "--ioapic", "on"]
     vbox.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+    vbox.customize ["storagectl", :id, "--name", "SATA Controller", "--hostiocache", "on"]
+    # Default: The VM is hosted on an SSD. 
+    # Set to "off" if it is hosted on an HDD to enable performance optimizations for rotational drives (e.g. defragmentation):
+    vbox.customize ["storageattach", :id, "--storagectl", "SATA Controller", "--port", 0, "--nonrotational", "on"]
 
     # yes we have a gui
     vbox.gui = true
