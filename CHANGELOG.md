@@ -4,6 +4,7 @@
 
 Updated tools:
 
+* update to Atom v1.34.0 (see TODO)
 * updated the ansible and its tool toolchain (see TODO)
   * ansible v2.7.8
   * update to ansible-lint 4.1.0
