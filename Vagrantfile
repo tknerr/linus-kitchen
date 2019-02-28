@@ -3,7 +3,7 @@ Vagrant::configure("2") do |config|
 
   # configure the basebox
   config.vm.box = "fasmat/ubuntu1804-desktop"
-  config.vm.box_version = "18.1126.1"
+  config.vm.box_version = "19.0218.1"
   config.vm.box_check_update = false
   config.vm.guest = :ubuntu
 
@@ -57,8 +57,8 @@ Vagrant::configure("2") do |config|
   # Ensure we cache as much as possible
   if Vagrant.has_plugin?("vagrant-cachier")
     config.cache.enable :generic, {
-      "chef_file_cache" => {cache_dir: "/root/.chef/local-mode-cache/cache"},
-      "berkshelf_cache" => {cache_dir: "/home/vagrant/.berkshelf"},
+      "chef_file_cache" => { cache_dir: "/root/.chef/local-mode-cache/cache" },
+      "berkshelf_cache" => { cache_dir: "/home/vagrant/.berkshelf" },
     }
   end
 end
