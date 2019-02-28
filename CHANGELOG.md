@@ -4,6 +4,10 @@
 
 Updated tools:
 
+* updated the ansible and its tool toolchain (see TODO)
+  * ansible v2.7.8
+  * update to ansible-lint 4.1.0
+  * update to testinfra v1.19.0
 * updated basebox to Ubuntu 18.04 (see [PR #68](https://github.com/tknerr/linus-kitchen/pull/68)
   * optimized performance of VM in Virtualbox
   * update to ChefDK v3.4.23 and cookbooks
