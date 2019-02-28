@@ -81,6 +81,36 @@ class Chef
       end
     end
 
+    def install_go_package(url)
+      tmp_dir_path = ::File.join Chef::Config[:file_cache_path], "golang"
+      tmp_file_path = ::File.join tmp_dir_path, url.gsub(/\//, "-")
+
+      directory tmp_dir_path do
+        user vm_user
+        group vm_group
+        mode "0775"
+        action :nothing
+      end.run_action(:create)
+
+      bash "Installing package #{url}" do
+        code "/usr/local/go/bin/go get -v #{url} 2> >(grep -v '(download)$' | tee #{tmp_file_path})"
+        action :nothing
+        user vm_user
+        group vm_group
+        environment vm_user_env.merge({
+          "GOPATH" => node["gopath"],
+          "GOBIN" => node["gobin"],
+        })
+      end.run_action(:run)
+
+      f = file tmp_file_path do
+        user vm_user
+        group vm_group
+        content ""
+      end
+      f.run_action(:create)
+    end
+
     #
     # install a (system wide) pip package
     #

@@ -1,29 +1,24 @@
 {
     "default_attributes": {
-        "golang": {
-            "version": "1.12",
-            "scm": false,
-            "owner": "user",
-            "group": "user",
-            "gopath": "/home/user/go",
-            "gobin": "/home/user/go/bin",
-            "packages": [
-                "github.com/mdempsky/gocode",
-                "github.com/ramya-rao-a/go-outline",
-                "github.com/acroca/go-symbols",
-                "github.com/uudashr/gopkgs",
-                "golang.org/x/tools/cmd/guru",
-                "golang.org/x/tools/cmd/gorename",
-                "golang.org/x/tools/cmd/goimports",
-                "github.com/zmb3/gogetdoc",
-                "github.com/alecthomas/gometalinter",
-                "github.com/derekparker/delve/cmd/dlv",
-                "github.com/sourcegraph/go-langserver"
-            ]
-        }
+        "golang_version": "1.12",
+        "golang_checksum": "750a07fef8579ae4839458701f4df690e0b20b8bcce33b437e4df89c451b6f13",
+        "gopath": "/home/user/go",
+        "gobin": "/home/user/go/bin",
+        "golang_packages": [
+            "github.com/mdempsky/gocode",
+            "github.com/ramya-rao-a/go-outline",
+            "github.com/acroca/go-symbols",
+            "github.com/uudashr/gopkgs",
+            "golang.org/x/tools/cmd/guru",
+            "golang.org/x/tools/cmd/gorename",
+            "golang.org/x/tools/cmd/goimports",
+            "github.com/zmb3/gogetdoc",
+            "github.com/alecthomas/gometalinter",
+            "github.com/derekparker/delve/cmd/dlv",
+            "github.com/sourcegraph/go-langserver"
+        ]
     },
     "run_list": [
-        "recipe[golang::default]",
-        "recipe[golang::packages]"
+        "recipe[vm::golang]"
     ]
 }
