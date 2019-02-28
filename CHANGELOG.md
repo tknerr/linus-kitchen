@@ -12,6 +12,7 @@ Updated tools:
 * updated to Docker 18.06.1 (see TODO)
 * updated to go v1.12 (see TODO)
 * updated to packer v1.3.4 (see TODO)
+* updated to vagrant v2.2.4 (see TODO)
 * updated basebox to Ubuntu 18.04 (see [PR #68](https://github.com/tknerr/linus-kitchen/pull/68)
   * optimized performance of VM in Virtualbox
   * update to ChefDK v3.4.23 and cookbooks
