@@ -4,8 +4,8 @@ describe "vm::vagrant", :"full-node" do
   let(:vagrant_version) { vm_user_command("vagrant -v").stdout.strip }
   let(:installed_plugins) { vm_user_command("vagrant plugin list").stdout }
 
-  it "installs vagrant 2.2.2" do
-    expect(vagrant_version).to match "Vagrant 2.2.2"
+  it "installs vagrant 2.2.4" do
+    expect(vagrant_version).to match "Vagrant 2.2.4"
   end
 
   if in_vmware?

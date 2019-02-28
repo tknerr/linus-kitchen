@@ -1,6 +1,6 @@
 {
     "default_attributes": {
-        "docker_version": "18.09.1"
+        "docker_version": "18.09.2"
     },
     "run_list": [
         "recipe[vm::docker]"

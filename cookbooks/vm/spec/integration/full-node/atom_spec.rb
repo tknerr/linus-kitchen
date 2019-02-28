@@ -3,8 +3,8 @@ require "spec_helper"
 describe "vm::atom", :"full-node" do
   let(:atom_version) { vm_user_gui_command("atom -v").stdout }
 
-  it "installs atom 1.32.2" do
-    expect(atom_version).to contain "1.32.2"
+  it "installs atom 1.34.0" do
+    expect(atom_version).to contain "1.34.0"
   end
 
   describe "configuration" do

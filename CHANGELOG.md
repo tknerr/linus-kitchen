@@ -9,7 +9,7 @@ Updated tools:
   * ansible v2.7.8
   * update to ansible-lint 4.1.0
   * update to testinfra v1.19.0
-* updated to Docker 18.06.1 (see TODO)
+* updated to Docker 18.09.2 (see TODO)
 * updated to go v1.12 (see TODO)
 * updated to packer v1.3.4 (see TODO)
 * updated to vagrant v2.2.4 (see TODO)

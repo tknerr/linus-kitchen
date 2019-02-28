@@ -5,8 +5,8 @@ describe "vm::vscode", :"full-node" do
   let(:code_config) { file("#{vm_user_home}/.config/Code/User/settings.json") }
   let(:installed_plugins) { vm_user_command("code --list-extensions").stdout }
 
-  it "installs vscode 1.29.1" do
-    expect(code_version).to contain "1.29.1"
+  it "installs vscode 1.31.1" do
+    expect(code_version).to contain "1.31.1"
   end
 
   describe "plugins" do
