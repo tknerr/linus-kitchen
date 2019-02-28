@@ -3,15 +3,7 @@
         "vscode_version": "1.31.1-1549938243",
         "vscode_plugins": [
             "robertohuertasm.vscode-icons",
-            "eamodio.gitlens",
-            "rebornix.ruby",
-            "castwide.solargraph",
-            "mbessey.vscode-rufo",
-            "Pendrica.chef",
-            "bbenoist.vagrant",
-            "PeterJausovec.vscode-docker",
-            "ms-vscode.go",
-            "premparihar.gotestexplorer"
+            "eamodio.gitlens"
         ]
     },
     "run_list": [
