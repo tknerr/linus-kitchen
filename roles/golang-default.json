@@ -1,7 +1,7 @@
 {
     "default_attributes": {
         "golang": {
-            "version": "1.11.2",
+            "version": "1.12",
             "scm": false,
             "owner": "user",
             "group": "user",
