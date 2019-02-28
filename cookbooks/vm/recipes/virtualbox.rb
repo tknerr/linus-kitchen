@@ -9,7 +9,7 @@ apt_repository "virtualbox" do
 end
 
 vbox_version = node.fetch("vbox_version", "")
-package "virtualbox-5.2" do
+package "virtualbox-6.0" do
   options "--allow-change-held-packages --allow-downgrades"
   version vbox_version
   action :install
