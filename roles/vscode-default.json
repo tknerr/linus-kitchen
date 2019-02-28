@@ -12,16 +12,6 @@
             "PeterJausovec.vscode-docker",
             "ms-vscode.go",
             "premparihar.gotestexplorer"
-        ],
-        "gems": [
-            {
-                "name": "rufo",
-                "version": "0.4.0"
-            },
-            {
-                "name": "solargraph",
-                "version": "0.28.2"
-            }
         ]
     },
     "run_list": [
