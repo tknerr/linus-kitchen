@@ -52,7 +52,7 @@ Vagrant::configure("2") do |config|
   config.vm.provision "shell", privileged: true, path: "scripts/setup-vm-user.sh", args: "user user"
 
   # ensure rsync is available for the next script
-  config.vm.provision "shell", privileged: true, inline: "apt install rsync"
+  config.vm.provision "shell", privileged: true, inline: "apt-get -y install rsync"
 
   # Install ChefDK and trigger the Chef run from within the VM
   config.vm.provision "shell", privileged: true, keep_color: true, run: "always", inline: <<-EOF
