@@ -97,10 +97,7 @@ class Chef
         action :nothing
         user vm_user
         group vm_group
-        environment vm_user_env.merge({
-          "GOPATH" => "/home/user/go",
-          "GOBIN" => "/home/user/go/bin",
-        })
+        environment vm_user_env
       end.run_action(:run)
 
       f = file tmp_file_path do

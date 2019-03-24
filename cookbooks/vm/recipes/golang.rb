@@ -22,6 +22,18 @@ bash "install-golang" do
   action :nothing
 end
 
+template "/etc/profile.d/golang.sh" do
+  source "golang.sh.erb"
+  owner "root"
+  group "root"
+  mode 0644
+end
+
+bashrc_manager "go env variables" do
+  user vm_user
+  content IO.read("#{run_context.cookbook_collection[cookbook_name].root_dir}/files/default/go_env")
+end
+
 # install go packages
 go_packages = node.fetch("golang_packages", [])
 go_packages.each do |package|
