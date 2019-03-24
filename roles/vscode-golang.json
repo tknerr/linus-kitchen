@@ -2,7 +2,7 @@
     "default_attributes": {
         "vscode_version": "1.31.1-1549938243",
         "vscode_plugins": [
-            "robertohuertasm.vscode-icons",
+            "vscode-icons-team.vscode-icons",
             "eamodio.gitlens",
             "ms-vscode.go",
             "premparihar.gotestexplorer"

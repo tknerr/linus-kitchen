@@ -11,7 +11,7 @@ describe "vm::vscode", :"golang-dev" do
 
   describe "plugins" do
     it 'installs "vscode-icons" plugin' do
-      expect(installed_plugins).to contain "robertohuertasm.vscode-icons"
+      expect(installed_plugins).to contain "vscode-icons-team.vscode-icons"
     end
     it 'installs "gitlens" plugin' do
       expect(installed_plugins).to contain "eamodio.gitlens"
