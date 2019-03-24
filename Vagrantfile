@@ -30,14 +30,16 @@ Vagrant::configure("2") do |config|
   end
 
   # vmware specific customizations
-  [:vmware_workstation, :vmware_fusion].each do |vmware_provider|
-    config.vm.provider vmware_provider do |vmware, override|
-      vmware.vmx["displayname"] = "Linus Kitchen"
-      vmware.vmx["numvcpus"] = "#{Etc.nprocessors}"
-      vmware.vmx["memsize"] = "4096"
-      vmware.vmx["mouse.vusb.startConnected"] = "FALSE"
-      vmware.vmx["vhv.enable"] = "TRUE"
-    end
+  config.vm.provider :vmware_desktop do |vmware, override|
+    vmware.vmx["displayname"] = "Linus Kitchen"
+    vmware.vmx["numvcpus"] = "#{Etc.nprocessors}"
+    vmware.vmx["memsize"] = "8192"
+    vmware.vmx["ethernet0.pcislotnumber"] = "32"
+    vmware.vmx["usb.present"] = "TRUE"
+    vmware.vmx["usb_xhci.present"] = "TRUE"
+
+    # yes we have a gui
+    vmware.gui = true
   end
 
   # override the basebox when testing (an approximation) with docker
