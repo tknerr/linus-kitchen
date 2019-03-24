@@ -3,7 +3,13 @@
         "vscode_version": "1.31.1-1549938243",
         "vscode_plugins": [
             "vscode-icons-team.vscode-icons",
-            "eamodio.gitlens"
+            "eamodio.gitlens",
+            "rebornix.ruby",
+            "castwide.solargraph",
+            "mbessey.vscode-rufo",
+            "Pendrica.chef",
+            "bbenoist.vagrant",
+            "PeterJausovec.vscode-docker"
         ]
     },
     "run_list": [
