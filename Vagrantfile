@@ -51,6 +51,9 @@ Vagrant::configure("2") do |config|
   # create new login user and pre-provision the deploy key
   config.vm.provision "shell", privileged: true, path: "scripts/setup-vm-user.sh", args: "user user"
 
+  # ensure rsync is available for the next script
+  config.vm.provision "shell", privileged: true, inline: "apt install rsync"
+
   # Install ChefDK and trigger the Chef run from within the VM
   config.vm.provision "shell", privileged: true, keep_color: true, run: "always", inline: <<-EOF
     sudo -i -u user /vagrant/scripts/update-vm.sh #{ENV["UPDATE_VM_FLAGS"]}
