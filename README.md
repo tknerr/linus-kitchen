@@ -122,7 +122,7 @@ You need [VMware Workstation Pro](https://www.vmware.com/products/workstation.ht
 
 If you don't mind about running 64-bit VirtualBox VMs inside Linus Kitchen, you only even need [VirtualBox](http://virtualbox.org/wiki/Downloads) and [Vagrant](http://www.vagrantup.com/) installed (note that VirtualBox only supports nested 32-bit guests).
 
-All other requirements, including ChefDK will be installed*inside the Vagrant VM* during provisioning, i.e. you don't need them installed on your host machine.
+All other requirements, including ChefDK will be installed *inside the Vagrant VM* during provisioning, i.e. you don't need them installed on your host machine.
 
 ### Basic Development Workflow
 
