@@ -98,8 +98,8 @@ class Chef
         user vm_user
         group vm_group
         environment vm_user_env.merge({
-          "GOPATH" => node["gopath"],
-          "GOBIN" => node["gobin"],
+          "GOPATH" => "/home/user/go",
+          "GOBIN" => "/home/user/go/bin",
         })
       end.run_action(:run)
 

@@ -68,8 +68,7 @@ setup_chefdk() {
 copy_repo_and_symlink_self() {
   big_step "Copying repo into the VM..."
   if mountpoint -q /vagrant; then
-    sudo rm -rf $REPO_ROOT
-    sudo cp -r /vagrant $REPO_ROOT
+    sudo rsync -avh --progress --exclude=".*" /vagrant/* $REPO_ROOT --delete
     sudo chown -R $USER:$USER $REPO_ROOT
     sudo ln -sf $REPO_ROOT/scripts/update-vm.sh /usr/local/bin/update-vm
     echo "Copied repo to $REPO_ROOT and symlinked the 'update-vm' script"
