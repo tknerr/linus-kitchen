@@ -4,15 +4,15 @@
 
 Updated tools:
 
-* update to Atom v1.34.0 (see TODO)
-* updated the ansible and its tool toolchain (see TODO)
+* update to Atom v1.34.0 (see [PR #69](https://github.com/tknerr/linus-kitchen/pull/69/))
+* updated the ansible and its tool toolchain (see [PR #69](https://github.com/tknerr/linus-kitchen/pull/69/))
   * ansible v2.7.8
-  * update to ansible-lint 4.1.0
-  * update to testinfra v1.19.0
-* updated to Docker 18.09.2 (see TODO)
-* updated to go v1.12 (see TODO)
-* updated to packer v1.3.4 (see TODO)
-* updated to vagrant v2.2.4 (see TODO)
+  * update to ansible-lint v4.1.0
+  * update to testinfra v2.0.0
+* updated to Docker 18.09.3 (see [PR #69](https://github.com/tknerr/linus-kitchen/pull/69/))
+* updated to go v1.12.1 (see [PR #69](https://github.com/tknerr/linus-kitchen/pull/69/))
+* updated to packer v1.3.4 (see [PR #69](https://github.com/tknerr/linus-kitchen/pull/69/))
+* updated to vagrant v2.2.4 (see [PR #69](https://github.com/tknerr/linus-kitchen/pull/69/))
 * updated basebox to Ubuntu 18.04 (see [PR #68](https://github.com/tknerr/linus-kitchen/pull/68)
   * optimized performance of VM in Virtualbox
   * update to ChefDK v3.4.23 and cookbooks
