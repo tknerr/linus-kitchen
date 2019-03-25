@@ -1,12 +1,11 @@
 require "spec_helper"
 
 describe "vm::golang", :"golang-dev" do
-
   let(:go_version) { vm_user_command("go version").stdout }
   let(:go_packages) { vm_user_command("go list ...").stdout }
 
-  it "installs go (1.11.2)" do
-    expect(go_version).to contain "1.11.2"
+  it "installs go (1.12.1)" do
+    expect(go_version).to contain "1.12.1"
   end
 
   describe "packages" do
