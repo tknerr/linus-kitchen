@@ -89,23 +89,18 @@ class Chef
         user vm_user
         group vm_group
         mode "0775"
-        action :nothing
-      end.run_action(:create)
+      end
 
-      bash "Installing package #{url}" do
+      bash "Install go package #{url}" do
         code "/usr/local/go/bin/go get -v #{url} 2> >(grep -v '(download)$' | tee #{tmp_file_path})"
-        action :nothing
         user vm_user
         group vm_group
         environment vm_user_env
-      end.run_action(:run)
-
-      f = file tmp_file_path do
-        user vm_user
-        group vm_group
-        content ""
+        not_if "go list ... | grep -q '#{name}'",
+               user: vm_user,
+               group: vm_group,
+               environment: vm_user_env
       end
-      f.run_action(:create)
     end
 
     #
