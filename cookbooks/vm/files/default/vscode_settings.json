@@ -1,0 +1,23 @@
+{
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveTimeout": 1500,
+    "editor.rulers": [
+        160
+    ],
+    "files.autoSave": "afterDelay",
+    "files.watcherExclude": {
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/berks-cookbooks": true,
+        "**/nodes": true
+    },
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "[ruby]": {
+        "editor.formatOnSave": true
+    },
+    "ruby.useLanguageServer": true,
+    "workbench.iconTheme": "vscode-icons",
+    "window.zoomLevel": 0
+}

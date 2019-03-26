@@ -7,11 +7,12 @@ A brief guide to walk you through the initial setup of this developer VM
 
 Configure the keyboard layout and adjust the timezone:
 
- * System Settings... -> Text Entry
- * System Settings... -> Time & Date
+* System Settings -> Region & Language
+* System Settings -> Details -> Date & Time
 
 If you have a totally different keymap (e.g. on a MacBook) you can always reconfigure it:
-```
+
+```bash
 sudo dpkg-reconfigure keyboard-configuration
 ```
 
@@ -21,25 +22,26 @@ If you are running the VM on a Mac with VMware, review the selected profile in k
 
 You can run these commands from anywhere inside this developer VM:
 
- * `update-vm` - update the VM by applying the Chef recipes from the locally checked out repo at `~/vm-setup`
- * `update-vm --pull` - same as above, but update repo before by pulling the latest changes
- * `update-vm --verify-only` - don't update the VM, only run the Serverspec tests
- * `update-vm --provision-only` - don't run the Serverspec tests, only update the vm
+* `update-vm` - update the VM by applying the Chef recipes from the locally checked out repo at `~/vm-setup`
+* `update-vm --pull` - same as above, but update repo before by pulling the latest changes
+* `update-vm --verify-only` - don't update the VM, only run the Serverspec tests
+* `update-vm --provision-only` - don't run the Serverspec tests, only update the vm
 
-
-## Getting Started!
+## Getting Started
 
 Please refer to the sections below on how to start developing with the specific toolchain in this developer VM.
 
 ### Initial Git Configuration
 
 Generate a new SSH keypair (and add the public key [to your Github account](https://github.com/settings/keys)):
-```
+
+```bash
 ssh-keygen -t rsa -b 4096 -C "your.name@linus-kitchen"
 ```
 
 Configure your git username / email:
-```
+
+```bash
 git config --global user.name "Your Name"
 git config --global user.email "your.name@isp.com"
 ```
@@ -47,4 +49,4 @@ git config --global user.email "your.name@isp.com"
 ### Follow the ZDays 2015 Tutorials
 
 Now that you are all set up, you can follow the Chef / Vagrant tutorials in here:
-https://github.com/tknerr/zdays2015-demo-repo
+<https://github.com/tknerr/zdays2015-demo-repo>

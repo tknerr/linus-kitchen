@@ -1,13 +1,12 @@
 
 # install required dependencies
-package ['python-pip', 'libssl-dev', 'libffi-dev']
+package ["python-pip", "libssl-dev", "libffi-dev"]
 
 # install ansible
-install_pip_package 'ansible', '2.3.0.0'
+version = node.fetch("ansible_version", "")
+install_pip_package "ansible", version
 
 # install testinfra with the spec formatter, and molecule
-install_pip_package 'ansible-lint', '3.4.23'
-install_pip_package 'testinfra', '1.16.0'
-install_pip_package 'pytest-spec', '1.1.0'
-install_pip_package 'molecule', '2.19.0'
-install_pip_package 'python-vagrant', '0.5.15'
+node.fetch("ansible_plugins", []).each do |plugin|
+  install_pip_package plugin["name"], plugin["version"]
+end

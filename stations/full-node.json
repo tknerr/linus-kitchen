@@ -1,0 +1,16 @@
+{
+    "run_list": [
+        "recipe[vm::base]",
+        "recipe[vm::bash]",
+        "recipe[vm::git]",
+        "role[ansible-default]",
+        "role[atom-default]",
+        "role[golang-default]",
+        "recipe[vm::chefdk]",
+        "role[docker-default]",
+        "role[packer-default]",
+        "role[vagrant-default]",
+        "role[virtualbox-default]",
+        "role[vscode-default]"
+    ]
+}

@@ -1,27 +1,21 @@
 
-if docker?
-  # avoid /dev/fuse issues on circleci
-  extra_options = '--no-install-recommends'
-end
-
-package 'meld' do
+package "meld" do
   action :install
-  options extra_options || ''
 end
 
-package 'git' do
+package "git" do
   action :install
 end
 
 template "#{vm_user_home}/.gitconfig" do
-  source 'git_config.erb'
+  source "git_config.erb"
   owner vm_user
   group vm_group
-  mode '0644'
+  mode "0644"
   action :create_if_missing
 end
 
-bashrc_manager 'setup-git-ps1-prompt' do
+bashrc_manager "setup-git-ps1-prompt" do
   user vm_user
   content IO.read("#{run_context.cookbook_collection[cookbook_name].root_dir}/files/default/git_ps1")
 end

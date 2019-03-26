@@ -1,12 +1,11 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe 'vm::docker' do
-
-  it 'installs docker 18.06.1-ce' do
-    expect(vm_user_command('docker -v').stdout).to match 'Docker version 18.06.1-ce'
+describe "vm::docker", :"full-node" do
+  it "installs docker 18.09.3" do
+    expect(vm_user_command("docker -v").stdout).to match "18.09.3"
   end
 
-  it 'adds the vm user to the docker group' do
+  it "adds the vm user to the docker group" do
     expect(vm_user_command('sg docker -c "id"').stdout).to match(/groups=.*\(docker\)/)
   end
 
@@ -15,8 +14,8 @@ describe 'vm::docker' do
   # - https://blog.docker.com/2013/09/docker-can-now-run-within-docker/
   # - https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
   unless in_docker?
-    it 'allows to run docker commands without sudo' do
-      expect(vm_user_command('sg docker -c "docker ps"').stdout).to contain 'CONTAINER ID'
+    it "allows to run docker commands without sudo" do
+      expect(vm_user_command('sg docker -c "docker ps"').stdout).to contain "CONTAINER ID"
     end
   end
 end

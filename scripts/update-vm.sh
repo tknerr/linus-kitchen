@@ -4,17 +4,52 @@ set -e -o pipefail
 CHEFDK_VERSION=3.4.38
 DOWNLOAD_DIR=/tmp/vagrant-cache/wget
 REPO_ROOT=~/vm-setup
-CMD_LINE_FLAG=$1
+
+RUN_LIST="stations/full-node.json"
+PROVISION_ONLY=false
+VERIFY_ONLY=false
+
+POSITIONAL=()
+while [[ $# -gt 0 ]]
+do
+  key="$1"
+  case $key in
+    --verify-only)
+      VERIFY_ONLY=true
+      shift # past argument
+      ;;
+    --provision-only)
+      PROVISION_ONLY=true
+      shift # past argument
+      ;;
+    --pull)
+      PULL=true
+      shift # past argument
+      ;;
+    *)    # unknown option
+      POSITIONAL+=("$1") # save it in an array for later
+      shift # past argument
+      ;;
+  esac
+done
+set -- "${POSITIONAL[@]}" # restore positional parameters
+
+if [[ $# -eq 1 ]]; then
+  RUN_LIST="$1"
+elif [[ $# -gt 1 ]]; then
+  echo "Invalid number of arguments"
+  exit 1
+fi
 
 main() {
   setup_chefdk
-  if [[ "$CMD_LINE_FLAG" == "--verify-only" ]]; then
+  if [[ "$VERIFY_ONLY" == true ]]; then
     verify_vm
   else
     copy_repo_and_symlink_self
-    [[ "$CMD_LINE_FLAG" == "--pull" ]] && update_repo
+    [[ "$PULL" == true ]] && update_repo
     update_vm
-    [[ "$CMD_LINE_FLAG" == "--provision-only" ]] || verify_vm
+    [[ "$PROVISION_ONLY" == true ]] || verify_vm
   fi
 }
 
@@ -33,8 +68,7 @@ setup_chefdk() {
 copy_repo_and_symlink_self() {
   big_step "Copying repo into the VM..."
   if mountpoint -q /vagrant; then
-    sudo rm -rf $REPO_ROOT
-    sudo cp -r /vagrant $REPO_ROOT
+    sudo rsync -avh --progress --exclude=".*" /vagrant/* $REPO_ROOT --delete
     sudo chown -R $USER:$USER $REPO_ROOT
     sudo ln -sf $REPO_ROOT/scripts/update-vm.sh /usr/local/bin/update-vm
     echo "Copied repo to $REPO_ROOT and symlinked the 'update-vm' script"
@@ -54,7 +88,11 @@ update_vm() {
   sudo find /opt/chefdk/embedded/ -wholename *ohai* -name vmware.rb -exec mv {} {}.disabled \;
 
   step "update the system via chef-zero"
-  sudo -H chef-client --config-option node_path=/root/.chef/nodes --local-mode --format=doc --force-formatter --log_level=warn --color --runlist=vm
+  sudo -H chef-client --local-mode \
+    --config-option node_path=/root/.chef/nodes \
+    --config-option role_path=$REPO_ROOT/roles \
+    --format=doc --force-formatter --log_level=warn --color \
+    -j $REPO_ROOT/$RUN_LIST
 }
 
 verify_vm() {
@@ -64,8 +102,13 @@ verify_vm() {
   step "run foodcritic linting checks"
   foodcritic -f any .
 
-  step "run serverspec integration tests"
-  rspec --require rspec_junit_formatter --format doc --color --tty --format RspecJunitFormatter --out test/junit-report.xml --format html --out test/test-report.html
+  step "run serverspec integration tests for $(basename "$RUN_LIST" .json)"
+  rspec --require rspec_junit_formatter \
+    --format doc --color --tty \
+    --format RspecJunitFormatter --out test/junit-report.xml \
+    --format html --out test/test-report.html \
+    --tag base \
+    --tag $(basename "$RUN_LIST" .json)
 }
 
 update_repo() {

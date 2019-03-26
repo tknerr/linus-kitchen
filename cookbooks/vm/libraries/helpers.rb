@@ -5,13 +5,13 @@
 #
 def vm_user_env
   {
-    'HOME' => vm_user_home,
-    'USER' => vm_user
+    "HOME" => vm_user_home,
+    "USER" => vm_user,
   }
 end
 
 def vm_user
-  ENV['SUDO_USER']
+  ENV["SUDO_USER"]
 end
 
 def vm_group
@@ -55,6 +55,48 @@ class Chef
         environment vm_user_env
         code "apm install #{name}@#{version}"
         not_if "apm list --installed --bare | grep -q '#{name}@#{version}'",
+               user: vm_user,
+               group: vm_group,
+               environment: vm_user_env
+      end
+    end
+
+    def install_vscode_plugin(name)
+      bash "install vscode extension #{name} for #{vm_user}" do
+        user vm_user
+        group vm_group
+        environment vm_user_env
+        code "code --install-extension #{name}"
+        not_if "code --list-extensions | grep -q '#{name}'",
+               user: vm_user,
+               group: vm_group,
+               environment: vm_user_env
+      end
+    end
+
+    def install_gem_package(name, version)
+      gem_package name do
+        version version
+        action :install
+      end
+    end
+
+    def install_go_package(url)
+      tmp_dir_path = ::File.join Chef::Config[:file_cache_path], "golang"
+      tmp_file_path = ::File.join tmp_dir_path, url.gsub(/\//, "-")
+
+      directory tmp_dir_path do
+        user vm_user
+        group vm_group
+        mode "0775"
+      end
+
+      bash "Install go package #{url}" do
+        code "/usr/local/go/bin/go get -v #{url} 2> >(grep -v '(download)$' | tee #{tmp_file_path})"
+        user vm_user
+        group vm_group
+        environment vm_user_env
+        not_if "go list ... | grep -q '#{name}'",
                user: vm_user,
                group: vm_group,
                environment: vm_user_env

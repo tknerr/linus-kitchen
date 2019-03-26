@@ -1,0 +1,22 @@
+{
+    "default_attributes": {
+        "golang_version": "1.12.1",
+        "golang_checksum": "2a3fdabf665496a0db5f41ec6af7a9b15a49fbe71a85a50ca38b1f13a103aeec",
+        "golang_packages": [
+            "github.com/mdempsky/gocode",
+            "github.com/ramya-rao-a/go-outline",
+            "github.com/acroca/go-symbols",
+            "github.com/uudashr/gopkgs",
+            "golang.org/x/tools/cmd/guru",
+            "golang.org/x/tools/cmd/gorename",
+            "golang.org/x/tools/cmd/goimports",
+            "github.com/zmb3/gogetdoc",
+            "github.com/alecthomas/gometalinter",
+            "github.com/derekparker/delve/cmd/dlv",
+            "github.com/sourcegraph/go-langserver"
+        ]
+    },
+    "run_list": [
+        "recipe[vm::golang]"
+    ]
+}

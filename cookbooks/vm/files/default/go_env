@@ -1,0 +1,3 @@
+#!/bin/bash
+export GOPATH="/home/user/go"
+export GOBIN="/home/user/go/bin"

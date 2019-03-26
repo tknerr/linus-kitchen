@@ -1,10 +1,10 @@
-require 'serverspec'
+require "serverspec"
 
 set :backend, :exec
 
 # the user account under which the VM is set up
 def vm_user
-  'user'
+  "user"
 end
 
 # the configured vm user's home directory
@@ -14,7 +14,7 @@ end
 
 # run the given command in the same environment as if you were logged in to the VM
 def vm_user_command(cmd)
-  command("sudo -u #{vm_user} bash -i -c '#{cmd}; exit $?'")
+  command("sudo -i -u #{vm_user} bash -i -c '#{cmd}; exit $?'")
 end
 
 # for runnig commands which expect an X environment
@@ -24,7 +24,7 @@ end
 
 # see https://github.com/sethvargo/chef-sugar/blob/v3.4.0/lib/chef/sugar/docker.rb#L31
 def in_docker?
-  command('sudo test -f /.dockerinit || sudo test -f /.dockerenv').exit_status == 0
+  command("sudo test -f /.dockerinit || sudo test -f /.dockerenv").exit_status == 0
 end
 
 # see https://github.com/sethvargo/chef-sugar/blob/v3.4.0/lib/chef/sugar/virtualization.rb#L71

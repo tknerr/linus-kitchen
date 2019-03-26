@@ -1,0 +1,8 @@
+{
+    "run_list": [
+        "recipe[vm::base]",
+        "recipe[vm::git]",
+        "role[golang-default]",
+        "role[vscode-golang]"
+    ]
+}

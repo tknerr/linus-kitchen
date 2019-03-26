@@ -3,7 +3,7 @@ Vagrant::configure("2") do |config|
 
   # configure the basebox
   config.vm.box = "fasmat/ubuntu1804-desktop"
-  config.vm.box_version = "1.1.0"
+  config.vm.box_version = "19.0218.1"
   config.vm.box_check_update = false
   config.vm.guest = :ubuntu
 
@@ -19,8 +19,10 @@ Vagrant::configure("2") do |config|
     vbox.customize ["modifyvm", :id, "--memory", 8192]
     vbox.customize ["modifyvm", :id, "--cpus", Etc.nprocessors]
     vbox.customize ["modifyvm", :id, "--vram", 256]
-    vbox.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    vbox.customize ["modifyvm", :id, "--accelerate3d", "on"]
+    vbox.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
     vbox.customize ["modifyvm", :id, "--ioapic", "on"]
+    vbox.customize ["modifyvm", :id, "--rtcuseutc", "on"]
     vbox.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
     vbox.customize ["storagectl", :id, "--name", "SATA Controller", "--hostiocache", "on"]
     # Default: The VM is hosted on an SSD. 
@@ -32,14 +34,16 @@ Vagrant::configure("2") do |config|
   end
 
   # vmware specific customizations
-  [:vmware_workstation, :vmware_fusion].each do |vmware_provider|
-    config.vm.provider vmware_provider do |vmware, override|
-      vmware.vmx["displayname"] = "Linus Kitchen"
-      vmware.vmx["numvcpus"] = "#{Etc.nprocessors}"
-      vmware.vmx["memsize"] = "4096"
-      vmware.vmx["mouse.vusb.startConnected"] = "FALSE"
-      vmware.vmx["vhv.enable"] = "TRUE"
-    end
+  config.vm.provider :vmware_desktop do |vmware, override|
+    vmware.vmx["displayname"] = "Linus Kitchen"
+    vmware.vmx["numvcpus"] = "#{Etc.nprocessors}"
+    vmware.vmx["memsize"] = "8192"
+    vmware.vmx["ethernet0.pcislotnumber"] = "32"
+    vmware.vmx["usb.present"] = "TRUE"
+    vmware.vmx["usb_xhci.present"] = "TRUE"
+
+    # yes we have a gui
+    vmware.gui = true
   end
 
   # override the basebox when testing (an approximation) with docker
@@ -51,6 +55,9 @@ Vagrant::configure("2") do |config|
   # create new login user and pre-provision the deploy key
   config.vm.provision "shell", privileged: true, path: "scripts/setup-vm-user.sh", args: "user user"
 
+  # ensure rsync is available for the next script
+  config.vm.provision "shell", privileged: true, inline: "apt-get -y install rsync"
+
   # Install ChefDK and trigger the Chef run from within the VM
   config.vm.provision "shell", privileged: true, keep_color: true, run: "always", inline: <<-EOF
     sudo -i -u user /vagrant/scripts/update-vm.sh #{ENV["UPDATE_VM_FLAGS"]}
@@ -59,8 +66,8 @@ Vagrant::configure("2") do |config|
   # Ensure we cache as much as possible
   if Vagrant.has_plugin?("vagrant-cachier")
     config.cache.enable :generic, {
-      "chef_file_cache" => {cache_dir: "/root/.chef/local-mode-cache/cache"},
-      "berkshelf_cache" => {cache_dir: "/home/vagrant/.berkshelf"},
+      "chef_file_cache" => { cache_dir: "/root/.chef/local-mode-cache/cache" },
+      "berkshelf_cache" => { cache_dir: "/home/vagrant/.berkshelf" },
     }
   end
 end
