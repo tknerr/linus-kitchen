@@ -38,7 +38,7 @@ describe 'vm::vscode' do
       expect(installed_plugins).to contain 'Pendrica.chef@0.7.1'
     end
     it 'installs "PeterJausovec.vscode-docker" plugin 0.5.2' do
-      expect(installed_plugins).to contain 'peterjausovec.vscode-docker@0.5.2'
+      expect(installed_plugins).to contain 'PeterJausovec.vscode-docker@0.5.2'
     end
     it 'installs "vscoss.vscode-ansible" plugin v0.5.2' do
       expect(installed_plugins).to contain 'vscoss.vscode-ansible@0.5.2'
