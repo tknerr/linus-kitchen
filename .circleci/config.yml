@@ -25,6 +25,7 @@ jobs:
           name: Export Test Results
           command: |
             mkdir -p test-results/junit
+            vagrant ssh -c 'ls -la /home/user/vm-setup/cookbooks/vm/test/'
             vagrant ssh -c 'cat /home/user/vm-setup/cookbooks/vm/test/junit-report.xml' > test-results/junit/junit-report.xml
             vagrant ssh -c 'cat /home/user/vm-setup/cookbooks/vm/test/test-report.html' > test-results/test-report.html
       - store_test_results:
