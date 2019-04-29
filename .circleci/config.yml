@@ -5,7 +5,6 @@ jobs:
       image: ubuntu-1604:201903-01
     environment:
       VAGRANT_DEFAULT_PROVIDER: docker
-      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     steps:
       - checkout
       - run:
@@ -23,9 +22,12 @@ jobs:
           name: Test Developer VM
           command: UPDATE_VM_FLAGS=--verify-only vagrant provision
       - run:
-          name: Export Test Reports
+          name: Export Test Results
           command: |
-            vagrant ssh -c 'cat /home/user/vm-setup/cookbooks/vm/test/junit-report.xml' > $CIRCLE_TEST_REPORTS/junit-report.xml
-            vagrant ssh -c 'cat /home/user/vm-setup/cookbooks/vm/test/test-report.html' > $CIRCLE_TEST_REPORTS/test-report.html
+            mkdir -p test-results/junit
+            vagrant ssh -c 'cat /home/user/vm-setup/cookbooks/vm/test/junit-report.xml' > test-results/junit/junit-report.xml
+            vagrant ssh -c 'cat /home/user/vm-setup/cookbooks/vm/test/test-report.html' > test-results/test-report.html
       - store_test_results:
-          path: $CIRCLE_TEST_REPORTS
+          path: test-results
+      - store_artifacts:
+          path: test-results
