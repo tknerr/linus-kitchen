@@ -3,7 +3,7 @@ Vagrant::configure("2") do |config|
 
   # configure the basebox
   config.vm.box = "fasmat/ubuntu1804-desktop"
-  config.vm.box_version = "1.1.0"
+  config.vm.box_version = "19.0218.1"
   config.vm.box_check_update = false
   config.vm.guest = :ubuntu
 
@@ -16,7 +16,7 @@ Vagrant::configure("2") do |config|
   # virtualbox specific customizations
   config.vm.provider :virtualbox do |vbox, override|
     vbox.customize ["modifyvm", :id, "--name", "Linus Kitchen"]
-    vbox.customize ["modifyvm", :id, "--memory", 8192]
+    vbox.customize ["modifyvm", :id, "--memory", 4096]
     vbox.customize ["modifyvm", :id, "--cpus", Etc.nprocessors]
     vbox.customize ["modifyvm", :id, "--vram", 256]
     vbox.customize ["modifyvm", :id, "--accelerate3d", "off"]
