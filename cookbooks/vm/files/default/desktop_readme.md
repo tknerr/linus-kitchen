@@ -44,7 +44,9 @@ git config --global user.name "Your Name"
 git config --global user.email "your.name@isp.com"
 ```
 
-### Follow the ZDays 2015 Tutorials
+### Follow the Tutorials
 
 Now that you are all set up, you can follow the Chef / Vagrant tutorials in here:
-https://github.com/tknerr/zdays2015-demo-repo
+
+ * https://entwicklertag.de/karlsruhe/2017/sites/entwicklertag.de.karlsruhe.2017/files/folien/Automatisierte%20Entwickler%20VMs.pdf 
+
