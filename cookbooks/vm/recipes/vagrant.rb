@@ -1,7 +1,7 @@
 
-vagrant_version = '2.2.0'
+vagrant_version = '2.2.4'
 vagrant_deb_file = "vagrant_#{vagrant_version}_x86_64.deb"
-vagrant_checksum = 'f1caad948a8f545d5d7d2442396fe8a3bcdfd0fc8f643bd0576c81942e7be43b'
+vagrant_checksum = '1ffb66020b580492ebf9189af8a48c48cdb31825be0717d600518a881584fe4a'
 
 vagrant_plugins = {
   'vagrant-cachier' => '1.2.1',
