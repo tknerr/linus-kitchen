@@ -13,8 +13,8 @@ describe 'vm::ansible' do
   it 'installs ansible-lint 4.1.0' do
     expect(ansible_lint_version).to contain '4.1.0'
   end
-  it 'installs testinfra 2.1.0' do
-    expect(pytest_version).to contain 'testinfra-2.1.0'
+  it 'installs testinfra 1.19.0' do
+    expect(pytest_version).to contain 'testinfra-1.19.0'
   end
   it 'installs pytest-spec 1.1.0' do
     expect(pytest_version).to contain 'pytest-spec-1.1.0'
