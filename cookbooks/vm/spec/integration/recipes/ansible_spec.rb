@@ -10,16 +10,16 @@ describe 'vm::ansible' do
   it 'installs ansible 2.7.10' do
     expect(ansible_version).to contain '2.7.10'
   end
-  it 'installs ansible-lint 3.4.23' do
-    expect(ansible_lint_version).to contain '3.4.23'
+  it 'installs ansible-lint 4.1.0' do
+    expect(ansible_lint_version).to contain '4.1.0'
   end
-  it 'installs testinfra 1.16.0' do
-    expect(pytest_version).to contain 'testinfra-1.16.0'
+  it 'installs testinfra 2.1.0' do
+    expect(pytest_version).to contain 'testinfra-2.1.0'
   end
   it 'installs pytest-spec 1.1.0' do
     expect(pytest_version).to contain 'pytest-spec-1.1.0'
   end
-  it 'installs molecule 2.19.0' do
-    expect(molecule_version).to contain '2.19.0'
+  it 'installs molecule 2.20.1' do
+    expect(molecule_version).to contain '2.20.1'
   end
 end
