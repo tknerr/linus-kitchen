@@ -5,7 +5,6 @@ vagrant_checksum = '1ffb66020b580492ebf9189af8a48c48cdb31825be0717d600518a881584
 
 vagrant_plugins = {
   'vagrant-cachier' => '1.2.1',
-  'vagrant-toplevel-cookbooks' => '0.2.4',
   'vagrant-managed-servers' => '0.8.0'
 }
 
