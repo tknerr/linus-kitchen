@@ -35,8 +35,5 @@ describe 'vm::vagrant' do
     it 'installs "vagrant-managed-servers" plugin v0.8.0' do
       expect(installed_plugins).to include 'vagrant-managed-servers (0.8.0, global)'
     end
-    it 'installs "vagrant-lxc" plugin v1.4.3' do
-      expect(installed_plugins).to include 'vagrant-lxc (1.4.3, global)'
-    end
   end
 end

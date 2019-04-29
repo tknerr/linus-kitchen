@@ -8,8 +8,7 @@ vagrant_plugins = {
   'vagrant-berkshelf' => '5.1.2',
   'vagrant-omnibus' => '1.5.0',
   'vagrant-toplevel-cookbooks' => '0.2.4',
-  'vagrant-managed-servers' => '0.8.0',
-  'vagrant-lxc' => '1.4.3'
+  'vagrant-managed-servers' => '0.8.0'
 }
 
 # download and install vagrant
@@ -33,19 +32,6 @@ end
 bashrc_manager 'set-vagrant-default-provider' do
   user vm_user
   content "export VAGRANT_DEFAULT_PROVIDER=#{vmware? ? 'virtualbox' : 'docker'}"
-end
-
-#
-# vagrant-lxc setup
-#
-%w(lxc lxc-templates cgroup-lite redir bridge-utils).each do |pkg|
-  package pkg
-end
-
-bash 'add vagrant-lxc sudoers permissions' do
-  environment vm_user_env
-  code 'vagrant lxc sudoers'
-  not_if { ::File.exist? '/etc/sudoers.d/vagrant-lxc' }
 end
 
 #
