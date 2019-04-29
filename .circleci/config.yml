@@ -1,27 +1,18 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: ubuntu:18.04
+    machine:
+      image: ubuntu-1604:201903-01
     environment:
       VAGRANT_DEFAULT_PROVIDER: docker
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     steps:
       - checkout
       - run:
-          name: Install Docker Client
-          command: |
-            apt-get update
-            apt-get install -y curl apt-transport-https ca-certificates gnupg-agent software-properties-common
-            curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-            add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-            apt-get install docker-ce-cli
-      - run:
           name: Install Vagrant
           command: |
-            curl -O https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_x86_64.deb
-            dpkg -i vagrant_2.2.4_x86_64.deb
-      - setup_remote_docker
+            wget https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_x86_64.deb
+            sudo dpkg -i vagrant_2.2.4_x86_64.deb
       - run:
           name: Bring up Developer VM
           command: vagrant up --no-provision
