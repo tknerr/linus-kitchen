@@ -1,10 +1,40 @@
 # CHANGELOG
 
-## 0.4 (unreleased)
+## 0.5 (Apr 29, 2019)
 
 Updated tools:
 
- * updated basebox to Ubuntu 18.04 (see [PR #68](https://github.com/tknerr/linus-kitchen/pull/68)
+ * updated to latest "fasmat/ubuntu1804-desktop" basebox version 19.0218.1 (see [PR #73](https://github.com/tknerr/linus-kitchen/pull/73))
+ * updated to latest tool versions (see [PR #76](https://github.com/tknerr/linus-kitchen/pull/76)):
+   * Vagrant 2.2.4
+   * VirtualBox 6.0.6
+   * ChefDK 3.9.0
+   * Docker 18.09.5
+   * Ansible 2.7.10
+   * Ansible related tools:
+      * ansible-lint 4.1.0
+      * testinfra 1.19.0 (we can't update to 2.1.0 as molecule 2.20.1 has a hard requirement on 1.19.0)
+      * molecule 2.20.1
+   * vscode 1.33.1 (and updated plugins)
+
+Improvements:
+
+ * updated to CircleCI 2.0 (see [PR #75](https://github.com/tknerr/linus-kitchen/pull/75))
+ * replaced atom with vscode (see [PR #71](https://github.com/tknerr/linus-kitchen/pull/71), [PR #74](https://github.com/tknerr/linus-kitchen/pull/74), thanks @jotbe !)
+ * activated host I/O cache for Virtualbox provider and assume an SSD storage (see [PR #70](https://github.com/tknerr/linus-kitchen/pull/70), thanks @jotbe !)
+
+Removed tools:
+
+ * removed outdated / deprecated vagrant plugins (see [PR #77](https://github.com/tknerr/linus-kitchen/pull/77)):
+   * vagrant-omnibus
+   * vagrant-berkshelf
+   * vagrant-toplevel-cookbooks
+
+## 0.4 (Nov 20, 2018)
+
+Updated tools:
+
+ * updated basebox to Ubuntu 18.04 (see [PR #68](https://github.com/tknerr/linus-kitchen/pull/68), thanks @fasmat !)
     * optimized performance of VM in Virtualbox
     * update to ChefDK v3.4.23 and cookbooks
     * update to Vagrant v2.2.0 and plugins
