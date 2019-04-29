@@ -56,12 +56,8 @@ Other tweaks worth mentioning:
   * Bundler is configured for parallel downloading and retrying (see `~/.bundle/config`)
   * Customized `~/.vagrant.d/Vagrantfile` and `~/.kitchen/config.yml` for caching as much as possible
   * Pre-installed Vagrant plugins:
-  * [vagrant-omnibus](https://github.com/schisamo/vagrant-omnibus) - installs omnibus chef in a vagrant VM
     * [vagrant-cachier](https://github.com/fgrehm/vagrant-cachier) - caches all kinds of packages you install in the vagrant VMs
-    * [vagrant-berkshelf](https://github.com/berkshelf/vagrant-berkshelf) - berkshelf integration for vagrant
-    * [vagrant-toplevel-cookbooks](https://github.com/tknerr/vagrant-toplevel-cookbooks) - support for one top-level cookbook per vagrant VM
     * [vagrant-managed-servers](https://github.com/tknerr/vagrant-managed-servers) - Vagrant Provider for provisioning managed servers via SSH or WinRM
-    * [vagrant-lxc](https://github.com/fgrehm/vagrant-lxc) - LXC provider for Vagrant
   * Pre-installed Visual Studio Code plugins:
     * [bbenoist.vagrant](https://marketplace.visualstudio.com/items?itemName=bbenoist.vagrant) - allows you to control Vagrant boxes from within VSCode
     * [dhoeric.ansible-vault](https://marketplace.visualstudio.com/items?itemName=dhoeric.ansible-vault) - encrypt/decrypt Ansible vault credentials
