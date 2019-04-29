@@ -1,11 +1,11 @@
 
-vbox_version = '5.2.22'
-vbox_deb_file = 'virtualbox-5.2_5.2.22-126460~Ubuntu~bionic_amd64.deb'
-vbox_checksum = 'e45ff9ba50d9b6a6483952911537e478674c4a52852440104722fab0558b2622'
+vbox_version = '6.0.6'
+vbox_deb_file = 'virtualbox-6.0_6.0.6-130049~Ubuntu~bionic_amd64.deb'
+vbox_checksum = '333999b479e649b02b50138a74439d341ef1b3e55aa45902660fd38a52cbb00d'
 
 # download virtualbox
 remote_file "#{Chef::Config[:file_cache_path]}/#{vbox_deb_file}" do
-  source "http://download.virtualbox.org/virtualbox/#{vbox_version}/#{vbox_deb_file}"
+  source "http://download.oracle.com/virtualbox/#{vbox_version}/#{vbox_deb_file}"
   checksum vbox_checksum
   mode '0644'
 end

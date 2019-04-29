@@ -1,8 +1,8 @@
 
 include_recipe 'ark'
 
-packer_version = '1.3.2'
-packer_checksum = '5e51808299135fee7a2e664b09f401b5712b5ef18bd4bad5bc50f4dcd8b149a1'
+packer_version = '1.4.0'
+packer_checksum = '7505e11ce05103f6c170c6d491efe3faea1fb49544db0278377160ffb72721e4'
 
 ark 'packer' do
   url "https://releases.hashicorp.com/packer/#{packer_version}/packer_#{packer_version}_linux_amd64.zip"
