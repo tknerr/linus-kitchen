@@ -26,9 +26,6 @@ describe 'vm::vagrant' do
     it 'installs "vagrant-berkshelf" plugin v5.1.2' do
       expect(installed_plugins).to include 'vagrant-berkshelf (5.1.2, global)'
     end
-    it 'installs "vagrant-omnibus" plugin v1.5.0' do
-      expect(installed_plugins).to include 'vagrant-omnibus (1.5.0, global)'
-    end
     it 'installs "vagrant-toplevel-cookbooks" plugin v0.2.4' do
       expect(installed_plugins).to include 'vagrant-toplevel-cookbooks (0.2.4, global)'
     end
