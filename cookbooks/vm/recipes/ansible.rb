@@ -3,7 +3,7 @@
 package ['python-pip', 'libssl-dev', 'libffi-dev']
 
 # install ansible
-install_pip_package 'ansible', '2.3.0.0'
+install_pip_package 'ansible', '2.7.10'
 
 # install testinfra with the spec formatter, and molecule
 install_pip_package 'ansible-lint', '3.4.23'
