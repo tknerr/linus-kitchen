@@ -37,7 +37,7 @@ class Chef
         group vm_group
         environment vm_user_env
         code "vagrant plugin install #{name} --plugin-version #{version}"
-        not_if "vagrant plugin list | grep -q '#{name} (#{version})'",
+        not_if "vagrant plugin list | grep -q '#{name} (#{version}, global)'",
                user: vm_user,
                group: vm_group,
                environment: vm_user_env
