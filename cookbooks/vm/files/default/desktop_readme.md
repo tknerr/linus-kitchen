@@ -10,7 +10,7 @@ Configure the keyboard layout and adjust the timezone:
  * System Settings -> Region & Language
  * System Settings -> Details -> Date & Time
 
-If you have a totally different keymap (e.g. on a MacBook) you can always reconfigure it:
+In case your input language is missing, or you have a totally different keymap (e.g. on a MacBook) you can always reconfigure it:
 ```
 sudo dpkg-reconfigure keyboard-configuration
 ```
