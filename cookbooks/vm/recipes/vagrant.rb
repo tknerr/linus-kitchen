@@ -18,6 +18,7 @@ end
 dpkg_package 'vagrant' do
   source "#{Chef::Config[:file_cache_path]}/#{vagrant_deb_file}"
   version vagrant_version
+  not_if "which vagrant && vagrant --version | grep -q '#{vagrant_version}'"
 end
 
 # install vagrant plugins
