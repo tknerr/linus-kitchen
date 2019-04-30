@@ -12,7 +12,6 @@ vagrant_plugins = {
 remote_file "#{Chef::Config[:file_cache_path]}/#{vagrant_deb_file}" do
   source "https://releases.hashicorp.com/vagrant/#{vagrant_version}/#{vagrant_deb_file}"
   checksum vagrant_checksum
-  notifies :install, 'dpkg_package[vagrant]', :immediately
 end
 
 dpkg_package 'vagrant' do
