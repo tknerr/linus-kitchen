@@ -192,7 +192,8 @@ $ vagrant destroy -f
 
 Make sure vagrant-cachier is disabled when you bring up the VM for packaging:
 ```
-$ GLOBAL_VAGRANT_CACHIER_DISABLED=1 vagrant up
+$ unset GLOBAL_VAGRANT_CACHIER_ENABLED
+$ vagrant up
 ```
 
 This will provision the VM as usual. Once the provisioning succeeded, we will
