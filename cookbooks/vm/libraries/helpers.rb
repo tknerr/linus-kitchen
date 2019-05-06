@@ -37,24 +37,20 @@ class Chef
         group vm_group
         environment vm_user_env
         code "vagrant plugin install #{name} --plugin-version #{version}"
-        not_if "vagrant plugin list | grep -q '#{name} (#{version})'",
+        not_if "vagrant plugin list | grep -q '#{name} (#{version}, global)'",
                user: vm_user,
                group: vm_group,
                environment: vm_user_env
       end
     end
 
-    #
-    # atom_apm does not work, so we use a bash resource, see
-    # https://github.com/mohitsethi/chef-atom/issues/2
-    #
-    def install_atom_plugin(name, version)
-      bash "install atom plugin #{name}@#{version} for #{vm_user}" do
+    def install_vscode_plugin(name, version)
+      bash "install vscode plugin #{name}@#{version} for #{vm_user}" do
         user vm_user
         group vm_group
         environment vm_user_env
-        code "apm install #{name}@#{version}"
-        not_if "apm list --installed --bare | grep -q '#{name}@#{version}'",
+        code "code --install-extension #{name}@#{version}"
+        not_if "code --list-extensions --show-versions | grep -q '#{name}@#{version}'",
                user: vm_user,
                group: vm_group,
                environment: vm_user_env

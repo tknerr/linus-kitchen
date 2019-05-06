@@ -7,10 +7,10 @@ A brief guide to walk you through the initial setup of this developer VM
 
 Configure the keyboard layout and adjust the timezone:
 
- * System Settings... -> Text Entry
- * System Settings... -> Time & Date
+ * System Settings -> Region & Language
+ * System Settings -> Details -> Date & Time
 
-If you have a totally different keymap (e.g. on a MacBook) you can always reconfigure it:
+In case your input language is missing, or you have a totally different keymap (e.g. on a MacBook) you can always reconfigure it:
 ```
 sudo dpkg-reconfigure keyboard-configuration
 ```
@@ -44,7 +44,9 @@ git config --global user.name "Your Name"
 git config --global user.email "your.name@isp.com"
 ```
 
-### Follow the ZDays 2015 Tutorials
+### Follow the Tutorials
 
 Now that you are all set up, you can follow the Chef / Vagrant tutorials in here:
-https://github.com/tknerr/zdays2015-demo-repo
+
+ * https://entwicklertag.de/karlsruhe/2017/sites/entwicklertag.de.karlsruhe.2017/files/folien/Automatisierte%20Entwickler%20VMs.pdf 
+

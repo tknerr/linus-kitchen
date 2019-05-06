@@ -3,7 +3,7 @@ Vagrant::configure("2") do |config|
 
   # configure the basebox
   config.vm.box = "fasmat/ubuntu1804-desktop"
-  config.vm.box_version = "1.1.0"
+  config.vm.box_version = "19.0218.1"
   config.vm.box_check_update = false
   config.vm.guest = :ubuntu
 
@@ -16,7 +16,7 @@ Vagrant::configure("2") do |config|
   # virtualbox specific customizations
   config.vm.provider :virtualbox do |vbox, override|
     vbox.customize ["modifyvm", :id, "--name", "Linus Kitchen"]
-    vbox.customize ["modifyvm", :id, "--memory", 8192]
+    vbox.customize ["modifyvm", :id, "--memory", 4096]
     vbox.customize ["modifyvm", :id, "--cpus", Etc.nprocessors]
     vbox.customize ["modifyvm", :id, "--vram", 256]
     vbox.customize ["modifyvm", :id, "--accelerate3d", "off"]
@@ -57,7 +57,7 @@ Vagrant::configure("2") do |config|
   EOF
 
   # Ensure we cache as much as possible
-  if Vagrant.has_plugin?("vagrant-cachier")
+  if ENV["GLOBAL_VAGRANT_CACHIER_ENABLED"] && Vagrant.has_plugin?("vagrant-cachier")
     config.cache.enable :generic, {
       "chef_file_cache" => {cache_dir: "/root/.chef/local-mode-cache/cache"},
       "berkshelf_cache" => {cache_dir: "/home/vagrant/.berkshelf"},

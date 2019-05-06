@@ -1,0 +1,34 @@
+version: 2
+jobs:
+  build:
+    machine:
+      image: ubuntu-1604:201903-01
+    environment:
+      VAGRANT_DEFAULT_PROVIDER: docker
+    steps:
+      - checkout
+      - run:
+          name: Install Vagrant
+          command: |
+            wget https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_x86_64.deb
+            sudo dpkg -i vagrant_2.2.4_x86_64.deb
+      - run:
+          name: Bring up Developer VM
+          command: vagrant up --no-provision
+      - run:
+          name: Provision Developer VM
+          command: UPDATE_VM_FLAGS=--provision-only vagrant provision
+      - run:
+          name: Test Developer VM
+          command: UPDATE_VM_FLAGS=--verify-only vagrant provision
+      - run:
+          name: Export Test Results
+          command: |
+            mkdir -p test-results/junit
+            vagrant ssh -c 'ls -la /home/user/vm-setup/cookbooks/vm/test/'
+            vagrant ssh -c 'cat /home/user/vm-setup/cookbooks/vm/test/junit-report.xml' > test-results/junit/junit-report.xml
+            vagrant ssh -c 'cat /home/user/vm-setup/cookbooks/vm/test/test-report.html' > test-results/test-report.html
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results

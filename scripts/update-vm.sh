@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e -o pipefail
 
-CHEFDK_VERSION=3.4.38
+CHEFDK_VERSION=3.9.0
 DOWNLOAD_DIR=/tmp/vagrant-cache/wget
 REPO_ROOT=~/vm-setup
 CMD_LINE_FLAG=$1
