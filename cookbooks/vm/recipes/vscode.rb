@@ -25,11 +25,6 @@ apt_repository 'vscode' do
   key          'https://packages.microsoft.com/keys/microsoft.asc'
 end
 
-# # ensure we have the required gui packages for starting vscode in docker / Circle CI
-# if docker?
-#  package ['libxss-dev', 'gconf2', 'libgtk2.0-0', 'libnotify4', 'gvfs-bin', 'xdg-utils']
-# end
-
 package 'code' do
   version vscode_version
   action :install
