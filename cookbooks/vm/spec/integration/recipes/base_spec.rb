@@ -17,7 +17,7 @@ describe 'vm::base' do
 
   it 'installs the xfreerdp client' do
     expect(package('freerdp2-x11')).to be_installed
-    expect(command('xfreerdp --version').exit_status).to eq 0
+    expect(vm_user_gui_command('xfreerdp --version').exit_status).to eq 0
   end
 
   it 'places a README on the Desktop' do
