@@ -2,7 +2,7 @@
 include_recipe 'apt'
 
 # commonly needed packages / tools
-%w(vim libcurl4 gconf2 libxml2-dev libxslt1-dev zlib1g-dev liblzma-dev build-essential xvfb indicator-multiload).each do |pkg|
+%w(vim libcurl4 gconf2 libxml2-dev libxslt1-dev zlib1g-dev liblzma-dev build-essential xvfb libxtst6 freerdp2-x11).each do |pkg|
   package pkg
 end
 

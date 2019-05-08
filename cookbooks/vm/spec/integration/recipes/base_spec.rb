@@ -15,8 +15,9 @@ describe 'vm::base' do
     end
   end
 
-  it 'installs the multiload indicator' do
-    expect(package('indicator-multiload')).to be_installed
+  it 'installs the xfreerdp client' do
+    expect(package('freerdp2-x11')).to be_installed
+    expect(vm_user_gui_command('xfreerdp --version').exit_status).to eq 0
   end
 
   it 'places a README on the Desktop' do
