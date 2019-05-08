@@ -48,6 +48,10 @@ Vagrant::configure("2") do |config|
     override.vm.box_version = "1.0.0"
     # privileged container is required to run docker-in-docker
     docker.create_args = ["--privileged"]
+    # inject docker systemctl replacement so we can use systemd in the docker container
+    override.vm.provision "shell", privileged: true, inline: <<-EOF
+      sudo wget -O /bin/systemctl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl.py
+    EOF
   end
 
   # create new login user and pre-provision the deploy key
