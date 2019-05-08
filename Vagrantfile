@@ -46,6 +46,8 @@ Vagrant::configure("2") do |config|
   config.vm.provider :docker do |docker, override|
     override.vm.box = "tknerr/baseimage-ubuntu-18.04"
     override.vm.box_version = "1.0.0"
+    # privileged container is required to run docker-in-docker
+    docker.create_args = ["--privileged"]
   end
 
   # create new login user and pre-provision the deploy key
