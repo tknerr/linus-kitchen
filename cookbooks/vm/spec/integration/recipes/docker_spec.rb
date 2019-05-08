@@ -2,8 +2,11 @@ require 'spec_helper'
 
 describe 'vm::docker' do
 
-  it 'installs docker 18.09.5' do
+  it 'installs docker client version 18.09.5' do
     expect(vm_user_command("docker version --format '{{.Client.Version}}'").stdout).to match '18.09.5'
+  end
+
+  it 'installs docker server version 18.09.5' do
     expect(vm_user_command("docker version --format '{{.Server.Version}}'").stdout).to match '18.09.5'
   end
 
