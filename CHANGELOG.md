@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## unreleased
+
+ * ...
+
 ## 0.6 (May 9, 2019)
 
 Bugfixes:
