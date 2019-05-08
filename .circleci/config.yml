@@ -16,6 +16,9 @@ jobs:
           name: Bring up Developer VM
           command: vagrant up --no-provision
       - run:
+          name: Inject docker systemctl replacement
+          command: vagrant ssh -c 'sudo wget -O /bin/systemctl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl.py'
+      - run:
           name: Provision Developer VM
           command: UPDATE_VM_FLAGS=--provision-only vagrant provision
       - run:
