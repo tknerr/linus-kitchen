@@ -11,10 +11,16 @@ end
 docker_installation_package 'default' do
   package_name 'docker-ce-cli'
   version docker_version
+  action :create
 end
-docker_service 'default' do	
-  install_method 'package'	
-  version docker_version	
-  action [:create, :start]
+
+docker_installation_package 'default' do
+  package_name 'docker-ce'
+  version docker_version
+  action :create
+end
+
+docker_service_manager 'default' do
+  action :start
 end
 
