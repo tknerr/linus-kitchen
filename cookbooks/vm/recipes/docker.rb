@@ -8,11 +8,15 @@ group 'docker' do
   append true
 end
 
-# install docker and start the docker deamon
-docker_service 'default' do
-  install_method 'package'
-  service_manager 'systemd'
+docker_installation_package 'default' do
+  package_name 'docker-ce-cli'
   version docker_version
+end
+docker_installation_package 'default' do
+  package_name 'docker-ce'
+  version docker_version
+end
+docker_service_manager 'default' do
   action [:create, :start]
 end
 
