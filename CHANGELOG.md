@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 0.6 (May 9, 2019)
+
+Bugfixes:
+
+ * ensure correct version of docker cli and daemon are installed (see [PR #88](https://github.com/tknerr/linus-kitchen/pull/88))
+ * fix incorrect line endings in Git PS1 when provisioned from Windows host (see [PR #86](https://github.com/tknerr/linus-kitchen/pull/86))
+ * fix broken status indication in Git PS1 prompt (see [PR #83](https://github.com/tknerr/linus-kitchen/pull/83))
+ * fix broken "Sofware Updater" by disabling vagrant-cachier when packaging the VM (see [PR #81](https://github.com/tknerr/linus-kitchen/pull/81))
+ * fix broken `apt-get update` due to duplicate definition of docker apt sources (see [PR #80](https://github.com/tknerr/linus-kitchen/pull/80))
+
+Improvements:
+
+ * remove docker-in-docker related workarounds no longer needed with CircleCI 2.0 (see [PR #87](https://github.com/tknerr/linus-kitchen/pull/87))
+ * disable vagrant-cachier caching by default and allow to opt-in instead (see [PR #85](https://github.com/tknerr/linus-kitchen/pull/85))
+ * install xfreerdp so that we can use `vagrant rdp` with Windows VMs (see [PR #84](https://github.com/tknerr/linus-kitchen/pull/84))
+ * improve README regarding regional settings and input languages (see [PR #82](https://github.com/tknerr/linus-kitchen/pull/82))
+ * make chef run fully idempotent again (see [PR #79](https://github.com/tknerr/linus-kitchen/pull/79))
+
 ## 0.5 (Apr 29, 2019)
 
 Updated tools:
