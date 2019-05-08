@@ -20,7 +20,7 @@ docker_installation_package 'default' do
   action :create
 end
 
-docker_service_manager 'default' do
+docker_service_manager_systemd 'default' do
   action :start
 end
 
