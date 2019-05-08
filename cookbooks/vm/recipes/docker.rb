@@ -17,6 +17,6 @@ docker_installation_package 'default' do
   version docker_version
 end
 docker_service_manager 'default' do
-  action [:create, :start]
+  action :start
 end
 
