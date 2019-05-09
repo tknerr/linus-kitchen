@@ -32,7 +32,7 @@ Vagrant::configure("2") do |config|
   end
 
   # vmware specific customizations
-  [:vmware_workstation, :vmware_fusion].each do |vmware_provider|
+  [:vmware_workstation, :vmware_fusion, :vmware_desktop].each do |vmware_provider|
     config.vm.provider vmware_provider do |vmware, override|
       vmware.vmx["displayname"] = "Linus Kitchen"
       vmware.vmx["numvcpus"] = "#{Etc.nprocessors}"
