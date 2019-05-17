@@ -223,7 +223,7 @@ $ VBoxManage export "Linus Kitchen v0.1.0" --output "linus-kitchen-v0.1.0_virtua
 For VMware:
 ```
 $ vagrant halt
-$ VMX_FILE=`cat .vagrant/machines/default/vmware_fusion/id`
+$ VMX_FILE=`cat .vagrant/machines/default/vmware_desktop/id`
 $ ovftool --name="Linus Kitchen v0.1.0" "$VMX_FILE" linus-kitchen-v0.1.0_vmware.ova
 ```
 
